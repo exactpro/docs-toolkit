@@ -1,0 +1,83 @@
+<template>
+	<li>
+      <div class="w-full flex items-center pl-5 py-1 border-r-2 hover:bg-gray-50 transition-colors"
+        :class="{
+          'border-primary': isActive,
+          'bg-tertiary-50': isExact,
+          'border-secondary-50': !isActive,
+        }">
+          <IconsChevronRight v-if="haveChildren" 
+            @click="showChildren = !showChildren"
+            class="w-4 h-4 -ml-4 pr-1 transition-transform hover:cursor-pointer" 
+            :class="{ 'rotate-90': showChildren }" /> 
+          <NuxtLink :to="navItem._path" class="w-full" @click="showContentTree = false">
+            <div>
+              {{ navItem.title }}
+            </div>
+          </NuxtLink>
+      </div>
+		<ul v-show="haveChildren && showChildren">
+			<ContentNavigationItem v-for="child in navItem.children" :key="navItem._path"
+														 :nav-item="child" :parent-path="navItem._path" />
+		</ul>
+	</li>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { NavItem } from '@nuxt/content/dist/runtime/types'
+
+export default defineComponent({
+  name: 'ContentNavigationItem',
+  props: {
+    navItem: {
+      type: Object as () => NavItem,
+      required: true
+    },
+    parentPath: {
+      type: String
+    }
+  },
+  setup(){
+    return {
+      showChildren: ref(false),
+      showContentTree: useShowContentTree()
+    }
+  },
+  computed: {
+    link(): string {
+      if (this.navItem?.children?.length) {
+        return this.navItem.children[0]._path
+      } else {
+        return this.navItem._path
+      }
+    },
+    isActive(): boolean {
+      const path = this.navItem._path
+      if (path === '/') return this.$route.path === '/'
+      return this.$route.path.startsWith(path)
+    },
+    isExact(): boolean {
+      return this.$route.path === this.navItem._path
+    },
+    haveChildren(): boolean {
+      return !!this.navItem.children && !!this.navItem.children.length
+    }
+  },
+  created() {
+    this.showChildren = this.isActive
+  }
+})
+</script>
+
+<style scoped>
+
+.active {
+  @apply border-r-4 border-green-400
+}
+
+li ul{
+  @apply pl-3
+}
+
+</style>

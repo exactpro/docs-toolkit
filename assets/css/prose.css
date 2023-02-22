@@ -1,0 +1,17 @@
+.gevamu-prose {
+  @apply prose
+    prose-headings:no-underline 
+    marker:prose-ul:text-primary-200 marker:prose-ol:text-primary;
+}
+
+.gevamu-prose :not(pre) code {
+  background-color: rgba(0,0,0,.05);
+  padding: 0.2em 0.4em;
+  font-size: .85em;
+  font-weight: 400;
+  border-radius: 3px;
+}
+
+.gevamu-prose :not(pre) code::before, .gevamu-prose :not(pre) code::after{
+  content: none;
+}
