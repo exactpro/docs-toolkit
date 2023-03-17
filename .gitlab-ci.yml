@@ -17,14 +17,20 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 image: node:latest
 
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - node_modules/
+  - .nuxt/
+
 stages:          # List of stages for jobs, and their order of execution
-  - build
+  - install
   - test
-  - deploy
+  - build
 
 install-dependencies:
-  stage: build
-  script: 
+  stage: install
+  script:
     - npm install
   artifacts:
     paths:
@@ -37,17 +43,14 @@ unit-test-job:   # This job runs in the test stage.
     - echo "Running unit tests... This will take about 60 seconds."
     - echo "Code coverage is 90%"
 
-# TODO: configure linter
 lint-test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).
   script:
-    - echo "Linting code... This will take about 10 seconds."
-    - echo "No lint issues found."
+    - npm run lint
 
-pages:
-  stage: deploy
+build:
+  stage: build
   script:
-    - npm install
     - npm run generate
   artifacts:
     paths:
