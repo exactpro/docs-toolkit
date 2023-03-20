@@ -1,11 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
+    "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint:ts": "nuxi typecheck",
     "lint:prettier": "prettier --check .",
     "lint": "npm run lint:ts && npm run lint:js && npm run lint:prettier",
-    "lintfix": "prettier --write --list-different . && eslint --fix --ext \".ts,.vue\" --ignore-path .gitignore .",
+    "lintfix": "prettier --write --list-different . && eslint --fix --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
