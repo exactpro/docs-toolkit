@@ -23,7 +23,7 @@ cache:
     - node_modules/
     - .nuxt/
 
-stages: # List of stages for jobs, and their order of execution
+stages:
   - install
   - test
   - build
@@ -36,17 +36,15 @@ install-dependencies:
     paths:
       - node_modules
 
-# TODO: implement unit tests
-unit-test-job: # This job runs in the test stage.
-  stage: test # It only starts when the job in the build stage completes successfully.
+check-typescript:
+  stage: test
   script:
-    - echo "Running unit tests... This will take about 60 seconds."
-    - echo "Code coverage is 90%"
+    - npm run lint:ts
 
-lint-test-job: # This job also runs in the test stage.
-  stage: test # It can run at the same time as unit-test-job (in parallel).
+check-codestyle:
+  stage: test
   script:
-    - npm run lint
+    - npm run lint:prettier && npm run lint:js
 
 build:
   stage: build
