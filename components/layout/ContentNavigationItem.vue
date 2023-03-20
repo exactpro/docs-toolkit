@@ -1,26 +1,38 @@
 <template>
-	<li>
-      <div class="w-full flex items-center pl-5 py-1 border-r-2 hover:bg-gray-50 transition-colors"
-        :class="{
-          'border-primary': isActive,
-          'bg-tertiary-50': isExact,
-          'border-secondary-50': !isActive,
-        }">
-          <IconsChevronRight v-if="haveChildren" 
-            @click="showChildren = !showChildren"
-            class="w-4 h-4 -ml-4 pr-1 transition-transform hover:cursor-pointer" 
-            :class="{ 'rotate-90': showChildren }" /> 
-          <NuxtLink :to="navItem._path" class="w-full" @click="showContentTree = false">
-            <div>
-              {{ navItem.title }}
-            </div>
-          </NuxtLink>
-      </div>
-		<ul v-show="haveChildren && showChildren">
-			<ContentNavigationItem v-for="child in navItem.children" :key="navItem._path"
-														 :nav-item="child" :parent-path="navItem._path" />
-		</ul>
-	</li>
+  <li>
+    <div
+      class="w-full flex items-center pl-5 py-1 border-r-2 hover:bg-gray-50 transition-colors"
+      :class="{
+        'border-primary': isActive,
+        'bg-tertiary-50': isExact,
+        'border-secondary-50': !isActive
+      }"
+    >
+      <IconsChevronRight
+        v-if="haveChildren"
+        class="w-4 h-4 -ml-4 pr-1 transition-transform hover:cursor-pointer"
+        :class="{ 'rotate-90': showChildren }"
+        @click="showChildren = !showChildren"
+      />
+      <NuxtLink
+        :to="navItem._path"
+        class="w-full"
+        @click="showContentTree = false"
+      >
+        <div>
+          {{ navItem.title }}
+        </div>
+      </NuxtLink>
+    </div>
+    <ul v-show="haveChildren && showChildren">
+      <ContentNavigationItem
+        v-for="child in navItem.children"
+        :key="child._path"
+        :nav-item="child"
+        :parent-path="navItem._path"
+      />
+    </ul>
+  </li>
 </template>
 
 <script lang="ts">
@@ -35,10 +47,11 @@ export default defineComponent({
       required: true
     },
     parentPath: {
-      type: String
+      type: String,
+      default: undefined
     }
   },
-  setup(){
+  setup() {
     return {
       showChildren: ref(false),
       showContentTree: useShowContentTree()
@@ -71,13 +84,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 .active {
-  @apply border-r-4 border-green-400
+  @apply border-r-4 border-green-400;
 }
 
-li ul{
-  @apply pl-3
+li ul {
+  @apply pl-3;
 }
-
 </style>

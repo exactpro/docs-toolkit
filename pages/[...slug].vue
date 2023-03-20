@@ -16,32 +16,30 @@
 </template>
 
 <script lang="ts">
-import { useToc } from '~~/composables/states';
+import { useToc } from '~~/composables/states'
 
-import DocsLayout from '~~/components/ssr-layouts/docs.vue';
+import DocsLayout from '~~/components/ssr-layouts/docs.vue'
 
 export default defineComponent({
   name: 'ContentPage',
   components: {
     DocsLayout
   },
-  async setup(){
-		definePageMeta({
-			layout: false
-		})
+  async setup() {
+    definePageMeta({
+      layout: false
+    })
     const route = useRoute()
-		const toc = useToc()
+    const toc = useToc()
     const { data: doc } = await useAsyncData('page-data' + route.path, () => {
       return queryContent(route.path).findOne()
     })
-		toc.value = doc.value?.body?.toc ?? null
-
+    toc.value = doc.value?.body?.toc ?? null
 
     return {
       doc
     }
   }
-
 })
 </script>
 
@@ -49,5 +47,4 @@ export default defineComponent({
 .gevamu-prose :where(h1, h2, h3, h4, h5, h6) a {
   @apply no-underline;
 }
-
 </style>
