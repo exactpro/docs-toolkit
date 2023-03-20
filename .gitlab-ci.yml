@@ -21,6 +21,7 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
+    - .nuxt/
 
 stages:
   - install
@@ -35,15 +36,10 @@ install-dependencies:
     paths:
       - node_modules
 
-check-typescript:
+lint:
   stage: test
   script:
-    - npm run lint:ts
-
-check-codestyle:
-  stage: test
-  script:
-    - npm run lint:prettier && npm run lint:js
+    - npm run lint
 
 build:
   stage: build
