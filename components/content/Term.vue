@@ -1,3 +1,51 @@
+<script setup lang="ts">
+const props = defineProps<{
+  term: string
+}>()
+
+const el = ref<HTMLElement | null>(null)
+const { model: popup, isFocused, debugInfo } = useTermPopup()
+
+const { data: termContent, error: termFetchError } = useAsyncData(
+  `term/${props.term}`,
+  () =>
+    queryContent('terms')
+      .where({
+        $or: [{ title: props.term }, { alias: { $contains: props.term } }]
+      })
+      .findOne()
+)
+
+if (termFetchError.value)
+  /* eslint-disable no-console */
+  console.error(
+    createError({
+      statusCode: 404,
+      statusMessage: `Term "${props.term}" not found`,
+      cause: termFetchError.value.cause,
+      unhandled: false
+    })
+  )
+
+function revealContent() {
+  isFocused.value = true
+  debugInfo.value = { desiredTerm: props.term }
+  popup.value = {
+    show: true,
+    ref: el.value,
+    content: termContent
+  }
+}
+
+function onMouseLeave() {
+  isFocused.value = false
+}
+
+const isHighlighted = computed(() => {
+  return popup.value.show && popup.value.ref === el.value
+})
+</script>
+
 <template>
   <span
     ref="el"
@@ -9,52 +57,6 @@
     @mouseleave="onMouseLeave"
     @click="revealContent"
   >
-    {{ term }}
+    <slot />
   </span>
 </template>
-
-<script lang="ts">
-export default defineComponent({
-  name: 'Term',
-  props: {
-    term: {
-      type: String,
-      required: true
-    }
-  },
-  async setup(props) {
-    const el = ref<HTMLElement | null>(null)
-    const { model: popup, isFocused } = useTermPopup()
-
-    const { data: termContent } = await useAsyncData(
-      `term/${props.term}`,
-      () => {
-        return queryContent('terms')
-          .where({
-            $or: [{ title: props.term }, { alias: { $contains: props.term } }]
-          })
-          .findOne()
-      }
-    )
-
-    return {
-      el,
-      termContent,
-      revealContent: () => {
-        isFocused.value = true
-        popup.value = {
-          show: true,
-          ref: el.value,
-          content: termContent
-        }
-      },
-      onMouseLeave: () => {
-        isFocused.value = false
-      },
-      isHighlighted: computed(() => {
-        return popup.value.show && popup.value.ref === el.value
-      })
-    }
-  }
-})
-</script>

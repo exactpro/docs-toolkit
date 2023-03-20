@@ -10,9 +10,16 @@ export const useTermPopup = () => {
     ref: HTMLElement | null
     content: Ref<Pick<ParsedContent, string> | null>
   }>('term-popup', () => ({ show: false, ref: null, content: ref(null) }))
+
   const isFocused = useState(() => false)
+
+  const debugInfo = useState<{
+    desiredTerm: string
+  }>(() => ({ desiredTerm: 'NO_TERM_PROVIDED' }))
+
   return {
     model,
-    isFocused
+    isFocused,
+    debugInfo
   }
 }
