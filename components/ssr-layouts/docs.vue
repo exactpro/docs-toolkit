@@ -34,6 +34,7 @@
       <hr class="mt-5 md:hidden" />
     </aside>
   </div>
+  <Footer />
 
 </template>
 
@@ -42,11 +43,12 @@ import Header from '~~/components/layout/Header.vue';
 import ContentNavigationItem from '~~/components/layout/ContentNavigationItem.vue';
 import TableOfContents from '~~/components/layout/TableOfContents.vue';
 import TermPopup from '../layout/TermPopup.vue';
+import Footer from '../layout/Footer.vue';
 
 export default defineComponent({
   name: 'DocsLayout',
   components: {
-    Header, ContentNavigationItem, TableOfContents, TermPopup
+    Header, ContentNavigationItem, TableOfContents, TermPopup, Footer
   },
   setup() {
     const toc = useToc()
