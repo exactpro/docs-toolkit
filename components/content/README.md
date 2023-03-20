@@ -100,8 +100,11 @@ See the term in [R3 documentation](https://docs.r3.com/en/platform/corda/4.9/com
 
 Use [inline MDC syntax](https://content.nuxtjs.org/guide/writing/mdc#inline-components):
 
+- inside `[]` specify text, which should be displayed in content
+- inside `{}` specify `term` property for to search term definition by it title or alias
+
 ```md
-As :term{term="BNO"} I love each :term{term="Participant"} in my network.
+As :term[business network operator]{term="BNO"} I love each :term[participant]{term="Participant"} in my network.
 ```
 
-Result: As <u>BNO</u> I love each <u>Participant</u> in my network.
+Result: As <u>business network operator</u> I love each <u>participant</u> in my network.
