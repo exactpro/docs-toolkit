@@ -1,7 +1,7 @@
 .gevamu-prose {
   @apply prose
-    prose-headings:no-underline 
-    marker:prose-ul:text-primary-200 marker:prose-ol:text-primary;
+    prose-headings:no-underline
+    marker:prose-ul:text-accent-200 marker:prose-ol:text-accent-700;
 }
 
 .gevamu-prose :not(pre) code {
