@@ -3,9 +3,9 @@
     <div
       class="w-full flex items-center pl-5 py-1 border-r-2 hover:bg-gray-50 transition-colors"
       :class="{
-        'border-primary': isActive,
+        'border-accent': isActive,
         'bg-tertiary-50': isExact,
-        'border-secondary-50': !isActive
+        'border-accent-50': !isActive
       }"
     >
       <IconsChevronRight

@@ -1,5 +1,5 @@
 <template>
-  <footer class="font-sans bg-green-800 box-border text-white py-6 px-4">
+  <footer class="font-sans bg-primary box-border text-white py-6 px-4">
     <div class="p-3 m-auto max-w-5xl">
       <div
         class="flex justify-between gap-3 flex-col items-center md:flex-row md:items-start"
@@ -66,7 +66,7 @@
         </div>
       </div>
       <hr
-        class="my-12 w-full h-0 border-secondary-300 border-0 border-t-[thin]"
+        class="my-12 w-full h-0 border-neutral-400 border-0 border-t-[thin]"
       />
       <div class="my-5 text-sm text-center">
         Copyright © 2009 - 2023 Exactpro. All Rights Reserved. Exactpro refers
@@ -95,6 +95,6 @@
 }
 
 .e-footer__hr {
-  @apply w-32 h-1 bg-secondary-300 rounded-full my-1 border-none;
+  @apply w-32 h-1 bg-accent rounded-full my-1 border-none;
 }
 </style>
