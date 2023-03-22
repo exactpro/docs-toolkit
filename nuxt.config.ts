@@ -3,8 +3,6 @@ export default defineNuxtConfig({
   css: ['@/assets/css/prose.css'],
   app: {
     head: {
-      titleTemplate: '%s | Gevamu docs',
-      title: 'Gevamu docs',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
