@@ -8,7 +8,7 @@
           <a href="https://exactpro.com/" target="_blank"
             ><img
               class="w-full h-auto"
-              src="~/assets/img/logo_white.svg"
+              src="~/assets/img/exactpro-logo.svg"
               alt="exactpro logo"
           /></a>
           <span>Build Software to Test Software</span>
@@ -46,21 +46,21 @@
           <hr class="e-footer__hr" />
           <div class="flex flex-wrap gap-2">
             <a href="https://github.com/exactpro" target="_blank"
-              ><img src="~/assets/img/github.svg" alt="facebook logo"
+              ><img src="~/assets/img/footer/github.svg" alt="facebook logo"
             /></a>
             <a href="https://www.facebook.com/exactpro/" target="_blank"
-              ><img src="~/assets/img/facebook.svg" alt="facebook logo"
+              ><img src="~/assets/img/footer/facebook.svg" alt="facebook logo"
             /></a>
             <a href="https://twitter.com/exactpro" target="_blank"
-              ><img src="~/assets/img/twitter.svg" alt="twitter logo"
+              ><img src="~/assets/img/footer/twitter.svg" alt="twitter logo"
             /></a>
             <a
               href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym"
               target="_blank"
-              ><img src="~/assets/img/linkedin.svg" alt="linkedin logo"
+              ><img src="~/assets/img/footer/linkedin.svg" alt="linkedin logo"
             /></a>
             <a href="https://www.youtube.com/c/exactprosystems" target="_blank"
-              ><img src="~/assets/img/youtube.svg" alt="youtube logo"
+              ><img src="~/assets/img/footer/youtube.svg" alt="youtube logo"
             /></a>
           </div>
         </div>
