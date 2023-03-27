@@ -46,21 +46,31 @@
           <hr class="e-footer__hr" />
           <div class="flex flex-wrap gap-2">
             <a href="https://github.com/exactpro" target="_blank"
-              ><img src="~/assets/img/footer/github.svg" alt="facebook logo"
+              ><img
+                src="../../assets/img/footer/github.svg"
+                alt="facebook logo"
             /></a>
             <a href="https://www.facebook.com/exactpro/" target="_blank"
-              ><img src="~/assets/img/footer/facebook.svg" alt="facebook logo"
+              ><img
+                src="../../assets/img/footer/facebook.svg"
+                alt="facebook logo"
             /></a>
             <a href="https://twitter.com/exactpro" target="_blank"
-              ><img src="~/assets/img/footer/twitter.svg" alt="twitter logo"
+              ><img
+                src="../../assets/img/footer/twitter.svg"
+                alt="twitter logo"
             /></a>
             <a
               href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym"
               target="_blank"
-              ><img src="~/assets/img/footer/linkedin.svg" alt="linkedin logo"
+              ><img
+                src="../../assets/img/footer/linkedin.svg"
+                alt="linkedin logo"
             /></a>
             <a href="https://www.youtube.com/c/exactprosystems" target="_blank"
-              ><img src="~/assets/img/footer/youtube.svg" alt="youtube logo"
+              ><img
+                src="../../assets/img/footer/youtube.svg"
+                alt="youtube logo"
             /></a>
           </div>
         </div>

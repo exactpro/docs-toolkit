@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { filename } from 'pathe/utils'
-import fallbackLogo from '~/assets/img/exactpro-logo.svg'
+import fallbackLogo from '../../assets/img/exactpro-logo.svg'
 
 const glob = import.meta.glob<{ default: string }>('~/assets/theme/logo.*', {
   eager: true

@@ -16,9 +16,7 @@
 </template>
 
 <script lang="ts">
-import { useToc } from '~~/composables/states'
-
-import DocsLayout from '~~/components/ssr-layouts/docs.vue'
+import DocsLayout from '../components/ssr-layouts/docs.vue'
 
 export default defineComponent({
   name: 'ContentPage',

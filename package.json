@@ -1,5 +1,8 @@
 {
-  "private": true,
+  "name": "exactpro-docs-tempate",
+  "version": "0.1.0",
+  "description": "Template for creating docs from markdown. Created as Nuxt 3 layer.",
+  "readme": "./README.md",
   "scripts": {
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint:ts": "nuxi typecheck",
@@ -11,6 +14,17 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview"
   },
+  "author": {
+    "name": "Exactpro DocOps",
+    "email": "docops@exactpro.com"
+  },
+  "contributors": [
+    {
+      "name": "Nikolay Dorofeev",
+      "email": "dorich2000@gmail.com",
+      "url": "https://d0rich.me"
+    }
+  ],
   "devDependencies": {
     "@nuxt/content": "^2.5.2",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
