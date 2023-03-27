@@ -24,12 +24,12 @@ jobs:
       - name: Installing packages in layer
         run: npm ci
 
-      - run: cd docs
-
       - name: Installing packages in docs
+        working-directory: ./docs
         run: npm ci
 
       - name: Build Nuxt 3 static site
+        working-directory: ./docs
         run: npm run generate
 
       - name: Deploy to GitHub Pages
@@ -37,6 +37,6 @@ jobs:
         if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./docs/dist
           publish_branch: dist
           commit_message: 'Automatic deploy: ${{ github.event.head_commit.message }}'
