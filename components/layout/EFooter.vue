@@ -8,7 +8,7 @@
           <a href="https://exactpro.com/" target="_blank"
             ><img
               class="w-full h-auto"
-              src="~/assets/img/exactpro-logo.svg"
+              src="../../assets/img/exactpro-logo.svg"
               alt="exactpro logo"
           /></a>
           <span>Build Software to Test Software</span>
