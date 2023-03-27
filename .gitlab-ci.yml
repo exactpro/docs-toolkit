@@ -22,29 +22,48 @@ cache:
   paths:
     - node_modules/
     - .nuxt/
+    - docs/node_modules/
+    - docs/.nuxt/
 
 stages:
   - install
-  - test
   - build
+  - test
 
-install-dependencies:
+install-template-dependencies:
   stage: install
   script:
     - npm install
-  artifacts:
-    paths:
-      - node_modules
+
+install-docs-dependencies:
+  stage: install
+  script:
+    - cd docs
+    - npm install
 
 lint:
   stage: test
   script:
     - npm run lint
 
-build:
+build-base:
   stage: build
   script:
     - npm run generate
+  dependencies:
+    - install-template-dependencies
   artifacts:
     paths:
-      - dist
+      - dist/*
+
+build-docs:
+  stage: build
+  script:
+    - cd docs
+    - npm run generate
+  dependencies:
+    - install-template-dependencies
+    - install-docs-dependencies
+  artifacts:
+    paths:
+      - docs/dist/*
