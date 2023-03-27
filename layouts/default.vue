@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import EHeader from '~~/components/layout/EHeader.vue'
+import EHeader from '../components/layout/EHeader.vue'
 
 export default defineComponent({
   components: {

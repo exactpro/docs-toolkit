@@ -49,9 +49,9 @@
 <script lang="ts">
 import TermPopup from '../layout/TermPopup.vue'
 import EFooter from '../layout/EFooter.vue'
-import EHeader from '~~/components/layout/EHeader.vue'
-import ContentNavigationItem from '~~/components/layout/ContentNavigationItem.vue'
-import TableOfContents from '~~/components/layout/TableOfContents.vue'
+import EHeader from '../layout/EHeader.vue'
+import ContentNavigationItem from '../layout/ContentNavigationItem.vue'
+import TableOfContents from '../layout/TableOfContents.vue'
 
 export default defineComponent({
   name: 'DocsLayout',
