@@ -8,8 +8,9 @@
         'border-accent-50': !isActive
       }"
     >
-      <IconsChevronRight
+      <Icon
         v-if="haveChildren"
+        name="heroicons:chevron-right"
         class="w-4 h-4 -ml-4 pr-1 transition-transform hover:cursor-pointer"
         :class="{ 'rotate-90': showChildren }"
         @click="showChildren = !showChildren"

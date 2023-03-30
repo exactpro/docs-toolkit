@@ -39,8 +39,12 @@ defineEmits({
             class="w-7 h-w-7 text-white md:hidden"
             @click="$emit('update:showContentTree', !showContentTree)"
           >
-            <IconsXMark v-if="showContentTree" class="w-full h-full" />
-            <IconsBars3 v-else class="w-full h-full" />
+            <Icon
+              v-if="showContentTree"
+              name="heroicons:x-mark"
+              class="w-full h-full"
+            />
+            <Icon v-else name="heroicons:bars-3" class="w-full h-full" />
           </button>
           <NuxtLink to="/" class="flex items-center w-fit gap-2">
             <ExactproDocsLogo class="w-40 m-2" />

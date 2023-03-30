@@ -20,22 +20,38 @@
           <ul class="flex flex-col justify-center m-1">
             <li>
               <a href="mailto:docops@exactpro.com"
-                ><iconsEmail class="inline-block mr-3" />docops@exactpro.com</a
+                ><Icon
+                  name="heroicons:envelope"
+                  size="1.5em"
+                  class="inline-block mr-3"
+                />docops@exactpro.com</a
               >
             </li>
             <li>
               <a href="mailto:info@exactpro.com"
-                ><iconsEmail class="inline-block mr-3" />info@exactpro.com</a
+                ><Icon
+                  name="heroicons:envelope"
+                  size="1.5em"
+                  class="inline-block mr-3"
+                />info@exactpro.com</a
               >
             </li>
             <li>
               <a href="tel:+4402033191644"
-                ><iconsPhone class="inline-block mr-3" />+44 (0) 20 3319 1644</a
+                ><Icon
+                  name="heroicons:phone"
+                  size="1.5em"
+                  class="inline-block mr-3"
+                />+44 (0) 20 3319 1644</a
               >
             </li>
             <li>
               <a href="tel:+16463403000"
-                ><iconsPhone class="inline-block mr-3" />+1 (646) 340 3000</a
+                ><Icon
+                  name="heroicons:phone"
+                  size="1.5em"
+                  class="inline-block mr-3"
+                />+1 (646) 340 3000</a
               >
             </li>
           </ul>
@@ -48,29 +64,30 @@
             <a href="https://github.com/exactpro" target="_blank"
               ><img
                 src="../../assets/img/footer/github.svg"
-                alt="facebook logo"
+                alt="link to exactpro GitHub page"
             /></a>
             <a href="https://www.facebook.com/exactpro/" target="_blank"
               ><img
                 src="../../assets/img/footer/facebook.svg"
-                alt="facebook logo"
+                alt="link to exactpro Facebook page"
             /></a>
             <a href="https://twitter.com/exactpro" target="_blank"
               ><img
                 src="../../assets/img/footer/twitter.svg"
-                alt="twitter logo"
+                size="2em"
+                alt="link to exactpro Twitter page"
             /></a>
             <a
               href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym"
               target="_blank"
               ><img
                 src="../../assets/img/footer/linkedin.svg"
-                alt="linkedin logo"
+                alt="link to exactpro LinkedIn page"
             /></a>
             <a href="https://www.youtube.com/c/exactprosystems" target="_blank"
               ><img
                 src="../../assets/img/footer/youtube.svg"
-                alt="youtube logo"
+                alt="link to exactpro Youtube account"
             /></a>
           </div>
         </div>

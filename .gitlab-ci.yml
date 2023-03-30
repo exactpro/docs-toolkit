@@ -27,8 +27,9 @@ cache:
 
 stages:
   - install
-  - build
+  - lint
   - test
+  - build
 
 install-template-dependencies:
   stage: install
@@ -42,9 +43,14 @@ install-docs-dependencies:
     - npm install
 
 lint:
-  stage: test
+  stage: lint
   script:
     - npm run lint
+
+typecheck:
+  stage: test
+  script:
+    - npm run typecheck
 
 build-base:
   stage: build

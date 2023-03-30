@@ -38,7 +38,9 @@ function onMouseLeave() {
     >
       <div class="bg-accent text-white text-right text-sm -mx-2 -mt-2 mb-2">
         <button class="mx-1 mb-1" @click="model.show = false">
-          <IconsXMark
+          <Icon
+            name="heroicons:x-mark"
+            size="2em"
             class="inline-block hover:scale-150 transition-transform"
           />
         </button>
