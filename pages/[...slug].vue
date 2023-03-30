@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import DocsLayout from '../components/ssr-layouts/docs.vue'
+import DocsLayout from '../layouts/docs.vue'
 
 export default defineComponent({
   name: 'ContentPage',
