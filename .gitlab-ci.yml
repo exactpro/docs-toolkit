@@ -21,9 +21,7 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
-    - .nuxt/
     - docs/node_modules/
-    - docs/.nuxt/
 
 stages:
   - install
@@ -45,6 +43,10 @@ install-docs-dependencies:
 lint:
   stage: lint
   script:
+    - npx nuxi prepare
+    - cd docs
+    - npx nuxi prepare
+    - cd ..
     - npm run lint
 
 typecheck:
