@@ -15,10 +15,10 @@
 # https://docs.gitlab.com/ee/development/cicd/templates.html
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
-image: node:16
+image: node:16-alpine
 
 cache:
-  key: ${CI_COMMIT_REF_SLUG}
+  key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
   paths:
     - node_modules/
     - docs/node_modules/
@@ -32,13 +32,13 @@ stages:
 install-template-dependencies:
   stage: install
   script:
-    - npm install
+    - npm ci
 
 install-docs-dependencies:
   stage: install
   script:
     - cd docs
-    - npm install
+    - npm ci
 
 lint:
   stage: lint
