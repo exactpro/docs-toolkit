@@ -42,6 +42,9 @@ install-docs-dependencies:
 
 lint:
   stage: lint
+  dependencies:
+    - install-template-dependencies
+    - install-docs-dependencies
   script:
     - npx nuxi prepare
     - cd docs
@@ -51,6 +54,9 @@ lint:
 
 typecheck:
   stage: test
+  dependencies:
+    - install-template-dependencies
+    - install-docs-dependencies
   script:
     - npm run typecheck
 
@@ -60,6 +66,7 @@ build-base:
     - npm run generate
   dependencies:
     - install-template-dependencies
+    - install-docs-dependencies
   artifacts:
     paths:
       - dist/*
