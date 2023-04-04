@@ -77,8 +77,7 @@ build-docs:
     - cd docs
     - npm run generate
   dependencies:
-    - install-template-dependencies
-    - install-docs-dependencies
+    - build-base
   artifacts:
     paths:
       - docs/dist/*
