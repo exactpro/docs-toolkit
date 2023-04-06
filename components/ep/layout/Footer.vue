@@ -8,7 +8,7 @@
           <a href="https://exactpro.com/" target="_blank"
             ><img
               class="w-full h-auto"
-              src="../../assets/img/exactpro-logo.svg"
+              src="../../../assets/img/exactpro-logo.svg"
               alt="exactpro logo"
           /></a>
           <span>Build Software to Test Software</span>
@@ -63,17 +63,17 @@
           <div class="flex flex-wrap gap-2">
             <a href="https://github.com/exactpro" target="_blank"
               ><img
-                src="../../assets/img/footer/github.svg"
+                src="../../../assets/img/footer/github.svg"
                 alt="link to exactpro GitHub page"
             /></a>
             <a href="https://www.facebook.com/exactpro/" target="_blank"
               ><img
-                src="../../assets/img/footer/facebook.svg"
+                src="../../../assets/img/footer/facebook.svg"
                 alt="link to exactpro Facebook page"
             /></a>
             <a href="https://twitter.com/exactpro" target="_blank"
               ><img
-                src="../../assets/img/footer/twitter.svg"
+                src="../../../assets/img/footer/twitter.svg"
                 size="2em"
                 alt="link to exactpro Twitter page"
             /></a>
@@ -81,12 +81,12 @@
               href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym"
               target="_blank"
               ><img
-                src="../../assets/img/footer/linkedin.svg"
+                src="../../../assets/img/footer/linkedin.svg"
                 alt="link to exactpro LinkedIn page"
             /></a>
             <a href="https://www.youtube.com/c/exactprosystems" target="_blank"
               ><img
-                src="../../assets/img/footer/youtube.svg"
+                src="../../../assets/img/footer/youtube.svg"
                 alt="link to exactpro Youtube account"
             /></a>
           </div>
