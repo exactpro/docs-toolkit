@@ -1,5 +1,8 @@
 <template>
-  <EHeader v-model:show-content-tree="showContentTree" class="fixed z-30" />
+  <EpLayoutHeader
+    v-model:show-content-tree="showContentTree"
+    class="fixed z-30"
+  />
   <div class="pt-24 flex mx-auto w-fit flex-col-reverse md:flex-row">
     <aside
       class="w-72 px-3 fixed z-20 h-full bg-neutral-50 top-0 transition-all md:h-auto md:relative md:bg-inherit md:left-0"
@@ -11,7 +14,7 @@
       <nav class="sticky top-32 overflow-hidden">
         <ContentNavigation v-slot="{ navigation }">
           <ul>
-            <ContentNavigationItem
+            <EpLayoutContentNavigationItem
               v-for="navItem in navigation"
               :key="navItem._path"
               :nav-item="navItem"
@@ -29,7 +32,7 @@
     />
     <main>
       <LazyClientOnly>
-        <TermPopup class="z-10" />
+        <EpLayoutTermPopup class="z-10" />
       </LazyClientOnly>
       <slot />
     </main>
@@ -38,30 +41,17 @@
         <h1 v-if="toc.links.length" class="text-neutral-500 mb-2">
           On this page:
         </h1>
-        <TableOfContents :toc="toc" />
+        <EpLayoutTableOfContents :toc="toc" />
       </nav>
       <hr class="mt-5 md:hidden" />
     </aside>
   </div>
-  <EFooter />
+  <EpLayoutFooter />
 </template>
 
 <script lang="ts">
-import TermPopup from '../components/layout/TermPopup.vue'
-import EFooter from '../components/layout/EFooter.vue'
-import EHeader from '../components/layout/EHeader.vue'
-import ContentNavigationItem from '../components/layout/ContentNavigationItem.vue'
-import TableOfContents from '../components/layout/TableOfContents.vue'
-
 export default defineComponent({
   name: 'DocsLayout',
-  components: {
-    EHeader,
-    ContentNavigationItem,
-    TableOfContents,
-    TermPopup,
-    EFooter
-  },
   setup() {
     const toc = useToc()
 
