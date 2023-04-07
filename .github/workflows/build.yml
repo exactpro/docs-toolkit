@@ -2,9 +2,7 @@ name: Build & Deploy
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
+  # push:
   # schedule:
   #   - cron: "0 3 * * *"
 
@@ -21,15 +19,10 @@ jobs:
         with:
           node-version: 16
 
-      - name: Installing packages in layer
-        run: npm ci
-
-      - name: Installing packages in docs
-        working-directory: ./docs
+      - name: Installing packages
         run: npm ci
 
       - name: Build Nuxt 3 static site
-        working-directory: ./docs
         run: npm run generate
 
       - name: Deploy to GitHub Pages

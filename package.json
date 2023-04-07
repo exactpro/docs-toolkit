@@ -4,15 +4,16 @@
   "description": "Template for creating docs from markdown. Created as Nuxt 3 layer.",
   "readme": "./README.md",
   "scripts": {
+    "prepare": "nuxi prepare && nuxi prepare docs",
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
     "lint": "npm run lint:js && npm run lint:prettier",
     "lintfix": "prettier --write --list-different . && eslint --fix --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "typecheck": "nuxi typecheck"
+    "typecheck": "nuxi typecheck",
+    "build": "nuxt build docs/",
+    "dev": "nuxt dev docs/",
+    "generate": "nuxt generate docs/",
+    "preview": "nuxt preview docs/"
   },
   "author": {
     "name": "Exactpro DocOps",
@@ -23,7 +24,7 @@
       "name": "Nikolay Dorofeev",
       "email": "dorich2000@gmail.com",
       "url": "https://d0rich.me"
-    }, 
+    },
     {
       "name": "Harsha Dharmabandu",
       "email": "enceladusorbit@gmail.com"
