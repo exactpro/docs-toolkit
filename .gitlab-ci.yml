@@ -1,27 +1,12 @@
-# This file is a template, and might need editing before it works on your project.
-# This is a sample GitLab CI/CD configuration file that should run without any modifications.
-# It demonstrates a basic 3 stage CI/CD pipeline. Instead of real tests or scripts,
-# it uses echo commands to simulate the pipeline execution.
-#
-# A pipeline is composed of independent jobs that run scripts, grouped into stages.
-# Stages run in sequential order, but jobs within stages run in parallel.
-#
-# For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
-#
-# You can copy and paste this template into a new `.gitlab-ci.yml` file.
-# You should not add this template to an existing `.gitlab-ci.yml` file by using the `include:` keyword.
-#
-# To contribute improvements to CI/CD templates, please follow the Development guide at:
-# https://docs.gitlab.com/ee/development/cicd/templates.html
-# This specific template is located at:
-# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 image: node:16-alpine
 
-cache:
-  key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
-  paths:
-    - node_modules/
-    - docs/node_modules/
+default:
+  cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules/
+      - .nuxt/
+      - docs/.nuxt/
 
 stages:
   - install
@@ -29,55 +14,31 @@ stages:
   - test
   - build
 
-install-template-dependencies:
+install-dependencies:
   stage: install
   script:
-    - npm ci
-
-install-docs-dependencies:
-  stage: install
-  script:
-    - cd docs
-    - npm ci
+    - npm install
 
 lint:
   stage: lint
   dependencies:
-    - install-template-dependencies
-    - install-docs-dependencies
+    - install-dependencies
   script:
-    - npx nuxi prepare
-    - cd docs
-    - npx nuxi prepare
-    - cd ..
     - npm run lint
 
 typecheck:
   stage: test
   dependencies:
-    - install-template-dependencies
-    - install-docs-dependencies
+    - install-dependencies
   script:
     - npm run typecheck
 
-build-base:
+build:
   stage: build
   script:
     - npm run generate
   dependencies:
-    - install-template-dependencies
-    - install-docs-dependencies
-  artifacts:
-    paths:
-      - dist/*
-
-build-docs:
-  stage: build
-  script:
-    - cd docs
-    - npm run generate
-  dependencies:
-    - build-base
+    - install-dependencies
   artifacts:
     paths:
       - docs/dist/*
