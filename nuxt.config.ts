@@ -21,13 +21,6 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss', 'nuxt-icon'],
   content: {
-    sources: {
-      terms: {
-        prefix: '/terms',
-        driver: 'fs',
-        base: 'content-terms'
-      }
-    },
     highlight: {
       theme: 'one-dark-pro'
     }

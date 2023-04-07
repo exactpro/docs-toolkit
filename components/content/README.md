@@ -62,7 +62,7 @@ To see definition, hover the term. To close popup, click outside.
 
 ### Terms definitions
 
-All terms definitions should be created as `md` files in [`content-terms` directory](../../content-terms).
+All terms definitions should be created as `md` files in [`content/_terms` directory](../../content/_terms).
 
 Term definition should contain `title` or `alias` to be fetched in popup.
 
