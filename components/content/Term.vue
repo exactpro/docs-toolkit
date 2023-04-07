@@ -9,7 +9,7 @@ const { model: popup, isFocused, debugInfo } = useTermPopup()
 const { data: termContent, error: termFetchError } = useAsyncData(
   `term/${props.term}`,
   () =>
-    queryContent('terms')
+    queryContent('_terms')
       .where({
         $or: [{ title: props.term }, { alias: { $contains: props.term } }]
       })
