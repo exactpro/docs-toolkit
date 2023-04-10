@@ -51,8 +51,7 @@ publish:
   stage: publish
   only:
     - tags
-  when:
-    - manual
+  when: manual
   script:
     - echo "//registry.npmjs.org/:_authToken=${CI_NPM_TOKEN}">.npmrc
     - npm publish --access=public
