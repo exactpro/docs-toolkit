@@ -24,6 +24,7 @@ lint:
   dependencies:
     - install-dependencies
   script:
+    - npm install
     - npm run lint
 
 typecheck:
@@ -31,11 +32,13 @@ typecheck:
   dependencies:
     - install-dependencies
   script:
+    - npm install
     - npm run typecheck
 
 build:
   stage: build
   script:
+    - npm install
     - npm run generate
   dependencies:
     - install-dependencies
