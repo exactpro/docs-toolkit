@@ -13,6 +13,7 @@ stages:
   - lint
   - test
   - build
+  - publish
 
 install-dependencies:
   stage: install
@@ -24,6 +25,7 @@ lint:
   dependencies:
     - install-dependencies
   script:
+    - npm install
     - npm run lint
 
 typecheck:
@@ -31,14 +33,27 @@ typecheck:
   dependencies:
     - install-dependencies
   script:
+    - npm install
     - npm run typecheck
 
 build:
   stage: build
   script:
+    - npm install
     - npm run generate
   dependencies:
     - install-dependencies
   artifacts:
     paths:
       - docs/dist/*
+
+publish:
+  stage: publish
+  only:
+    - tags
+  when: manual
+  script:
+    - echo "//registry.npmjs.org/:_authToken=${CI_NPM_TOKEN}">.npmrc
+    - npm publish --access=public
+  dependencies:
+    - install-dependencies

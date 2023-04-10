@@ -1,1 +1,8 @@
 docs
+.github
+.nuxt
+.vscode
+.gitlab-ci.yml
+dist
+.output
+node_modules
