@@ -1,6 +1,6 @@
 {
   "name": "@exactpro/docs-web-toolkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Template for creating docs from markdown. Created as Nuxt 3 layer.",
   "readme": "./README.md",
   "scripts": {
