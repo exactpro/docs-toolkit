@@ -1,0 +1,38 @@
+{
+  "license": "LICENSE_HEADER.txt",
+  "ignoreFile": ".gitignore",
+  "ignore": [
+    ".nuxt/",
+    ".output/",
+    "docs/.nuxt/",
+    "docs/.output/",
+    "**/*.md",
+    "**/*.yml",
+    "**/*.yaml",
+    "**/*.txt",
+    "**/*.svg",
+    "*.editorconfig",
+    "*.eslintrc",
+    "*.prettierrc",
+    "*.gitignore",
+    "*.npmignore",
+    "*.prettierignore"
+  ],
+  "trailingWhitespace": "TRIM",
+  "licenseFormats": {
+    "ts|js|css|json": {
+      "prepend": "/*",
+      "append": " */\n",
+      "eachLine": {
+          "prepend": " * "
+      }
+    },
+    "vue": {
+      "prepend": "<!--",
+      "append": "  -->\n",
+      "eachLine": {
+          "prepend": "  ~ "
+      }
+    }
+  }
+}
