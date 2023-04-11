@@ -20,7 +20,7 @@ interface ExactproDocsOptions {
   title?: string
 }
 
-declare module '@nuxt/schema' {
+declare module 'nuxt/schema' {
   interface AppConfigInput {
     exactproDocs?: ExactproDocsOptions
     // TODO: Workaround for nuxt-icon types module, delete when https://github.com/nuxt-modules/icon/pull/63 is resolved

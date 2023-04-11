@@ -36,13 +36,13 @@ In development mode, you might want to suggestions from IDE. To do that, you sho
 Then generate `.nuxt` directory with all necessary typings:
 
 ```shell
-npm nuxi prepare
+npx nuxi prepare
 ```
 
 If you have docs as subproject:
   
 ```shell
-npm nuxi prepare my-docs/
+npx nuxi prepare my-docs/
 ```
 
 ### Basic features

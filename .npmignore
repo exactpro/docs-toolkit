@@ -3,6 +3,14 @@ docs
 .nuxt
 .vscode
 .gitlab-ci.yml
+.npmignore
+.nuxtignore
+.prettierrc
+.prerrierignore
+.eslintrc
+.editorconfig
+LICENSE_HEADER.txt
+license-checker-config.json
 dist
 .output
 node_modules
