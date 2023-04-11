@@ -1,9 +1,9 @@
 {
   "name": "@exactpro/docs-web-toolkit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Toolkit for creating docs from markdown. Created as Nuxt 3 layer.",
   "main": "nuxt.config.ts",
-  "readme": "./README.md",
+  "license": "Apache-2.0",
   "scripts": {
     "prepare": "nuxi prepare && nuxi prepare docs",
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
