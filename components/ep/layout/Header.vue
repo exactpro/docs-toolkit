@@ -52,7 +52,7 @@ defineEmits({
       <div class="w-full flex justify-between items-center px-2 md:px-4">
         <div class="flex items-center">
           <button
-            class="w-7 h-w-7 text-white md:hidden"
+            class="w-7 h-w-7 text-white lg:hidden"
             @click="$emit('update:showContentTree', !showContentTree)"
           >
             <Icon

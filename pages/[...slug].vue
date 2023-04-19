@@ -18,7 +18,7 @@
   <Head>
     <Title>{{ doc ? doc.title : '' }}</Title>
   </Head>
-  <DocsLayout>
+  <NuxtLayout>
     <article class="px-4 mt-10 mb-96">
       <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
         <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
@@ -28,20 +28,15 @@
         <!-- TODO: Generate index page -->
       </div>
     </article>
-  </DocsLayout>
+  </NuxtLayout>
 </template>
 
 <script lang="ts">
-import DocsLayout from '../layouts/docs.vue'
-
 export default defineComponent({
   name: 'ContentPage',
-  components: {
-    DocsLayout
-  },
   async setup() {
     definePageMeta({
-      layout: false
+      layout: 'docs'
     })
     const route = useRoute()
     const toc = useToc()

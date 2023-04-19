@@ -37,6 +37,7 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss', 'nuxt-icon'],
   content: {
+    documentDriven: true,
     highlight: {
       theme: 'one-dark-pro'
     }

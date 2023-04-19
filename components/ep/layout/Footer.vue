@@ -76,7 +76,7 @@
         <div class="flex flex-col items-center md:items-start">
           <h2 class="e-footer__h2">Follow Us</h2>
           <hr class="e-footer__hr" />
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap gap-2 pt-2">
             <a href="https://github.com/exactpro" target="_blank"
               ><img
                 src="../../../assets/img/footer/github.svg"
