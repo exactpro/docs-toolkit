@@ -54,6 +54,7 @@ publish:
   when: manual
   script:
     - echo "//registry.npmjs.org/:_authToken=${CI_NPM_TOKEN}">.npmrc
+    - npm install
     - npm publish --access=public
   dependencies:
     - install-dependencies
