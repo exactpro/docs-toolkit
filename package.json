@@ -34,6 +34,7 @@
   ],
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@types/mermaid": "^9.2.0",
     "@typescript-eslint/parser": "^5.55.0",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
