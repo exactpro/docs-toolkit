@@ -1,15 +1,16 @@
 # @exactpro/docs-web-toolkit
 
-Welcome to Exactpro docs web toolkit! 
-It was made to help you in building documentation website for your project
+Welcome to Exactpro Docs Web Toolkit! 
 
-Feel free to ask questions if any: [docops@exactpro.com](mailto:docops@exactpro.com)
+This template repository was created to help you build a documentation website for your project.
+
+Questions? Reach out to us: [docops@exactpro.com](mailto:docops@exactpro.com).
 
 ## Prerequisites
 
-Docs web toolkit is based on Nuxt.js framework. 
+The Docs Web Toolkit is based on the Nuxt.js framework. 
 
-Refer ro prerequisites of Nuxt: https://nuxt.com/docs/getting-started/installation#prerequisites.
+To use it, refer to the Nuxt prerequisites list: https://nuxt.com/docs/getting-started/installation#prerequisites.
 
 ## Installation
 
