@@ -1,10 +1,10 @@
-name: Build & Deploy
+name: GitHub Pages
 
 on:
   workflow_dispatch:
-  # push:
-  # schedule:
-  #   - cron: "0 3 * * *"
+  push:
+    branches:
+      - master
 
 jobs:
   build-and-deploy:
@@ -32,4 +32,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/dist
           publish_branch: dist
-          commit_message: 'Automatic deploy: ${{ github.event.head_commit.message }}'
