@@ -18,6 +18,6 @@
 export default defineNuxtConfig({
   extends: ['../'],
   app: {
-    baseURL: '/docs-web-toolkit/'
+    baseURL: '/docs-toolkit/'
   }
 })

@@ -1,18 +1,18 @@
 {
   "name": "@exactpro/docs-web-toolkit",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Toolkit for creating docs from markdown. Created as Nuxt 3 layer.",
   "main": "nuxt.config.ts",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/exactpro/docs-web-toolkit.git"
+    "url": "https://github.com/exactpro/docs-toolkit.git"
   },
   "bugs": {
     "email": "docops@exactpro.com",
-    "url": "https://github.com/exactpro/docs-web-toolkit/issues"
+    "url": "https://github.com/exactpro/docs-toolkit/issues"
   },
-  "homepage": "https://exactpro.github.io/docs-web-toolkit",
+  "homepage": "https://exactpro.github.io/docs-toolkit",
   "scripts": {
     "prepare": "nuxi prepare && nuxi prepare docs",
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
