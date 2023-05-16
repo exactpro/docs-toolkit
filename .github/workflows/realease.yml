@@ -1,0 +1,54 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-20.04
+    outputs:
+      version: ${{ steps.publish.outputs.version }}
+      type: ${{ steps.publish.outputs.type }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - run: npm ci
+
+      - name: Check types
+        run: npm run check
+
+      - name: Check build
+        run: npm run generate
+
+      - name: Test publishing
+        uses: JS-DevTools/npm-publish@v1
+        id: publish
+        with:
+          dry-run: true
+          access: public
+          token: ${{ secrets.NPM_TOKEN }}
+
+  release:
+    runs-on: ubuntu-20.04
+    needs: [test]
+    if: ${{ needs.test.outputs.type }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: rickstaa/action-create-tag@v1
+        with:
+          tag: 'v${{ needs.test.outputs.version }}'
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: 'v${{ needs.test.outputs.version }}'
+          generateReleaseNotes: true
+          draft: true
