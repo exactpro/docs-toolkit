@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - run: npm ci
+
+      - name: Check types
+        run: npm run check
+
+      - name: Check build
+        run: npm run generate
+
+      - name: Lint
+        run: npm run lint
