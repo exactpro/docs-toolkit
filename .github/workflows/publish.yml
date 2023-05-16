@@ -5,12 +5,16 @@ on:
     types: [published]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.release.tag_name }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
       - name: Publish to npm
         uses: JS-DevTools/npm-publish@v1
         with:
