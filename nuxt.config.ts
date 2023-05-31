@@ -42,9 +42,7 @@ export default defineNuxtConfig({
       theme: 'one-dark-pro'
     },
     markdown: {
-      rehypePlugins: [
-        "rehype-external-links"
-      ]
+      rehypePlugins: ['rehype-external-links']
     }
-  },
+  }
 })
