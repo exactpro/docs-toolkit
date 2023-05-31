@@ -32,8 +32,27 @@ const editPath = computed(() => {
 <template>
   <div
     v-if="useAppConfig().exactproDocs.github.repoLink"
-    class="flex justify-between items-center"
+    class="flex justify-end gap-4 flex-wrap items-center"
   >
-    <a :href="editPath">Edit</a>
+    <a :href="editPath" class="github-action-button">
+      <Icon
+        class="w-4 h-4 mr-2 text-primary"
+        name="heroicons:pencil-square-solid"
+      />
+      <span>Edit this page</span>
+    </a>
+    <a :href="editPath" class="github-action-button">
+      <Icon
+        class="w-4 h-4 mr-2 text-error"
+        name="heroicons:chat-bubble-left-20-solid"
+      />
+      <span>Create issue</span>
+    </a>
   </div>
 </template>
+
+<style>
+.github-action-button {
+  @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center;
+}
+</style>

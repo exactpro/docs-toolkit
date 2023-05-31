@@ -19,8 +19,8 @@
     <Title>{{ doc ? doc.title : '' }}</Title>
   </Head>
   <NuxtLayout>
-    <div>
-      <article class="px-4 mt-10 mb-96">
+    <div class="px-4 mt-10 mb-96">
+      <article class="mb-3">
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
           <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
         </ContentRenderer>
