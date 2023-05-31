@@ -14,14 +14,8 @@
  * limitations under the License.
  */
 
-export default defineAppConfig({
-  exactproDocs: {
-    title: 'Docs Template Project',
-    seo: {
-      sitemap: {
-        baseUrl: 'https://exactpro.github.io/docs-toolkit'
-      },
-      robots: [{ UserAgent: '*' }, { Allow: '/' }]
+export type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>
     }
-  }
-})
+  : T

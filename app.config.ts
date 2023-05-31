@@ -15,14 +15,22 @@
  */
 
 import type { ModuleOptions } from 'nuxt-icon'
+import type { DeepPartial } from './utils/DeepPartial'
+import type { RobotsTxtOptions } from './server/routes/robots.txt'
 
 interface ExactproDocsOptions {
-  title?: string
+  title: string
+  seo?: {
+    sitemap?: {
+      baseUrl?: string
+    }
+    robots?: RobotsTxtOptions[]
+  }
 }
 
 declare module 'nuxt/schema' {
   interface AppConfigInput {
-    exactproDocs?: ExactproDocsOptions
+    exactproDocs?: DeepPartial<ExactproDocsOptions>
     // TODO: Workaround for nuxt-icon types module, delete when https://github.com/nuxt-modules/icon/pull/63 is resolved
     nuxtIcon?: ModuleOptions
   }
@@ -30,8 +38,13 @@ declare module 'nuxt/schema' {
 
 export default defineAppConfig({
   exactproDocs: {
-    title: 'Exactpro Docs'
-  },
+    title: 'Exactpro Docs',
+    seo: {
+      sitemap: {
+        baseUrl: undefined
+      }
+    }
+  } as ExactproDocsOptions,
   // TODO: Workaround for nuxt-icon types module, delete when https://github.com/nuxt-modules/icon/pull/63 is resolved
   nuxtIcon: {}
 })
