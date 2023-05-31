@@ -58,6 +58,7 @@
     "@tailwindcss/typography": "^0.5.8",
     "@types/mermaid": "^9.2.0",
     "nuxt": "^3.3.1",
-    "nuxt-icon": "^0.3.3"
+    "nuxt-icon": "^0.3.3",
+    "rehype-external-links": "^2.1.0"
   }
 }
