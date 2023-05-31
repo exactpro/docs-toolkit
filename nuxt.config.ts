@@ -40,6 +40,13 @@ export default defineNuxtConfig({
     documentDriven: true,
     highlight: {
       theme: 'one-dark-pro'
+    },
+    markdown: {
+      rehypePlugins: {
+        'rehype-external-links': {
+          target: '_blank'
+        }
+      }
     }
   }
 })
