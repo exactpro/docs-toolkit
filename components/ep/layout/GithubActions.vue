@@ -15,23 +15,30 @@
   -->
 
 <script setup lang="ts">
+import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
+
 const props = defineProps<{
-  documentPath: string
-  source: string
+  doc: Pick<ParsedContent, string>
 }>()
+
+const githubInfo = useAppConfig().exactproDocs.github
 
 const { data: editBasePath } = useFetch(
   '/api/_docs-toolkit/github/edit-base-path'
 )
 
 const editPath = computed(() => {
-  return `${editBasePath.value}/${props.source}/${props.documentPath}`
+  return `${editBasePath.value}/${props.doc._source}/${props.doc._file}`
+})
+
+const createIssuePath = computed(() => {
+  return `${githubInfo.repoLink}/issues/new/choose`
 })
 </script>
 
 <template>
   <div
-    v-if="useAppConfig().exactproDocs.github.repoLink"
+    v-if="githubInfo.repoLink"
     class="flex justify-end gap-4 flex-wrap items-center"
   >
     <a :href="editPath" class="github-action-button">
@@ -41,7 +48,7 @@ const editPath = computed(() => {
       />
       <span>Edit this page</span>
     </a>
-    <a :href="editPath" class="github-action-button">
+    <a :href="createIssuePath" class="github-action-button">
       <Icon
         class="w-4 h-4 mr-2 text-error"
         name="heroicons:chat-bubble-left-20-solid"

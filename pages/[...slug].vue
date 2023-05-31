@@ -29,11 +29,7 @@
           <!-- TODO: Generate index page -->
         </div>
       </article>
-      <EpLayoutGithubActions
-        v-if="doc"
-        :document-path="doc._file"
-        :source="doc._source"
-      />
+      <EpLayoutGithubActions v-if="doc" :doc="doc" />
     </div>
   </NuxtLayout>
 </template>

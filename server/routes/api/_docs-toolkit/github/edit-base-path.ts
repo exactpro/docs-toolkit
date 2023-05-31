@@ -22,5 +22,5 @@ export default defineEventHandler(() => {
   if (!repoLink) {
     throw new Error('GitHub repository link is not specified')
   }
-  return path.join(repoLink, 'edit', branch, docsDir)
+  return path.join(repoLink, 'edit', branch, docsDir).replaceAll('\\', '/')
 })
