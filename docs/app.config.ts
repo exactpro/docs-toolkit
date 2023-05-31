@@ -16,6 +16,7 @@
 
 export default defineAppConfig({
   exactproDocs: {
-    title: 'Docs Template Project'
+    title: 'Docs Template Project',
+    hostname: 'https://example.com'
   }
 })
