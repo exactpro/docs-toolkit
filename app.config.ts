@@ -18,6 +18,9 @@ import type { ModuleOptions } from 'nuxt-icon'
 
 interface ExactproDocsOptions {
   title?: string
+  github?: {
+    repoLink?: string
+  }
 }
 
 declare module 'nuxt/schema' {

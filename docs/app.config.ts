@@ -16,6 +16,9 @@
 
 export default defineAppConfig({
   exactproDocs: {
-    title: 'Docs Template Project'
+    title: 'Docs Template Project',
+    github: {
+      repoLink: 'https://github.com/exactpro/docs-toolkit'
+    }
   }
 })
