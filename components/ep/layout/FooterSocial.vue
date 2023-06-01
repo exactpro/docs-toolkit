@@ -25,7 +25,7 @@ const social = config.exactproDocs.social
     <!-- GitHub -->
     <a
       v-if="!social?.githhub?.disabled"
-      href="https://github.com/exactpro"
+      :href="social?.githhub?.url"
       target="_blank"
     >
       <img
@@ -38,7 +38,7 @@ const social = config.exactproDocs.social
     <!-- Facebook -->
     <a
       v-if="!social?.facebook?.disabled"
-      href="https://www.facebook.com/exactpro/"
+      :href="social?.facebook?.url"
       target="_blank"
     >
       <img
@@ -51,7 +51,7 @@ const social = config.exactproDocs.social
     <!-- Twitter -->
     <a
       v-if="!social?.twitter?.disabled"
-      href="https://twitter.com/exactpro"
+      :href="social?.twitter?.url"
       target="_blank"
     >
       <img
@@ -65,7 +65,7 @@ const social = config.exactproDocs.social
     <!-- Linkedin -->
     <a
       v-if="!social?.linkedin?.disabled"
-      href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym"
+      :href="social?.linkedin?.url"
       target="_blank"
     >
       <img
@@ -78,7 +78,7 @@ const social = config.exactproDocs.social
     <!-- Youtube -->
     <a
       v-if="!social?.youtube?.disabled"
-      href="https://www.youtube.com/c/exactprosystems"
+      :href="social?.youtube?.url"
       target="_blank"
       ><img
         v-if="!social?.youtube?.customIcon"
