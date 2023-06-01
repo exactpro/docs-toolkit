@@ -15,9 +15,7 @@
   -->
 
 <template>
-  <Head>
-    <Title>{{ doc ? doc.title : '' }}</Title>
-  </Head>
+  <EpPageMeta :doc="doc" />
   <NuxtLayout>
     <div class="px-4 mt-10 mb-96">
       <article class="mb-10">
