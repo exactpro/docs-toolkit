@@ -14,35 +14,78 @@
   ~ limitations under the License.
   -->
 
+<script setup lang="ts">
+const config = useAppConfig()
+
+const social = config.exactproDocs.social
+</script>
+
 <template>
   <div class="flex flex-wrap gap-2">
-    <a href="https://github.com/exactpro" target="_blank"
-      ><img
+    <!-- GitHub -->
+    <a
+      v-if="!social?.githhub?.disabled"
+      href="https://github.com/exactpro"
+      target="_blank"
+    >
+      <img
+        v-if="!social?.githhub?.customIcon"
         src="../../../assets/img/footer/github.svg"
-        alt="link to exactpro GitHub page"
-    /></a>
-    <a href="https://www.facebook.com/exactpro/" target="_blank"
-      ><img
+        alt="Exactpro GitHub page"
+      />
+      <Icon v-else :name="social?.githhub?.customIcon" />
+    </a>
+    <!-- Facebook -->
+    <a
+      v-if="!social?.facebook?.disabled"
+      href="https://www.facebook.com/exactpro/"
+      target="_blank"
+    >
+      <img
+        v-if="!social?.facebook?.customIcon"
         src="../../../assets/img/footer/facebook.svg"
-        alt="link to exactpro Facebook page"
-    /></a>
-    <a href="https://twitter.com/exactpro" target="_blank"
-      ><img
+        alt="Exactpro Facebook page"
+      />
+      <Icon v-else :name="social?.facebook?.customIcon" />
+    </a>
+    <!-- Twitter -->
+    <a
+      v-if="!social?.twitter?.disabled"
+      href="https://twitter.com/exactpro"
+      target="_blank"
+    >
+      <img
+        v-if="!social?.twitter?.customIcon"
         src="../../../assets/img/footer/twitter.svg"
         size="2em"
-        alt="link to exactpro Twitter page"
-    /></a>
+        alt="Exactpro Twitter page"
+      />
+      <Icon v-else :name="social?.twitter?.customIcon" />
+    </a>
+    <!-- Linkedin -->
     <a
+      v-if="!social?.linkedin?.disabled"
       href="https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym"
       target="_blank"
-      ><img
+    >
+      <img
+        v-if="!social?.linkedin?.customIcon"
         src="../../../assets/img/footer/linkedin.svg"
-        alt="link to exactpro LinkedIn page"
-    /></a>
-    <a href="https://www.youtube.com/c/exactprosystems" target="_blank"
+        alt="Exactpro LinkedIn page"
+      />
+      <Icon v-else :name="social?.linkedin?.customIcon" />
+    </a>
+    <!-- Youtube -->
+    <a
+      v-if="!social?.youtube?.disabled"
+      href="https://www.youtube.com/c/exactprosystems"
+      target="_blank"
       ><img
+        v-if="!social?.youtube?.customIcon"
         src="../../../assets/img/footer/youtube.svg"
-        alt="link to exactpro Youtube account"
-    /></a>
+        alt="Exactpro Youtube account"
+      />
+      <Icon v-else :name="social?.youtube?.customIcon" />
+    </a>
   </div>
 </template>
