@@ -32,8 +32,9 @@ const social = config.exactproDocs.social
         v-if="!social?.githhub?.customIcon"
         src="../../../assets/img/footer/github.svg"
         alt="Exactpro GitHub page"
+        class="icon"
       />
-      <Icon v-else :name="social?.githhub?.customIcon" />
+      <Icon v-else class="icon" :name="social?.githhub?.customIcon" />
     </a>
     <!-- Facebook -->
     <a
@@ -45,8 +46,9 @@ const social = config.exactproDocs.social
         v-if="!social?.facebook?.customIcon"
         src="../../../assets/img/footer/facebook.svg"
         alt="Exactpro Facebook page"
+        class="icon"
       />
-      <Icon v-else :name="social?.facebook?.customIcon" />
+      <Icon v-else class="icon" :name="social?.facebook?.customIcon" />
     </a>
     <!-- Twitter -->
     <a
@@ -57,10 +59,10 @@ const social = config.exactproDocs.social
       <img
         v-if="!social?.twitter?.customIcon"
         src="../../../assets/img/footer/twitter.svg"
-        size="2em"
+        class="icon"
         alt="Exactpro Twitter page"
       />
-      <Icon v-else :name="social?.twitter?.customIcon" />
+      <Icon v-else class="icon" :name="social?.twitter?.customIcon" />
     </a>
     <!-- Linkedin -->
     <a
@@ -70,10 +72,11 @@ const social = config.exactproDocs.social
     >
       <img
         v-if="!social?.linkedin?.customIcon"
+        class="icon"
         src="../../../assets/img/footer/linkedin.svg"
         alt="Exactpro LinkedIn page"
       />
-      <Icon v-else :name="social?.linkedin?.customIcon" />
+      <Icon v-else class="icon" :name="social?.linkedin?.customIcon" />
     </a>
     <!-- Youtube -->
     <a
@@ -82,10 +85,18 @@ const social = config.exactproDocs.social
       target="_blank"
       ><img
         v-if="!social?.youtube?.customIcon"
+        class="icon"
         src="../../../assets/img/footer/youtube.svg"
         alt="Exactpro Youtube account"
       />
-      <Icon v-else :name="social?.youtube?.customIcon" />
+      <Icon v-else class="icon" :name="social?.youtube?.customIcon" />
     </a>
   </div>
 </template>
+
+<style scoped>
+.icon {
+  width: 3em;
+  height: 3em;
+}
+</style>
