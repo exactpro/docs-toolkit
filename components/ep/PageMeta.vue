@@ -29,7 +29,8 @@ const verificationMetaTags = config.exactproDocs.seo?.verificationMetaTags
   <Head>
     <Title>{{ doc ? doc.title : '' }}</Title>
     <Meta
-      v-for="verification of verificationMetaTags"
+      v-for="(verification, index) of verificationMetaTags"
+      :key="index"
       :name="verification.name"
       :content="verification.content"
     />
