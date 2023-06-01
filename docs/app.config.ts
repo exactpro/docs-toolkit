@@ -21,6 +21,11 @@ export default defineAppConfig({
       repoLink: 'https://github.com/exactpro/docs-toolkit',
       branch: 'master',
       docsDir: '/docs'
+    },
+    social: {
+      githhub: {
+        url: 'https://github.com/exactpro/docs-toolkit'
+      }
     }
   }
 })
