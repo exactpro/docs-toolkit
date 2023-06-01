@@ -2,7 +2,7 @@
 
 Welcome to Exactpro Docs Web Toolkit! 
 
-This template repository was created to help you build a documentation website for your project.
+This template repository was created to help you build a documentation website for your project – here's how it looks: https://exactpro.github.io/docs-toolkit/.
 
 Questions? Reach out to us: [docops@exactpro.com](mailto:docops@exactpro.com).
 
