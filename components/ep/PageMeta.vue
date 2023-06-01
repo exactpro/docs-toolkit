@@ -20,10 +20,18 @@ import { ParsedContent } from '@nuxt/content/dist/runtime/types'
 defineProps<{
   doc: Pick<ParsedContent, string> | null
 }>()
+
+const config = useAppConfig()
+const verificationMetaTags = config.exactproDocs.seo?.verificationMetaTags
 </script>
 
 <template>
   <Head>
     <Title>{{ doc ? doc.title : '' }}</Title>
+    <Meta
+      v-for="verification of verificationMetaTags"
+      :name="verification.name"
+      :content="verification.content"
+    />
   </Head>
 </template>

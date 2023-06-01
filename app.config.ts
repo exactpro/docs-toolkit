@@ -44,6 +44,12 @@ interface ExactproDocsOptions {
      */
     docsDir?: string
   }
+  seo?: {
+    verificationMetaTags?: {
+      name: string
+      content: string
+    }[]
+  }
 }
 
 declare module 'nuxt/schema' {
@@ -61,7 +67,8 @@ export default defineAppConfig({
       repoLink: undefined as string | undefined,
       branch: 'master',
       docsDir: '/'
-    }
+    },
+    seo: undefined as ExactproDocsOptions['seo']
   },
   // TODO: Workaround for nuxt-icon types module, delete when https://github.com/nuxt-modules/icon/pull/63 is resolved
   nuxtIcon: {}

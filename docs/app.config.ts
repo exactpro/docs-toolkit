@@ -21,6 +21,15 @@ export default defineAppConfig({
       repoLink: 'https://github.com/exactpro/docs-toolkit',
       branch: 'master',
       docsDir: '/docs'
+    },
+    seo: {
+      verificationMetaTags: [
+        // <meta name="google-site-verification" content="PYzR06VK4UIZvGdBkMh_TkqOu83QxapFJknyAR58yJA" />
+        {
+          name: 'google-site-verification',
+          content: 'PYzR06VK4UIZvGdBkMh_TkqOu83QxapFJknyAR58yJA'
+        }
+      ]
     }
   }
 })
