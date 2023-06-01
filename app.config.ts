@@ -17,7 +17,33 @@
 import type { ModuleOptions } from 'nuxt-icon'
 
 interface ExactproDocsOptions {
-  title?: string
+  /**
+   * Title of the documentation.
+   * It will be displayed in the header and in the browser tab.
+   */
+  title: string
+  /**
+   * Configuration for GitHub integration
+   */
+  github: {
+    /**
+     * Link to the repository on GitHub
+     */
+    repoLink?: string
+    /**
+     * Name of the default branch on GitHub
+     *
+     * @default 'master'
+     */
+    branch?: string
+    /**
+     * Path to the directory with documentation files on GitHub
+     * Specify if the documentation is stored in a subdirectory of the repository.
+     *
+     * @default '/'
+     */
+    docsDir?: string
+  }
 }
 
 declare module 'nuxt/schema' {
@@ -30,7 +56,12 @@ declare module 'nuxt/schema' {
 
 export default defineAppConfig({
   exactproDocs: {
-    title: 'Exactpro Docs'
+    title: 'Exactpro Docs',
+    github: {
+      repoLink: undefined as string | undefined,
+      branch: 'master',
+      docsDir: '/'
+    }
   },
   // TODO: Workaround for nuxt-icon types module, delete when https://github.com/nuxt-modules/icon/pull/63 is resolved
   nuxtIcon: {}
