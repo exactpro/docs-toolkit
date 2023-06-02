@@ -36,6 +36,11 @@ export default defineNuxtConfig({
     }
   },
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss', 'nuxt-icon'],
+  nitro: {
+    prerender: {
+      routes: ['/robots.txt']
+    }
+  },
   content: {
     documentDriven: true,
     highlight: {
