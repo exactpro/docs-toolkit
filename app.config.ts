@@ -15,9 +15,11 @@
  */
 
 import type { ModuleOptions } from 'nuxt-icon'
+import type { DeepPartial } from './utils/DeepPartial'
+import type { RobotsTxtOptions } from './server/routes/robots.txt'
 
 interface SocialLinkConfigOptions {
-  url?: string
+  url: string
   customIcon?: string
   disabled?: boolean
 }
@@ -41,14 +43,24 @@ interface ExactproDocsOptions {
      *
      * @default 'master'
      */
-    branch?: string
+    branch: string
     /**
      * Path to the directory with documentation files on GitHub
      * Specify if the documentation is stored in a subdirectory of the repository.
      *
      * @default '/'
      */
-    docsDir?: string
+    docsDir: string
+  }
+  seo?: {
+    robots?: RobotsTxtOptions[]
+    sitemap?: {
+      baseUrl?: string
+    }
+    verificationMetaTags?: {
+      name: string
+      content: string
+    }[]
   }
   social?: {
     githhub?: SocialLinkConfigOptions
@@ -61,7 +73,7 @@ interface ExactproDocsOptions {
 
 declare module 'nuxt/schema' {
   interface AppConfigInput {
-    exactproDocs?: ExactproDocsOptions
+    exactproDocs?: DeepPartial<ExactproDocsOptions>
     // TODO: Workaround for nuxt-icon types module, delete when https://github.com/nuxt-modules/icon/pull/63 is resolved
     nuxtIcon?: ModuleOptions
   }
@@ -91,8 +103,8 @@ export default defineAppConfig({
       youtube: {
         url: 'https://www.youtube.com/c/exactprosystems'
       }
-    } as ExactproDocsOptions['social']
-  },
+    }
+  } as ExactproDocsOptions,
   // TODO: Workaround for nuxt-icon types module, delete when https://github.com/nuxt-modules/icon/pull/63 is resolved
   nuxtIcon: {}
 })
