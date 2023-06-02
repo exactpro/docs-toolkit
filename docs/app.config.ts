@@ -17,18 +17,16 @@
 export default defineAppConfig({
   exactproDocs: {
     title: 'Docs Template Project',
-    seo: {
-      sitemap: {
-        baseUrl: 'https://exactpro.github.io/docs-toolkit'
-      },
-      robots: [{ UserAgent: '*' }, { Allow: '/' }]
-    },
     github: {
       repoLink: 'https://github.com/exactpro/docs-toolkit',
       branch: 'master',
       docsDir: '/docs'
     },
     seo: {
+      robots: [{ UserAgent: '*' }, { Allow: '/' }],
+      sitemap: {
+        baseUrl: 'https://exactpro.github.io/docs-toolkit'
+      },
       verificationMetaTags: [
         // <meta name="google-site-verification" content="PYzR06VK4UIZvGdBkMh_TkqOu83QxapFJknyAR58yJA" />
         {
