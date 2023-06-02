@@ -14,19 +14,13 @@
  * limitations under the License.
  */
 
-export default defineAppConfig({
-  exactproDocs: {
-    title: 'Docs Template Project',
-    seo: {
-      sitemap: {
-        baseUrl: 'https://exactpro.github.io/docs-toolkit'
-      },
-      robots: [{ UserAgent: '*' }, { Allow: '/' }]
-    },
-    github: {
-      repoLink: 'https://github.com/exactpro/docs-toolkit',
-      branch: 'master',
-      docsDir: '/docs'
-    }
+import path from 'path'
+
+export default defineEventHandler(() => {
+  const config = useAppConfig()
+  const { repoLink, branch, docsDir } = config.exactproDocs.github
+  if (!repoLink) {
+    throw new Error('GitHub repository link is not specified')
   }
+  return path.join(repoLink, 'edit', branch, docsDir).replaceAll('\\', '/')
 })
