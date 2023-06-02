@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://exactpro.github.io/docs-toolkit/sitemap.xml
