@@ -47,10 +47,14 @@ interface ExactproDocsOptions {
     docsDir: string
   }
   seo?: {
+    robots?: RobotsTxtOptions[]
     sitemap?: {
       baseUrl?: string
     }
-    robots?: RobotsTxtOptions[]
+    verificationMetaTags?: {
+      name: string
+      content: string
+    }[]
   }
 }
 
