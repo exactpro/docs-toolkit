@@ -40,9 +40,10 @@ export default defineEventHandler((event) => {
       if (typeof value === 'string') {
         lines.push(keysToTemplates[key as keyof typeof keysToTemplates](value))
       }
-    }
-    if (robotOptionsItem.BlankLine) {
-      lines.push('')
+      // If BlankLine is true, add blank line
+      if (typeof value === 'boolean' && value) {
+        lines.push('')
+      }
     }
   }
   if (config.exactproDocs?.seo?.sitemap?.baseUrl) {

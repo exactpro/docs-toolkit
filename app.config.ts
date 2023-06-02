@@ -37,15 +37,16 @@ interface ExactproDocsOptions {
      *
      * @default 'master'
      */
-    branch?: string
+    branch: string
     /**
      * Path to the directory with documentation files on GitHub
      * Specify if the documentation is stored in a subdirectory of the repository.
      *
      * @default '/'
      */
-    docsDir?: string
-    seo?: {
+    docsDir: string
+  }
+  seo?: {
     sitemap?: {
       baseUrl?: string
     }
@@ -69,7 +70,7 @@ export default defineAppConfig({
       branch: 'master',
       docsDir: '/'
     }
-  },
+  } as ExactproDocsOptions,
   // TODO: Workaround for nuxt-icon types module, delete when https://github.com/nuxt-modules/icon/pull/63 is resolved
   nuxtIcon: {}
 })
