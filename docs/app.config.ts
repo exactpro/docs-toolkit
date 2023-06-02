@@ -39,6 +39,9 @@ export default defineAppConfig({
           content: 'PYzR06VK4UIZvGdBkMh_TkqOu83QxapFJknyAR58yJA'
         }
       ]
+    },
+    gtag: {
+      measurementId: 'G-BD6STVYLJK'
     }
   }
 })
