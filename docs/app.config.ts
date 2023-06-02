@@ -22,6 +22,11 @@ export default defineAppConfig({
       branch: 'master',
       docsDir: '/docs'
     },
+    social: {
+      githhub: {
+        url: 'https://github.com/exactpro/docs-toolkit'
+      }
+    },
     seo: {
       robots: [{ UserAgent: '*' }, { Allow: '/' }],
       sitemap: {

@@ -18,6 +18,12 @@ import type { ModuleOptions } from 'nuxt-icon'
 import type { DeepPartial } from './utils/DeepPartial'
 import type { RobotsTxtOptions } from './server/routes/robots.txt'
 
+interface SocialLinkConfigOptions {
+  url: string
+  customIcon?: string
+  disabled?: boolean
+}
+
 interface ExactproDocsOptions {
   /**
    * Title of the documentation.
@@ -56,6 +62,13 @@ interface ExactproDocsOptions {
       content: string
     }[]
   }
+  social?: {
+    githhub?: SocialLinkConfigOptions
+    facebook?: SocialLinkConfigOptions
+    twitter?: SocialLinkConfigOptions
+    linkedin?: SocialLinkConfigOptions
+    youtube?: SocialLinkConfigOptions
+  }
 }
 
 declare module 'nuxt/schema' {
@@ -73,6 +86,23 @@ export default defineAppConfig({
       repoLink: undefined as string | undefined,
       branch: 'master',
       docsDir: '/'
+    },
+    social: {
+      githhub: {
+        url: 'https://github.com/exactpro'
+      },
+      facebook: {
+        url: 'https://www.facebook.com/exactpro/'
+      },
+      twitter: {
+        url: 'https://twitter.com/exactpro'
+      },
+      linkedin: {
+        url: 'https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym'
+      },
+      youtube: {
+        url: 'https://www.youtube.com/c/exactprosystems'
+      }
     }
   } as ExactproDocsOptions,
   // TODO: Workaround for nuxt-icon types module, delete when https://github.com/nuxt-modules/icon/pull/63 is resolved
