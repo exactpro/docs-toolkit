@@ -62,6 +62,9 @@ interface ExactproDocsOptions {
       content: string
     }[]
   }
+  gtag?: {
+    measurementId?: string
+  }
   social?: {
     githhub?: SocialLinkConfigOptions
     facebook?: SocialLinkConfigOptions
