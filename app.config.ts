@@ -113,7 +113,6 @@ export default defineAppConfig({
         contact: '+16463403000',
         type: 'phone'
       }
-
     ],
     social: {
       githhub: {

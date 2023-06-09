@@ -15,36 +15,35 @@
   -->
 
 <script setup lang="ts">
-
 const config = useAppConfig()
 const contacts = config.exactproDocs.contacts
-type Contact = typeof config.exactproDocs.contacts[number]
+type Contact = (typeof config.exactproDocs.contacts)[number]
 
-function getContactIcon(contact: Contact){
-    if (contact.type === 'email'){
-        return 'heroicons:envelope'
-    }
-    return "heroicons:phone"
+function getContactIcon(contact: Contact) {
+  if (contact.type === 'email') {
+    return 'heroicons:envelope'
+  }
+  return 'heroicons:phone'
 }
 
-function getContactLink(contact: Contact){
-    if (contact.type === 'email'){
-        return `mailto:${contact.contact}`
-    }
-    return `tel:${contact.contact}`
+function getContactLink(contact: Contact) {
+  if (contact.type === 'email') {
+    return `mailto:${contact.contact}`
+  }
+  return `tel:${contact.contact}`
 }
 </script>
 
 <template>
-    <ul class="flex flex-col justify-center m-1">
-      <li v-for="contact, index in contacts" :key="index">
-        <a :href="getContactLink(contact)"
-          ><Icon
-            :name="getContactIcon(contact)"
-            size="1.5em"
-            class="inline-block mr-3"
-          />{{ contact.contact }}</a
-        >
-      </li>
-    </ul>
+  <ul class="flex flex-col justify-center m-1">
+    <li v-for="(contact, index) in contacts" :key="index">
+      <a :href="getContactLink(contact)"
+        ><Icon
+          :name="getContactIcon(contact)"
+          size="1.5em"
+          class="inline-block mr-3"
+        />{{ contact.contact }}</a
+      >
+    </li>
+  </ul>
 </template>
