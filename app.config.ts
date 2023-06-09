@@ -24,6 +24,11 @@ interface SocialLinkConfigOptions {
   disabled?: boolean
 }
 
+interface ContactConfigOptions {
+  type: 'email' | 'phone'
+  contact: string
+}
+
 interface ExactproDocsOptions {
   /**
    * Title of the documentation.
@@ -72,6 +77,7 @@ interface ExactproDocsOptions {
     linkedin?: SocialLinkConfigOptions
     youtube?: SocialLinkConfigOptions
   }
+  contacts: ContactConfigOptions[]
 }
 
 declare module 'nuxt/schema' {
@@ -90,6 +96,25 @@ export default defineAppConfig({
       branch: 'master',
       docsDir: '/'
     },
+    contacts: [
+      {
+        contact: 'docops@exactpro.com',
+        type: 'email'
+      },
+      {
+        contact: 'info@exactpro.com',
+        type: 'email'
+      },
+      {
+        contact: '+4402033191644',
+        type: 'phone'
+      },
+      {
+        contact: '+16463403000',
+        type: 'phone'
+      }
+
+    ],
     social: {
       githhub: {
         url: 'https://github.com/exactpro'
