@@ -21,7 +21,7 @@ const props = defineProps<{
   doc: Pick<ParsedContent, string>
 }>()
 
-const githubInfo = useAppConfig().exactproDocs.github
+const githubInfo = useAppConfig().exactproDocs.github!
 
 const { data: editBasePath } = useFetch(
   '/api/_docs-toolkit/github/edit-base-path'
