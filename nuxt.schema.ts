@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import type { RobotsTxtOptions as TRobotsTxtOptions } from './server/routes/robots.txt'
+import type { RobotsTxtOptions } from './server/routes/robots.txt'
 
 declare global {
-  interface RobotsTxtOptions extends TRobotsTxtOptions {}
-  interface SocialLinkConfigOptions {
+  interface ExactproDocsRobotsTxtOptions extends RobotsTxtOptions {}
+  interface ExactproDocsSocialLinkConfigOptions {
     url: string
     customIcon?: string
     disabled?: boolean
@@ -62,7 +62,7 @@ export default defineNuxtSchema({
         /**
          * Configuration for robots.txt
          * @see {@link https://github.com/nuxt-modules/robots | Example of configuration}
-         * @type {RobotsTxtOptions[]}
+         * @type {ExactproDocsRobotsTxtOptions[]}
          */
         robots: [],
         sitemap: {
@@ -94,7 +94,7 @@ export default defineNuxtSchema({
         /**
          * Link to the GitHub social media page
          *
-         * @type {SocialLinkConfigOptions}
+         * @type {ExactproDocsSocialLinkConfigOptions}
          */
         github: {
           url: 'https://github.com/exactpro'
@@ -102,7 +102,7 @@ export default defineNuxtSchema({
         /**
          * Link to the Facebook social media page
          *
-         * @type {SocialLinkConfigOptions}
+         * @type {ExactproDocsSocialLinkConfigOptions}
          */
         facebook: {
           url: 'https://www.facebook.com/exactpro/'
@@ -110,7 +110,7 @@ export default defineNuxtSchema({
         /**
          * Link to the Twitter social media page
          *
-         * @type {SocialLinkConfigOptions}
+         * @type {ExactproDocsSocialLinkConfigOptions}
          */
         twitter: {
           url: 'https://twitter.com/exactpro'
@@ -118,7 +118,7 @@ export default defineNuxtSchema({
         /**
          * Link to the LinkedIn social media page
          *
-         * @type {SocialLinkConfigOptions}
+         * @type {ExactproDocsSocialLinkConfigOptions}
          */
         linkedin: {
           url: 'https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym'
@@ -126,7 +126,7 @@ export default defineNuxtSchema({
         /**
          * Link to the YouTube social media page
          *
-         * @type {SocialLinkConfigOptions}
+         * @type {ExactproDocsSocialLinkConfigOptions}
          */
         youtube: {
           url: 'https://www.youtube.com/c/exactprosystems'
