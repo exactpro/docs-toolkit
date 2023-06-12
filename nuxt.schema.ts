@@ -19,8 +19,21 @@ import type { RobotsTxtOptions } from './server/routes/robots.txt'
 declare global {
   interface ExactproDocsRobotsTxtOptions extends RobotsTxtOptions {}
   interface ExactproDocsSocialLinkConfigOptions {
-    url: string
+    /**
+     * Link to the social network
+     */
+    url?: string
+    /**
+     * Name of the icon to override the default icon
+     *
+     * @see {@link https://icones.js.org/ | Icônes}
+     */
     customIcon?: string
+    /**
+     * Hide the link
+     *
+     * @default false
+     */
     disabled?: boolean
   }
 }
@@ -105,7 +118,9 @@ export default defineNuxtSchema({
          * @type {ExactproDocsSocialLinkConfigOptions}
          */
         facebook: {
-          url: 'https://www.facebook.com/exactpro/'
+          url: 'https://www.facebook.com/exactpro/',
+          customIcon: undefined,
+          disabled: false
         },
         /**
          * Link to the Twitter social media page
@@ -113,7 +128,9 @@ export default defineNuxtSchema({
          * @type {ExactproDocsSocialLinkConfigOptions}
          */
         twitter: {
-          url: 'https://twitter.com/exactpro'
+          url: 'https://twitter.com/exactpro',
+          customIcon: undefined,
+          disabled: false
         },
         /**
          * Link to the LinkedIn social media page
@@ -121,7 +138,9 @@ export default defineNuxtSchema({
          * @type {ExactproDocsSocialLinkConfigOptions}
          */
         linkedin: {
-          url: 'https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym'
+          url: 'https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym',
+          customIcon: undefined,
+          disabled: false
         },
         /**
          * Link to the YouTube social media page
@@ -129,7 +148,9 @@ export default defineNuxtSchema({
          * @type {ExactproDocsSocialLinkConfigOptions}
          */
         youtube: {
-          url: 'https://www.youtube.com/c/exactprosystems'
+          url: 'https://www.youtube.com/c/exactprosystems',
+          customIcon: undefined,
+          disabled: false
         }
       }
     }
