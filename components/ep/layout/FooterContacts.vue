@@ -19,9 +19,8 @@ const config = useAppConfig()
 let contacts = config.exactproDocs.contacts
 type Contact = (typeof config.exactproDocs.contacts)[number]
 
-if ((contacts === undefined) || (contacts.length === 0)) {
-  contacts = 
-  [
+if (contacts === undefined || contacts.length === 0) {
+  contacts = [
     {
       contact: 'docops@exactpro.com',
       type: 'email'
