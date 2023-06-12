@@ -16,8 +16,30 @@
 
 <script setup lang="ts">
 const config = useAppConfig()
-const contacts = config.exactproDocs.contacts
+let contacts = config.exactproDocs.contacts
 type Contact = (typeof config.exactproDocs.contacts)[number]
+
+if ((contacts === undefined) || (contacts.length === 0)) {
+  contacts = 
+  [
+    {
+      contact: 'docops@exactpro.com',
+      type: 'email'
+    },
+    {
+      contact: 'info@exactpro.com',
+      type: 'email'
+    },
+    {
+      contact: '+4402033191644',
+      type: 'phone'
+    },
+    {
+      contact: '+16463403000',
+      type: 'phone'
+    }
+  ]
+}
 
 function getContactIcon(contact: Contact) {
   if (contact.type === 'email') {
