@@ -14,12 +14,15 @@
  * limitations under the License.
  */
 
-import type { RobotsTxtOptions } from './server/routes/robots.txt'
+import type { RobotsTxtOptions as TRobotsTxtOptions } from './server/routes/robots.txt'
 
-interface SocialLinkConfigOptions {
-  url: string
-  customIcon?: string
-  disabled?: boolean
+declare global {
+  interface RobotsTxtOptions extends TRobotsTxtOptions {}
+  interface SocialLinkConfigOptions {
+    url: string
+    customIcon?: string
+    disabled?: boolean
+  }
 }
 
 export default defineNuxtSchema({
