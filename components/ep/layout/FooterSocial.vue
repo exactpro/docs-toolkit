@@ -24,17 +24,17 @@ const social = config.exactproDocs.social
   <div class="flex flex-wrap gap-2">
     <!-- GitHub -->
     <a
-      v-if="!social?.githhub?.disabled"
-      :href="social?.githhub?.url"
+      v-if="!social?.github?.disabled"
+      :href="social?.github?.url"
       target="_blank"
     >
       <img
-        v-if="!social?.githhub?.customIcon"
+        v-if="!social?.github?.customIcon"
         src="../../../assets/img/footer/github.svg"
         alt="Exactpro GitHub page"
         class="icon"
       />
-      <Icon v-else class="icon" :name="social?.githhub?.customIcon" />
+      <Icon v-else class="icon" :name="social?.github?.customIcon" />
     </a>
     <!-- Facebook -->
     <a

@@ -96,7 +96,7 @@ export default defineNuxtSchema({
          *
          * @type {SocialLinkConfigOptions}
          */
-        githhub: {
+        github: {
           url: 'https://github.com/exactpro'
         },
         /**

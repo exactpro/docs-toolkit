@@ -23,7 +23,7 @@ export default defineAppConfig({
       docsDir: '/docs'
     },
     social: {
-      githhub: {
+      github: {
         url: 'https://github.com/exactpro/docs-toolkit'
       }
     },
