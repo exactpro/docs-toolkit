@@ -27,6 +27,9 @@ export default defineAppConfig({
         url: 'https://github.com/exactpro/docs-toolkit'
       }
     },
+    contacts: [
+
+    ],
     seo: {
       robots: [{ UserAgent: '*' }, { Allow: '/' }],
       sitemap: {
