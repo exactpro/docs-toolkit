@@ -18,9 +18,9 @@ import path from 'path'
 
 export default defineEventHandler(() => {
   const config = useAppConfig()
-  const { repoLink, branch, docsDir } = config.exactproDocs.github
-  if (!repoLink) {
-    throw new Error('GitHub repository link is not specified')
+  const { repoLink, branch, docsDir } = config.exactproDocs.github!
+  if (!repoLink || !branch || !docsDir) {
+    return
   }
   return path.join(repoLink, 'edit', branch, docsDir).replaceAll('\\', '/')
 })

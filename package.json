@@ -20,7 +20,7 @@
     "lint:license": "license-check-and-add check",
     "lint": "npm run lint:license && npm run lint:js && npm run lint:prettier",
     "lintfix": "license-check-and-add add add && prettier --write --list-different . && eslint --fix --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
-    "typecheck": "nuxi typecheck",
+    "typecheck": "nuxi typecheck && nuxt typecheck docs/",
     "build": "nuxt build docs/",
     "dev": "nuxt dev docs/",
     "generate": "nuxt generate docs/",
