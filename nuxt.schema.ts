@@ -36,6 +36,11 @@ declare global {
      */
     disabled?: boolean
   }
+
+  interface ExactproDocsContactConfigOptions {
+    type: 'email' | 'phone'
+    contact: string
+  }
 }
 
 export default defineNuxtSchema({
@@ -152,7 +157,13 @@ export default defineNuxtSchema({
           customIcon: undefined,
           disabled: false
         }
-      }
+      },
+      /**
+       * Footer contacts list
+       *
+       * @type {ExactproDocsContactConfigOptions[]}
+       */
+      contacts: []
     }
   }
 })
