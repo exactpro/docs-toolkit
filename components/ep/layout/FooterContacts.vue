@@ -17,7 +17,7 @@
 <script setup lang="ts">
 const config = useAppConfig()
 let contacts = config.exactproDocs.contacts
-type Contact = (typeof config.exactproDocs.contacts)[number]
+type Contact = NonNullable<typeof config.exactproDocs.contacts>[number]
 
 if (!contacts?.length) {
   contacts = [
