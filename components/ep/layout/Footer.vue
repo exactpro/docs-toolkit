@@ -30,47 +30,11 @@
           <span>Build Software to Test Software</span>
         </div>
 
+        <!-- Contact Us -->
         <div class="flex flex-col items-center md:items-start">
           <h2 class="e-footer__h2">Contact Us</h2>
           <hr class="e-footer__hr" />
-          <ul class="flex flex-col justify-center m-1">
-            <li>
-              <a href="mailto:docops@exactpro.com"
-                ><Icon
-                  name="heroicons:envelope"
-                  size="1.5em"
-                  class="inline-block mr-3"
-                />docops@exactpro.com</a
-              >
-            </li>
-            <li>
-              <a href="mailto:info@exactpro.com"
-                ><Icon
-                  name="heroicons:envelope"
-                  size="1.5em"
-                  class="inline-block mr-3"
-                />info@exactpro.com</a
-              >
-            </li>
-            <li>
-              <a href="tel:+4402033191644"
-                ><Icon
-                  name="heroicons:phone"
-                  size="1.5em"
-                  class="inline-block mr-3"
-                />+44 (0) 20 3319 1644</a
-              >
-            </li>
-            <li>
-              <a href="tel:+16463403000"
-                ><Icon
-                  name="heroicons:phone"
-                  size="1.5em"
-                  class="inline-block mr-3"
-                />+1 (646) 340 3000</a
-              >
-            </li>
-          </ul>
+          <EpLayoutFooterContacts class="pt-2" />
         </div>
 
         <div class="flex flex-col items-center md:items-start">

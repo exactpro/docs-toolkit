@@ -24,6 +24,11 @@ interface SocialLinkConfigOptions {
   disabled?: boolean
 }
 
+interface ContactConfigOptions {
+  type: 'email' | 'phone'
+  contact: string
+}
+
 interface ExactproDocsOptions {
   /**
    * Title of the documentation.
@@ -72,6 +77,7 @@ interface ExactproDocsOptions {
     linkedin?: SocialLinkConfigOptions
     youtube?: SocialLinkConfigOptions
   }
+  contacts: ContactConfigOptions[]
 }
 
 declare module 'nuxt/schema' {
