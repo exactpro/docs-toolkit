@@ -14,6 +14,80 @@
  * limitations under the License.
  */
 
+import type { ModuleOptions } from 'nuxt-icon'
+import type { DeepPartial } from './utils/DeepPartial'
+import type { RobotsTxtOptions } from './server/routes/robots.txt'
+
+interface SocialLinkConfigOptions {
+  url: string
+  customIcon?: string
+  disabled?: boolean
+}
+
+interface ContactConfigOptions {
+  type: 'email' | 'phone'
+  contact: string
+}
+
+interface ExactproDocsOptions {
+  /**
+   * Title of the documentation.
+   * It will be displayed in the header and in the browser tab.
+   */
+  title: string
+  /**
+   * Configuration for GitHub integration
+   */
+  github: {
+    /**
+     * Link to the repository on GitHub
+     */
+    repoLink?: string
+    /**
+     * Name of the default branch on GitHub
+     *
+     * @default 'master'
+     */
+    branch: string
+    /**
+     * Path to the directory with documentation files on GitHub
+     * Specify if the documentation is stored in a subdirectory of the repository.
+     *
+     * @default '/'
+     */
+    docsDir: string
+  }
+  seo?: {
+    robots?: RobotsTxtOptions[]
+    sitemap?: {
+      baseUrl?: string
+    }
+    verificationMetaTags?: {
+      name: string
+      content: string
+    }[]
+  }
+  gtag?: {
+    measurementId?: string
+  }
+  social?: {
+    githhub?: SocialLinkConfigOptions
+    facebook?: SocialLinkConfigOptions
+    twitter?: SocialLinkConfigOptions
+    linkedin?: SocialLinkConfigOptions
+    youtube?: SocialLinkConfigOptions
+  }
+  contacts: ContactConfigOptions[]
+}
+
+declare module 'nuxt/schema' {
+  interface AppConfigInput {
+    exactproDocs?: DeepPartial<ExactproDocsOptions>
+    // TODO: Workaround for nuxt-icon types module, delete when https://github.com/nuxt-modules/icon/pull/63 is resolved
+    nuxtIcon?: ModuleOptions
+  }
+}
+
 export default defineAppConfig({
   exactproDocs: {},
   nuxtIcon: {}
