@@ -21,6 +21,20 @@
       <article class="mb-10">
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
           <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
+          <nav
+            class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-32"
+          >
+            <DLayoutSurroundDocCard
+              v-if="doc.before"
+              :doc="doc.before"
+              direction="before"
+            />
+            <DLayoutSurroundDocCard
+              v-if="doc.after"
+              :doc="doc.after"
+              direction="after"
+            />
+          </nav>
         </ContentRenderer>
         <div v-else-if="doc" class="gevamu-prose w-screen">
           <h1>{{ doc._dir.title }} pages</h1>
@@ -41,9 +55,24 @@ export default defineComponent({
     })
     const route = useRoute()
     const toc = useToc()
-    const { data: doc } = await useAsyncData('page-data' + route.path, () => {
-      return queryContent(route.path).findOne()
-    })
+    const { data: doc, error } = useAsyncData(
+      'page-data' + route.path,
+      async () => {
+        const docPromise = queryContent(route.path).findOne()
+        const surroundPromise = queryContent()
+          .only(['_path', 'title', 'description'])
+          .findSurround(route.path, {
+            before: 1,
+            after: 1
+          })
+        const [doc, surround] = await Promise.all([docPromise, surroundPromise])
+        return {
+          ...doc,
+          before: surround[0],
+          after: surround[1]
+        }
+      }
+    )
     toc.value = doc.value?.body?.toc ?? null
 
     return {
