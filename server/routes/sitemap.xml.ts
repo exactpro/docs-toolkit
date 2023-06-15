@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
   // Fetch all documents
   const docs = await serverQueryContent(event).find()
   const sitemap = new SitemapStream({
-    hostname: appConfig.exactproDocs.seo?.sitemap?.baseUrl!
+    hostname: appConfig.exactproDocs.seo?.sitemap?.baseUrl ?? ''
   })
 
   for (const doc of docs) {
