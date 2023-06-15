@@ -24,12 +24,12 @@
           <nav
             class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-32"
           >
-            <DLayoutSurroundDocCard
+            <EpLayoutSurroundDocCard
               v-if="doc.before"
               :doc="doc.before"
               direction="before"
             />
-            <DLayoutSurroundDocCard
+            <EpLayoutSurroundDocCard
               v-if="doc.after"
               :doc="doc.after"
               direction="after"
