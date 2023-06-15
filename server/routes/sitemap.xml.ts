@@ -16,13 +16,14 @@
 
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { serverQueryContent } from '#content/server'
-import appConfig from '~~/app.config'
+// import appConfig from '~~/app.config'
+const appConfig = useAppConfig();
 
 export default defineEventHandler(async (event) => {
   // Fetch all documents
   const docs = await serverQueryContent(event).find()
   const sitemap = new SitemapStream({
-    hostname: appConfig.exactproDocs.hostname
+    hostname: appConfig.exactproDocs.seo?.sitemap?.baseUrl!
   })
 
   for (const doc of docs) {
