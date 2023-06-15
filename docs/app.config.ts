@@ -17,6 +17,6 @@
 export default defineAppConfig({
   exactproDocs: {
     title: 'Docs Template Project',
-    hostname: 'https://example.com'
+    hostname: 'https://exactpro.github.io/docs-toolkit',
   }
 })
