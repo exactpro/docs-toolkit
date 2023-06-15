@@ -14,7 +14,13 @@
  * limitations under the License.
  */
 
-export default defineAppConfig({
-  exactproDocs: {},
-  nuxtIcon: {}
+import path from 'path'
+
+export default defineEventHandler(() => {
+  const config = useAppConfig()
+  const { repoLink, branch, docsDir } = config.exactproDocs.github!
+  if (!repoLink || !branch || !docsDir) {
+    return
+  }
+  return path.join(repoLink, 'edit', branch, docsDir).replaceAll('\\', '/')
 })

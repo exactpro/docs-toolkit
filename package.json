@@ -1,6 +1,6 @@
 {
   "name": "@exactpro/docs-web-toolkit",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Toolkit for creating docs from markdown. Created as Nuxt 3 layer.",
   "main": "nuxt.config.ts",
   "license": "Apache-2.0",
@@ -20,7 +20,7 @@
     "lint:license": "license-check-and-add check",
     "lint": "npm run lint:license && npm run lint:js && npm run lint:prettier",
     "lintfix": "license-check-and-add add add && prettier --write --list-different . && eslint --fix --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
-    "typecheck": "nuxi typecheck",
+    "typecheck": "nuxi typecheck && nuxt typecheck docs/",
     "build": "nuxt build docs/",
     "dev": "nuxt dev docs/",
     "generate": "nuxt generate docs/",
@@ -59,6 +59,7 @@
     "@types/mermaid": "^9.2.0",
     "nuxt": "^3.3.1",
     "nuxt-icon": "^0.3.3",
-    "sitemap": "^7.1.1"
+    "rehype-external-links": "^2.1.0",
+    "vue-gtag-next": "^1.14.0"
   }
 }

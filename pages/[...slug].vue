@@ -15,19 +15,20 @@
   -->
 
 <template>
-  <Head>
-    <Title>{{ doc ? doc.title : '' }}</Title>
-  </Head>
+  <EpPageMeta :doc="doc" />
   <NuxtLayout>
-    <article class="px-4 mt-10 mb-96">
-      <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
-        <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
-      </ContentRenderer>
-      <div v-else-if="doc" class="gevamu-prose w-screen">
-        <h1>{{ doc._dir.title }} pages</h1>
-        <!-- TODO: Generate index page -->
-      </div>
-    </article>
+    <div class="px-4 mt-10 mb-96">
+      <article class="mb-10">
+        <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
+          <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
+        </ContentRenderer>
+        <div v-else-if="doc" class="gevamu-prose w-screen">
+          <h1>{{ doc._dir.title }} pages</h1>
+          <!-- TODO: Generate index page -->
+        </div>
+      </article>
+      <EpLayoutGithubActions v-if="doc" :doc="doc" />
+    </div>
   </NuxtLayout>
 </template>
 

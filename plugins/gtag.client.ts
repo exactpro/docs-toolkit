@@ -14,7 +14,17 @@
  * limitations under the License.
  */
 
-export default defineAppConfig({
-  exactproDocs: {},
-  nuxtIcon: {}
+import VueGtag from 'vue-gtag-next'
+
+export default defineNuxtPlugin((nuxtApp) => {
+  const config = useAppConfig()
+  const measurementId = config.exactproDocs.gtag?.measurementId
+  if (!measurementId) {
+    return
+  }
+  nuxtApp.vueApp.use(VueGtag, {
+    property: {
+      id: measurementId
+    }
+  })
 })
