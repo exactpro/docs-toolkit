@@ -17,7 +17,7 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { serverQueryContent } from '#content/server'
 // import appConfig from '~~/app.config'
-const appConfig = useAppConfig();
+const appConfig = useAppConfig()
 
 export default defineEventHandler(async (event) => {
   // Fetch all documents
