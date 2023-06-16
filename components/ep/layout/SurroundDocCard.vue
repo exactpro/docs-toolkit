@@ -29,17 +29,25 @@ defineProps<{
 </script>
 
 <template>
-  <NuxtLink :to="doc._path" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+  <NuxtLink
+    :to="doc._path"
+    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+  >
     <div>
       <div v-if="direction === 'before'" class="mb-2">
-        <span class="bg-secondary-100 text-gray-800 font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
-          <Icon name="ic:sharp-arrow-back-ios" class="leading-4 mb-1"/>Previous
+        <span
+          class="bg-secondary-100 text-gray-800 font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"
+        >
+          <Icon name="ic:sharp-arrow-back-ios" class="leading-4 mb-1" />Previous
           <!--TODO: shink flexbox -->
-      </span>
+        </span>
       </div>
-      <div v-else class="mb-2"><span class="bg-secondary-100 text-gray-800 font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">Next
-        
-          <Icon name="ic:sharp-arrow-forward-ios" class="leading-4 mb-1"/>
+      <div v-else class="mb-2">
+        <span
+          class="bg-secondary-100 text-gray-800 font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"
+          >Next
+
+          <Icon name="ic:sharp-arrow-forward-ios" class="leading-4 mb-1" />
         </span>
       </div>
       <h4 class="text-xl font-bold">{{ doc.title }}</h4>
@@ -47,4 +55,3 @@ defineProps<{
     </div>
   </NuxtLink>
 </template>
-
