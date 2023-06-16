@@ -34,9 +34,7 @@ defineProps<{
       <div v-if="direction === 'before'">
         <Icon name="ic:sharp-arrow-back-ios" />Previous
       </div>
-      <div v-else>
-        Next<Icon name="ic:sharp-arrow-forward-ios" />
-      </div>
+      <div v-else>Next<Icon name="ic:sharp-arrow-forward-ios" /></div>
       <h4 class="text-xl font-bold">{{ doc.title }}</h4>
       <p>{{ doc.description }}</p>
     </div>

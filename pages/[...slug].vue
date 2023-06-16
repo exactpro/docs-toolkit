@@ -47,32 +47,39 @@
 </template>
 
 <script lang="ts">
+import {
+  ParsedContent,
+  MarkdownParsedContent
+} from '@nuxt/content/dist/runtime/types'
+
+// TODO: check how to use native type instead of DocParsedContent
+interface DocParsedContent extends MarkdownParsedContent {
+  _dir: { title: string }
+}
+
 export default defineComponent({
   name: 'ContentPage',
-  async setup() {
+  setup() {
     definePageMeta({
       layout: 'docs'
     })
     const route = useRoute()
     const toc = useToc()
-    const { data: doc, error } = useAsyncData(
-      'page-data' + route.path,
-      async () => {
-        const docPromise = queryContent(route.path).findOne()
-        const surroundPromise = queryContent()
-          .only(['_path', 'title', 'description'])
-          .findSurround(route.path, {
-            before: 1,
-            after: 1
-          })
-        const [doc, surround] = await Promise.all([docPromise, surroundPromise])
-        return {
-          ...doc,
-          before: surround[0],
-          after: surround[1]
-        }
+    const { data: doc } = useAsyncData('page-data' + route.path, async () => {
+      const docPromise = queryContent<DocParsedContent>(route.path).findOne()
+      const surroundPromise = queryContent()
+        .only(['_path', 'title', 'description'])
+        .findSurround(route.path, {
+          before: 1,
+          after: 1
+        })
+      const [doc, surround] = await Promise.all([docPromise, surroundPromise])
+      return {
+        ...doc,
+        before: surround[0] as ParsedContent,
+        after: surround[1] as ParsedContent
       }
-    )
+    })
     toc.value = doc.value?.body?.toc ?? null
 
     return {
