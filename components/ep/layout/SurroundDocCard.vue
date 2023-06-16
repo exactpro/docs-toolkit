@@ -33,12 +33,13 @@ defineProps<{
     <div>
       <div v-if="direction === 'before'" class="mb-2">
         <span class="bg-secondary-100 text-gray-800 font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
-          <Icon name="ic:sharp-arrow-back-ios" />Previous
+          <Icon name="ic:sharp-arrow-back-ios" class="leading-4 mb-1"/>Previous
+          <!--TODO: shink flexbox -->
       </span>
       </div>
       <div v-else class="mb-2"><span class="bg-secondary-100 text-gray-800 font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">Next
         
-          <Icon name="ic:sharp-arrow-forward-ios" />
+          <Icon name="ic:sharp-arrow-forward-ios" class="leading-4 mb-1"/>
         </span>
       </div>
       <h4 class="text-xl font-bold">{{ doc.title }}</h4>
