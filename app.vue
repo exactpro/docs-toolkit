@@ -17,11 +17,22 @@
 <script setup>
 const config = useAppConfig().exactproDocs
 
-useHead({
+useSeoMeta({
   titleTemplate: (title) => {
     if (title) return `${title} | ${config.title}`
     return title
-  }
+  },
+  description: config?.seo?.description ?? null,
+  generator: '@exactpro/docs-web-toolkit'
+})
+
+useHead({
+  meta: [
+    {
+      name: 'keywords',
+      content: config?.seo?.keywords?.join(', ') ?? ''
+    }
+  ]
 })
 </script>
 
