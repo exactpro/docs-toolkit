@@ -20,6 +20,7 @@ const defaultTheme = require('tailwindcss/defaultTheme') // eslint-disable-line 
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
