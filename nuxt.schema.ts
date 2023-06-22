@@ -78,6 +78,20 @@ export default defineNuxtSchema({
       },
       seo: {
         /**
+         * Description of the documentation. It will be displayed in search results.
+         * If some page has a description, it will be used instead of this one.
+         *
+         * @type {?string}
+         */
+        description: undefined,
+        /**
+         * Keywords for the documentation. They will be displayed in search results.
+         *
+         * @type {string[]}
+         * @example ['exactpro', 'documentation', 'nuxt']
+         */
+        keywords: [],
+        /**
          * Configuration for robots.txt
          * @see {@link https://github.com/nuxt-modules/robots | Example of configuration}
          * @type {ExactproDocsRobotsTxtOptions[]}

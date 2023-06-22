@@ -16,7 +16,7 @@
 
 export default defineAppConfig({
   exactproDocs: {
-    title: 'Docs Template Project',
+    title: 'Exactpro Docs Toolkit',
     github: {
       repoLink: 'https://github.com/exactpro/docs-toolkit',
       branch: 'master',
@@ -29,6 +29,9 @@ export default defineAppConfig({
     },
     contacts: [],
     seo: {
+      description:
+        'Documentation toolkit for Exactpro projects powered by Nuxt.js',
+      keywords: ['documentation', 'nuxt3', 'nuxt.js', 'vue.js', 'exactpro'],
       robots: [{ UserAgent: '*' }, { Allow: '/' }],
       sitemap: {
         baseUrl: 'https://exactpro.github.io/docs-toolkit'
