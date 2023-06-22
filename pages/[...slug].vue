@@ -17,7 +17,7 @@
 <template>
   <EpPageMeta :doc="doc" />
   <NuxtLayout>
-    <div class="px-4 mt-10 mb-96">
+    <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
       <article class="mb-10">
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
           <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
@@ -27,7 +27,7 @@
           <!-- TODO: Generate index page -->
         </div>
       </article>
-      <EpLayoutGithubActions v-if="doc" :doc="doc" />
+      <EpLayoutGithubActions v-if="doc" :doc="doc" class="print:hidden" />
     </div>
   </NuxtLayout>
 </template>

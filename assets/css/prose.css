@@ -15,7 +15,7 @@
  */
 
 .gevamu-prose {
-  @apply prose
+  @apply prose print:max-w-[100ch]
     prose-headings:no-underline
     marker:prose-ul:text-accent-200 marker:prose-ol:text-accent-700;
 }
