@@ -22,6 +22,9 @@ const defaultTheme = require('tailwindcss/defaultTheme') // eslint-disable-line 
 module.exports = {
   theme: {
     extend: {
+      screens: {
+        'print': { 'raw': 'print' },
+      },
       fontFamily: {
         sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans]
       },
