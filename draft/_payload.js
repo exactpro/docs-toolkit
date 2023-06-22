@@ -1,0 +1,1 @@
+export default {data:{"page-data/draft":null},prerenderedAt:void 0}
