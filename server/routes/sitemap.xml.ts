@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
 
   for (const doc of docs) {
     sitemap.write({
-      url: '/docs-toolkit' + doc._path,
+      url: appConfig.exactproDocs.seo?.sitemap?.prefix + doc._path,
       changefreq: 'monthly'
     })
   }
