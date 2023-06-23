@@ -21,7 +21,7 @@ const appConfig = useAppConfig()
 
 export default defineEventHandler(async (event) => {
   // Fetch all documents
-  const docs = await serverQueryContent(event).where({ _partial: false }).find()
+  const docs = await serverQueryContent(event).where({ _partial: false, _draft: false }).find()
   const sitemap = new SitemapStream({
     hostname: appConfig.exactproDocs.seo?.sitemap?.baseUrl ?? ''
   })
