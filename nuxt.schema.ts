@@ -90,7 +90,8 @@ export default defineNuxtSchema({
            * @example 'https://exactpro.github.io/docs-toolkit'
            * @type {?string}
            */
-          baseUrl: undefined
+          baseUrl: undefined,
+          prefix: undefined,
         },
         /**
          * Meta tags for verification of the site by search engines
