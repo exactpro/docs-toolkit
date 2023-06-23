@@ -22,7 +22,7 @@
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
           <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
           <nav
-            class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-32"
+            class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-32 print:hidden"
           >
             <EpLayoutSurroundDocCard
               v-if="doc.before"
