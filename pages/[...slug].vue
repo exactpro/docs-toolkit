@@ -21,6 +21,20 @@
       <article class="mb-10">
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
           <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
+          <nav
+            class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-32"
+          >
+            <EpLayoutSurroundDocCard
+              v-if="doc.before"
+              :doc="doc.before"
+              direction="before"
+            />
+            <EpLayoutSurroundDocCard
+              v-if="doc.after"
+              :doc="doc.after"
+              direction="after"
+            />
+          </nav>
         </ContentRenderer>
         <div v-else-if="doc" class="gevamu-prose w-screen">
           <h1>{{ doc._dir.title }} pages</h1>
@@ -33,16 +47,44 @@
 </template>
 
 <script lang="ts">
+import {
+  ParsedContent,
+  MarkdownParsedContent
+} from '@nuxt/content/dist/runtime/types'
+
+// TODO: check how to use native type instead of DocParsedContent
+interface DocParsedContent extends MarkdownParsedContent {
+  _dir: { title: string }
+}
+function removeTrailingSlash(path: string) {
+  if (path.endsWith('/')) {
+    return path.slice(0, -1)
+  }
+  return path
+}
 export default defineComponent({
   name: 'ContentPage',
-  async setup() {
+  setup() {
     definePageMeta({
       layout: 'docs'
     })
     const route = useRoute()
     const toc = useToc()
-    const { data: doc } = await useAsyncData('page-data' + route.path, () => {
-      return queryContent(route.path).findOne()
+    const { data: doc } = useAsyncData('page-data' + route.path, async () => {
+      const docPromise = queryContent<DocParsedContent>(route.path).findOne()
+      const surroundPromise = queryContent()
+        .only(['_path', 'title', 'description', '_partial'])
+        .where({ _partial: false })
+        .findSurround(removeTrailingSlash(route.path), {
+          before: 1,
+          after: 1
+        })
+      const [doc, surround] = await Promise.all([docPromise, surroundPromise])
+      return {
+        ...doc,
+        before: surround[0] as ParsedContent,
+        after: surround[1] as ParsedContent
+      }
     })
     toc.value = doc.value?.body?.toc ?? null
 
