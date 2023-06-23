@@ -1,1 +1,0 @@
-[{"_path":"/customization","_partial":false,"title":"Customization","description":""},{"_path":"/deployment/web-server-nginx","_partial":false,"title":"1. Web-server","description":"While in project directory, use npm run generate command do get html files, that you will place to your server via SSH or any other way.\nAll generated files located in two directories:"}]
