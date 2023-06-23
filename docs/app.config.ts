@@ -31,8 +31,7 @@ export default defineAppConfig({
     seo: {
       robots: [{ UserAgent: '*' }, { Allow: '/' }],
       sitemap: {
-        baseUrl: 'https://exactpro.github.io',
-        prefix: 'docs-toolkit'
+        baseUrl: 'https://exactpro.github.io/docs-toolkit'
       },
       verificationMetaTags: [
         // <meta name="google-site-verification" content="PYzR06VK4UIZvGdBkMh_TkqOu83QxapFJknyAR58yJA" />

@@ -15,25 +15,30 @@
  */
 
 import { SitemapStream, streamToPromise } from 'sitemap'
-import { joinURL } from 'ufo'
+import { joinURL, parseURL, withProtocol } from 'ufo'
 import { serverQueryContent } from '#content/server'
 const appConfig = useAppConfig()
+
+const path = parseURL(appConfig.exactproDocs.seo?.sitemap?.baseUrl ?? '')
 
 export default defineEventHandler(async (event) => {
   // Fetch all documents
   const docs = await serverQueryContent(event)
     .where({ _partial: false, _draft: false })
     .find()
+  if (!path.host || !path.protocol) {
+    throw new Error('host or protocol not found')
+  }
   const sitemap = new SitemapStream({
-    hostname: appConfig.exactproDocs.seo?.sitemap?.baseUrl ?? ''
+    hostname: withProtocol(path.host, path.protocol)
   })
 
   for (const doc of docs) {
+    if (!doc._path) {
+      continue
+    }
     sitemap.write({
-      url: joinURL(
-        appConfig.exactproDocs.seo?.sitemap?.prefix ?? '',
-        String(doc._path)
-      ),
+      url: joinURL(path.pathname, doc._path),
       changefreq: 'monthly'
     })
   }
