@@ -91,7 +91,7 @@ export default defineNuxtSchema({
            * @type {?string}
            */
           baseUrl: undefined,
-          prefix: undefined,
+          prefix: undefined
         },
         /**
          * Meta tags for verification of the site by search engines
