@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
   for (const doc of docs) {
     sitemap.write({
       url: joinURL(
-        appConfig.exactproDocs.seo?.sitemap?.prefix, String(doc._path),
+        appConfig.exactproDocs.seo?.sitemap?.prefix ?? '', String(doc._path),
       ),
       changefreq: 'monthly'
     })
