@@ -15,21 +15,25 @@
  */
 
 import { SitemapStream, streamToPromise } from 'sitemap'
-import { serverQueryContent } from '#content/server'
 import { joinURL } from 'ufo'
+import { serverQueryContent } from '#content/server'
 // import appConfig from '~~/app.config'
 const appConfig = useAppConfig()
 
 export default defineEventHandler(async (event) => {
   // Fetch all documents
-  const docs = await serverQueryContent(event).where({ _partial: false, _draft: false }).find()
+  const docs = await serverQueryContent(event)
+    .where({ _partial: false, _draft: false })
+    .find()
   const sitemap = new SitemapStream({
     hostname: appConfig.exactproDocs.seo?.sitemap?.baseUrl ?? ''
   })
 
   for (const doc of docs) {
     sitemap.write({
-      url: joinURL(appConfig.exactproDocs.seo?.sitemap?.prefix + String(doc._path)),
+      url: joinURL(
+        appConfig.exactproDocs.seo?.sitemap?.prefix + String(doc._path)
+      ),
       changefreq: 'monthly'
     })
   }
