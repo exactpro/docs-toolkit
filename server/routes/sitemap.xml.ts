@@ -16,6 +16,7 @@
 
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { serverQueryContent } from '#content/server'
+import { joinURL } from 'ufo'
 // import appConfig from '~~/app.config'
 const appConfig = useAppConfig()
 
@@ -28,7 +29,7 @@ export default defineEventHandler(async (event) => {
 
   for (const doc of docs) {
     sitemap.write({
-      url: appConfig.exactproDocs.seo?.sitemap?.prefix + doc._path,
+      url: joinURL(appConfig.exactproDocs.seo?.sitemap?.prefix + String(doc._path)),
       changefreq: 'monthly'
     })
   }
