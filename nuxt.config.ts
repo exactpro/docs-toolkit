@@ -33,7 +33,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss', 'nuxt-icon'],
   nitro: {
     prerender: {
-      routes: ['/robots.txt']
+      routes: ['/robots.txt', '/sitemap.xml']
     }
   },
   content: {

@@ -101,7 +101,7 @@ export default defineNuxtSchema({
           /**
            * Base URL for sitemap. All links in sitemap will be relative to this URL.
            *
-           * @example 'https://exactpro.github.io/docs-toolkit'
+           * @example 'https://exactpro.github.io'
            * @type {?string}
            */
           baseUrl: undefined
