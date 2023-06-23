@@ -52,16 +52,13 @@ import {
   MarkdownParsedContent
 } from '@nuxt/content/dist/runtime/types'
 
+import { withoutTrailingSlash } from 'ufo'
+
 // TODO: check how to use native type instead of DocParsedContent
 interface DocParsedContent extends MarkdownParsedContent {
   _dir: { title: string }
 }
-function removeTrailingSlash(path: string) {
-  if (path.endsWith('/')) {
-    return path.slice(0, -1)
-  }
-  return path
-}
+
 export default defineComponent({
   name: 'ContentPage',
   setup() {
@@ -75,7 +72,7 @@ export default defineComponent({
       const surroundPromise = queryContent()
         .only(['_path', 'title', 'description', '_partial'])
         .where({ _partial: false })
-        .findSurround(removeTrailingSlash(route.path), {
+        .findSurround(withoutTrailingSlash(route.path), {
           before: 1,
           after: 1
         })
