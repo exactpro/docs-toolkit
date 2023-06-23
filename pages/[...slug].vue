@@ -70,8 +70,8 @@ export default defineComponent({
     const { data: doc } = useAsyncData('page-data' + route.path, async () => {
       const docPromise = queryContent<DocParsedContent>(route.path).findOne()
       const surroundPromise = queryContent()
-        .only(['_path', 'title', 'description', '_partial'])
-        .where({ _partial: false })
+        .only(['_path', '_draft', 'title', 'description', '_partial'])
+        .where({ _partial: false, _draft: false })
         .findSurround(withoutTrailingSlash(route.path), {
           before: 1,
           after: 1
