@@ -55,7 +55,7 @@
         </LazyClientOnly>
         <slot />
       </main>
-      <aside class="px-4 md:px-0 md:w-72">
+      <aside class="px-4 md:px-0 md:w-30">
         <nav v-if="toc" class="md:sticky md:z-0 md:top-32 md:overflow-hidden">
           <h1 v-if="toc.links.length" class="text-neutral-500 mb-2">
             On this page:
