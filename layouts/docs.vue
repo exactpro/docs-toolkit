@@ -18,13 +18,13 @@
   <div class="grid min-h-screen grid-rows-[1fr_auto]">
     <EpLayoutHeader
       v-model:show-content-tree="showContentTree"
-      class="fixed z-30"
+      class="fixed z-30 print:hidden"
     />
     <div
-      class="pt-24 flex mx-auto w-fit flex-col-reverse md:grid md:max-w-screen-xl md:w-full md:grid-cols-[1fr_auto] lg:grid-cols-[auto_1fr_auto]"
+      class="pt-24 print:pt-0 flex mx-auto w-fit print:w-full flex-col-reverse md:grid md:max-w-screen-xl md:w-full md:grid-cols-[1fr_auto] lg:grid-cols-[auto_1fr_auto] print:block"
     >
       <aside
-        class="w-72 px-3 fixed z-20 h-full bg-neutral-50 top-0 transition-all lg:h-auto lg:relative lg:bg-inherit lg:left-0"
+        class="w-72 px-3 fixed z-20 h-full bg-neutral-50 top-0 transition-all lg:h-auto lg:relative lg:bg-inherit lg:left-0 print:hidden"
         :class="{
           '-left-72': !showContentTree,
           'left-0': showContentTree
@@ -55,7 +55,7 @@
         </LazyClientOnly>
         <slot />
       </main>
-      <aside class="px-4 md:px-0 md:w-72">
+      <aside class="px-4 md:px-0 md:w-72 print:hidden">
         <nav v-if="toc" class="md:sticky md:z-0 md:top-32 md:overflow-hidden">
           <h1 v-if="toc.links.length" class="text-neutral-500 mb-2">
             On this page:
@@ -65,7 +65,7 @@
         <hr class="mt-5 md:hidden" />
       </aside>
     </div>
-    <EpLayoutFooter />
+    <EpLayoutFooter class="print:hidden" />
   </div>
 </template>
 
