@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
+import { resolveURL } from 'ufo'
 
 const props = defineProps<{
   doc: Pick<ParsedContent, string>
@@ -23,17 +24,16 @@ const props = defineProps<{
 
 const githubInfo = useAppConfig().exactproDocs.github!
 
-const { data: editBasePath } = useFetch(
-  '/api/_docs-toolkit/github/edit-base-path'
+const editPath = resolveURL(
+  githubInfo.repoLink!,
+  'edit',
+  githubInfo.branch!,
+  githubInfo.docsDir!,
+  props.doc._source,
+  props.doc._file
 )
 
-const editPath = computed(() => {
-  return `${editBasePath.value}/${props.doc._source}/${props.doc._file}`
-})
-
-const createIssuePath = computed(() => {
-  return `${githubInfo.repoLink}/issues/new/choose`
-})
+const createIssuePath = resolveURL(githubInfo.repoLink!, '/issues/new/choose')
 </script>
 
 <template>
