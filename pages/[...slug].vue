@@ -83,7 +83,24 @@ export default defineComponent({
         after: surround[1] as ParsedContent
       }
     })
-    toc.value = doc.value?.body?.toc ?? null
+
+    function updateToc() {
+      if (doc.value) {
+        toc.value = doc.value?.body?.toc ?? null
+      }
+    }
+
+    onMounted(() => {
+      updateToc()
+    })
+
+    const stopWatchDoc = watch(doc, () => {
+      updateToc()
+    })
+
+    onBeforeUnmount(() => {
+      stopWatchDoc()
+    })
 
     return {
       doc
