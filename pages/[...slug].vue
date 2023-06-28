@@ -66,7 +66,7 @@ export default defineComponent({
       layout: 'docs'
     })
     const route = useRoute()
-    const toc = useToc()
+
     const { data: doc } = useAsyncData('page-data' + route.path, async () => {
       const docPromise = queryContent<DocParsedContent>(route.path).findOne()
       const surroundPromise = queryContent()
@@ -84,23 +84,7 @@ export default defineComponent({
       }
     })
 
-    function updateToc() {
-      if (doc.value) {
-        toc.value = doc.value?.body?.toc ?? null
-      }
-    }
-
-    onMounted(() => {
-      updateToc()
-    })
-
-    const stopWatchDoc = watch(doc, () => {
-      updateToc()
-    })
-
-    onBeforeUnmount(() => {
-      stopWatchDoc()
-    })
+    useTocUpdate(doc)
 
     return {
       doc
