@@ -18,6 +18,11 @@
   <EpPageMeta :doc="doc" />
   <NuxtLayout>
     <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
+      <div>
+        <nav>
+          <NuxtLink :to="breadcrumbs">{{ breadcrumbs }}</NuxtLink>
+        </nav>
+      </div>
       <article class="mb-10">
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
           <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
@@ -53,6 +58,7 @@ import {
 } from '@nuxt/content/dist/runtime/types'
 
 import { withoutTrailingSlash } from 'ufo'
+import { getBreadCrumbs } from '../utils/breadcrumbs'
 
 // TODO: check how to use native type instead of DocParsedContent
 interface DocParsedContent extends MarkdownParsedContent {
@@ -61,10 +67,11 @@ interface DocParsedContent extends MarkdownParsedContent {
 
 export default defineComponent({
   name: 'ContentPage',
-  setup() {
+  async setup() {
     definePageMeta({
       layout: 'docs'
     })
+    const breadcrumbs = await getBreadCrumbs()
     const route = useRoute()
     const toc = useToc()
     const { data: doc } = useAsyncData('page-data' + route.path, async () => {
