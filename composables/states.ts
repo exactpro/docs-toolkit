@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-import { Toc, ParsedContent } from '@nuxt/content/dist/runtime/types'
+import { ParsedContent } from '@nuxt/content/dist/runtime/types'
 import { Ref } from 'vue'
 
-export const useToc = () => useState<Toc | null>('toc', () => null)
 export const useShowContentTree = () =>
   useState<boolean>('showContentTree', () => false)
 export const useTermPopup = () => {

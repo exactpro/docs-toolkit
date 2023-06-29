@@ -41,14 +41,14 @@ const createIssuePath = resolveURL(githubInfo.repoLink!, '/issues/new/choose')
     v-if="githubInfo.repoLink"
     class="flex justify-end gap-4 flex-wrap items-center"
   >
-    <a :href="editPath" class="github-action-button">
+    <a :href="editPath" target="_blank" class="github-action-button">
       <Icon
         class="w-4 h-4 mr-2 text-primary"
         name="heroicons:pencil-square-solid"
       />
       <span>Edit this page</span>
     </a>
-    <a :href="createIssuePath" class="github-action-button">
+    <a :href="createIssuePath" target="_blank" class="github-action-button">
       <Icon
         class="w-4 h-4 mr-2 text-error"
         name="heroicons:chat-bubble-left-20-solid"
