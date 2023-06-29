@@ -66,7 +66,7 @@ export default defineComponent({
       layout: 'docs'
     })
     const route = useRoute()
-    const toc = useToc()
+
     const { data: doc } = useAsyncData('page-data' + route.path, async () => {
       const docPromise = queryContent<DocParsedContent>(route.path).findOne()
       const surroundPromise = queryContent()
@@ -83,7 +83,8 @@ export default defineComponent({
         after: surround[1] as ParsedContent
       }
     })
-    toc.value = doc.value?.body?.toc ?? null
+
+    useTocUpdate(doc)
 
     return {
       doc
