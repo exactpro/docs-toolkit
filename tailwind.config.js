@@ -23,6 +23,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        print: { raw: 'print' }
+      },
       fontFamily: {
         sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans]
       },

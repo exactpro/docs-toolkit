@@ -17,12 +17,12 @@
 <template>
   <EpPageMeta :doc="doc" />
   <NuxtLayout>
-    <div class="px-4 mt-10 mb-96">
+    <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
       <article class="mb-10">
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
           <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
           <nav
-            class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-32"
+            class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-32 print:hidden"
           >
             <EpLayoutSurroundDocCard
               v-if="doc.before"
@@ -41,7 +41,7 @@
           <!-- TODO: Generate index page -->
         </div>
       </article>
-      <EpLayoutGithubActions v-if="doc" :doc="doc" />
+      <EpLayoutGithubActions v-if="doc" :doc="doc" class="print:hidden" />
     </div>
   </NuxtLayout>
 </template>
@@ -52,16 +52,13 @@ import {
   MarkdownParsedContent
 } from '@nuxt/content/dist/runtime/types'
 
+import { withoutTrailingSlash } from 'ufo'
+
 // TODO: check how to use native type instead of DocParsedContent
 interface DocParsedContent extends MarkdownParsedContent {
   _dir: { title: string }
 }
-function removeTrailingSlash(path: string) {
-  if (path.endsWith('/')) {
-    return path.slice(0, -1)
-  }
-  return path
-}
+
 export default defineComponent({
   name: 'ContentPage',
   setup() {
@@ -73,9 +70,9 @@ export default defineComponent({
     const { data: doc } = useAsyncData('page-data' + route.path, async () => {
       const docPromise = queryContent<DocParsedContent>(route.path).findOne()
       const surroundPromise = queryContent()
-        .only(['_path', 'title', 'description', '_partial'])
-        .where({ _partial: false })
-        .findSurround(removeTrailingSlash(route.path), {
+        .only(['_path', '_draft', 'title', 'description', '_partial'])
+        .where({ _partial: false, _draft: false })
+        .findSurround(withoutTrailingSlash(route.path), {
           before: 1,
           after: 1
         })
