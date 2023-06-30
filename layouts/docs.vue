@@ -21,7 +21,7 @@
       class="fixed z-30 print:hidden"
     />
     <div
-      class="pt-24 print:pt-0 flex mx-auto w-fit print:w-full flex-col-reverse md:grid md:max-w-screen-xl md:w-full md:grid-cols-[1fr_auto] lg:grid-cols-[auto_1fr_auto] print:block"
+      class="pt-24 print:pt-0 flex mx-auto w-fit print:w-full flex-col-reverse md:grid md:max-w-screen-xl md:w-full md:grid-cols-[1fr_auto] lg:grid-cols-[auto_1fr_auto] lg:max-w-[1200px] print:block"
     >
       <aside
         class="w-72 px-3 fixed z-20 h-full bg-neutral-50 top-0 transition-all lg:h-auto lg:relative lg:bg-inherit lg:left-0 print:hidden"
