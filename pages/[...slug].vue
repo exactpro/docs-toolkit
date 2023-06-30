@@ -17,7 +17,7 @@
 <template>
   <EpPageMeta :doc="doc" />
   <NuxtLayout>
-    <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
+    <div class="px-4 md:pr-6 print:px-8 mt-10 mb-96 print:mb-0">
       <article class="mb-10">
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
           <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
