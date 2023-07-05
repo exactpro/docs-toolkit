@@ -14,33 +14,31 @@
  * limitations under the License.
  */
 
-import type { RobotsTxtOptions } from './server/routes/robots.txt'
+// If new global type for config is required, add it to ./modules/docs-toolkit-config.ts
+export type { RobotsTxtOptions as ExactproDocsRobotsTxtOptions } from './server/routes/robots.txt'
 
-declare global {
-  interface ExactproDocsRobotsTxtOptions extends RobotsTxtOptions {}
-  interface ExactproDocsSocialLinkConfigOptions {
-    /**
-     * Link to the social network
-     */
-    url?: string
-    /**
-     * Name of the icon to override the default icon
-     *
-     * @see {@link https://icones.js.org/ | Icônes}
-     */
-    customIcon?: string
-    /**
-     * Hide the link
-     *
-     * @default false
-     */
-    disabled?: boolean
-  }
+export interface ExactproDocsSocialLinkConfigOptions {
+  /**
+   * Link to the social network
+   */
+  url?: string
+  /**
+   * Name of the icon to override the default icon
+   *
+   * @see {@link https://icones.js.org/ | Icônes}
+   */
+  customIcon?: string
+  /**
+   * Hide the link
+   *
+   * @default false
+   */
+  disabled?: boolean
+}
 
-  interface ExactproDocsContactConfigOptions {
-    type: 'email' | 'phone'
-    contact: string
-  }
+export interface ExactproDocsContactConfigOptions {
+  type: 'email' | 'phone'
+  contact: string
 }
 
 export default defineNuxtSchema({
