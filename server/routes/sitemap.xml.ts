@@ -17,6 +17,7 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { joinURL, parseURL, withProtocol } from 'ufo'
 import { serverQueryContent } from '#content/server'
+import wTrailingSlash from '../../utils/wTrailingSlash'
 const appConfig = useAppConfig()
 
 const path = parseURL(appConfig.exactproDocs.seo?.sitemap?.baseUrl ?? '')
@@ -38,7 +39,7 @@ export default defineEventHandler(async (event) => {
       continue
     }
     sitemap.write({
-      url: joinURL(path.pathname, doc._path),
+      url: wTrailingSlash(joinURL(path.pathname, doc._path)),
       changefreq: 'monthly'
     })
   }

@@ -45,6 +45,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { TocLink } from '@nuxt/content/dist/runtime/types'
+import wTrailingSlash from '../../../utils/wTrailingSlash'
 
 export default defineComponent({
   name: 'TableOfContentsItem',
