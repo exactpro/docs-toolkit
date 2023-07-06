@@ -57,7 +57,6 @@ import { defineComponent } from 'vue'
 import { NavItem } from '@nuxt/content/dist/runtime/types'
 import wTrailingSlash from '../../../utils/wTrailingSlash'
 
-
 export default defineComponent({
   name: 'ContentNavigationItem',
   props: {
@@ -74,8 +73,7 @@ export default defineComponent({
     return {
       showChildren: ref(false),
       showContentTree: useShowContentTree(),
-      wTrailingSlash: wTrailingSlash
-
+      wTrailingSlash
     }
   },
   computed: {

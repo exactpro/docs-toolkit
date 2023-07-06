@@ -16,8 +16,8 @@
 
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { joinURL, parseURL, withProtocol } from 'ufo'
-import { serverQueryContent } from '#content/server'
 import wTrailingSlash from '../../utils/wTrailingSlash'
+import { serverQueryContent } from '#content/server'
 const appConfig = useAppConfig()
 
 const path = parseURL(appConfig.exactproDocs.seo?.sitemap?.baseUrl ?? '')
