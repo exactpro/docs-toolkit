@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-import { withTrailingSlash as ufoWithTrailingSlash  } from 'ufo'
+import { withTrailingSlash as ufoWithTrailingSlash } from 'ufo'
 
 export function withTrailingSlash(str: string | undefined): string | undefined {
-    return ufoWithTrailingSlash(str)
+  return ufoWithTrailingSlash(str)
 }
-
