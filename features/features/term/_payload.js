@@ -1,0 +1,1 @@
+export default {data:{"page-data/features/features/term":null},prerenderedAt:void 0}

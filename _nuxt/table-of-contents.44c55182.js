@@ -1,0 +1,1 @@
+import{P as c,p as s,f as r,J as f}from"./entry.fc83830f.js";function l(){return c("toc",()=>null)}function i(t){const e=l();function o(){var u,a;t.value&&(e.value=((a=(u=t.value)==null?void 0:u.body)==null?void 0:a.toc)??null)}const n=s(t,()=>{o()});return r(()=>{o()}),f(()=>{n()}),n}export{l as a,i as u};
