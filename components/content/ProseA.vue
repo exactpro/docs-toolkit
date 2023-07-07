@@ -15,7 +15,7 @@
   -->
 
 <script setup lang="ts">
-import wTrailingSlash from '../../utils/wTrailingSlash'
+import withTrailingSlash from '../../utils/wTrailingSlash'
 
 defineProps({
   href: {
@@ -31,7 +31,7 @@ defineProps({
 </script>
 
 <template>
-  <NuxtLink :href="wTrailingSlash(href)" :target="target">
+  <NuxtLink :href="withTrailingSlash(href)" :target="target">
     <slot />
   </NuxtLink>
 </template>

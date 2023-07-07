@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-import { withTrailingSlash } from 'ufo'
+import { withTrailingSlash as ufoWithTrailingSlash  } from 'ufo'
 
-function wTrailingSlash(str: string | undefined): string | undefined {
+function withTrailingSlash(str: string | undefined): string | undefined {
   if (typeof str === 'string') {
-    const result = withTrailingSlash(str)
+    const result = ufoWithTrailingSlash(str)
     return result
   } else {
     return undefined
   }
 }
 
-export default wTrailingSlash
+export default withTrailingSlash

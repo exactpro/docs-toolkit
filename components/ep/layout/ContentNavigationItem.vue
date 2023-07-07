@@ -32,7 +32,7 @@
         @click="showChildren = !showChildren"
       />
       <NuxtLink
-        :to="wTrailingSlash(navItem._path)"
+        :to="withTrailingSlash(navItem._path)"
         class="w-full"
         @click="showContentTree = false"
       >
@@ -55,7 +55,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { NavItem } from '@nuxt/content/dist/runtime/types'
-import wTrailingSlash from '../../../utils/wTrailingSlash'
+import withTrailingSlash from '../../../utils/wTrailingSlash'
 
 export default defineComponent({
   name: 'ContentNavigationItem',
@@ -73,7 +73,7 @@ export default defineComponent({
     return {
       showChildren: ref(false),
       showContentTree: useShowContentTree(),
-      wTrailingSlash
+      withTrailingSlash
     }
   },
   computed: {
