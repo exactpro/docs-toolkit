@@ -15,7 +15,7 @@
   -->
 
 <script setup lang="ts">
-import withTrailingSlash from '../../utils/wTrailingSlash'
+import { withTrailingSlash } from '../../utils/navigation'
 
 defineProps({
   href: {

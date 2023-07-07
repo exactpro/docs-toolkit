@@ -55,7 +55,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { NavItem } from '@nuxt/content/dist/runtime/types'
-import withTrailingSlash from '../../../utils/wTrailingSlash'
+import { withTrailingSlash } from '../../../utils/navigation'
 
 export default defineComponent({
   name: 'ContentNavigationItem',

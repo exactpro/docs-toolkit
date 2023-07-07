@@ -16,7 +16,7 @@
 
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { joinURL, parseURL, withProtocol } from 'ufo'
-import withTrailingSlash from '../../utils/wTrailingSlash'
+import { withTrailingSlash } from '../../utils/navigation'
 import { serverQueryContent } from '#content/server'
 const appConfig = useAppConfig()
 

@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { ParsedContent } from '@nuxt/content/dist/runtime/types'
-import withTrailingSlash from '../../../utils/wTrailingSlash'
+import { withTrailingSlash } from '../../../utils/navigation'
 export default {
   name: 'EpLayoutSurroundDocCard'
 }

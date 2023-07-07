@@ -16,7 +16,7 @@
 
 import { withTrailingSlash as ufoWithTrailingSlash  } from 'ufo'
 
-function withTrailingSlash(str: string | undefined): string | undefined {
+export function withTrailingSlash(str: string | undefined): string | undefined {
   if (typeof str === 'string') {
     const result = ufoWithTrailingSlash(str)
     return result
@@ -25,4 +25,3 @@ function withTrailingSlash(str: string | undefined): string | undefined {
   }
 }
 
-export default withTrailingSlash
