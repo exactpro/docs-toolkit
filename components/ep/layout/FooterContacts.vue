@@ -30,11 +30,11 @@ if (!contacts?.length) {
       type: 'email'
     },
     {
-      contact: '+4402033191644',
+      contact: '+44 (0) 20 3319 1644',
       type: 'phone'
     },
     {
-      contact: '+16463403000',
+      contact: '+1 (646) 340 3000',
       type: 'phone'
     }
   ]
