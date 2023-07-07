@@ -44,138 +44,156 @@ export interface ExactproDocsContactConfigOptions {
 export default defineNuxtSchema({
   appConfig: {
     exactproDocs: {
-      /**
-       * Title of the documentation.
-       * It will be displayed in the header and in the browser tab.
-       *
-       * @type {string}
-       */
-      title: 'Exactpro Documentation',
-      /**
-       * Configuration for GitHub integration
-       */
-      github: {
-        /**
-         * Link to the repository on GitHub
-         *
-         * @default undefined
-         * @type {?string}
-         */
-        repoLink: undefined,
-        /**
-         * Name of the default branch on GitHub
-         *
-         */
-        branch: 'master',
-        /**
-         * Path to the directory with documentation files on GitHub
-         * Specify if the documentation is stored in a subdirectory of the repository.
-         *
-         */
-        docsDir: '/'
-      },
-      seo: {
-        /**
-         * Description of the documentation. It will be displayed in search results.
-         * If some page has a description, it will be used instead of this one.
-         *
-         * @type {?string}
-         */
-        description: undefined,
-        /**
-         * Keywords for the documentation. They will be displayed in search results.
-         *
-         * @type {string[]}
-         * @example ['exactpro', 'documentation', 'nuxt']
-         */
-        keywords: [],
-        /**
-         * Configuration for robots.txt
-         * @see {@link https://github.com/nuxt-modules/robots | Example of configuration}
-         * @type {ExactproDocsRobotsTxtOptions[]}
-         */
-        robots: [],
-        sitemap: {
-          /**
-           * Base URL for sitemap. All links in sitemap will be relative to this URL.
-           *
-           * @example 'https://exactpro.github.io'
-           * @type {?string}
-           */
-          baseUrl: undefined
-        },
-        /**
-         * Meta tags for verification of the site by search engines
-         *
-         * @see {@link https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification | Verify your site ownership }
-         * @type {{ name: string, content: string }[]}
-         */
-        verificationMetaTags: []
-      },
-      gtag: {
-        /**
-         * Measurement ID for Google Analytics
-         *
-         * @type {?string}
-         */
-        measurementId: undefined
-      },
-      social: {
-        /**
-         * Link to the GitHub social media page
-         *
-         * @type {ExactproDocsSocialLinkConfigOptions}
-         */
-        github: {
-          url: 'https://github.com/exactpro'
-        },
-        /**
-         * Link to the Facebook social media page
-         *
-         * @type {ExactproDocsSocialLinkConfigOptions}
-         */
-        facebook: {
-          url: 'https://www.facebook.com/exactpro/',
-          customIcon: undefined,
-          disabled: false
-        },
-        /**
-         * Link to the Twitter social media page
-         *
-         * @type {ExactproDocsSocialLinkConfigOptions}
-         */
-        twitter: {
-          url: 'https://twitter.com/exactpro',
-          customIcon: undefined,
-          disabled: false
-        },
-        /**
-         * Link to the LinkedIn social media page
-         *
-         * @type {ExactproDocsSocialLinkConfigOptions}
-         */
-        linkedin: {
-          url: 'https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym',
-          customIcon: undefined,
-          disabled: false
-        },
-        /**
-         * Link to the YouTube social media page
-         *
-         * @type {ExactproDocsSocialLinkConfigOptions}
-         */
-        youtube: {
-          url: 'https://www.youtube.com/c/exactprosystems',
-          customIcon: undefined,
-          disabled: false
+      title: {
+        $schema: {
+          title: 'Title of the documentation.',
+          description:
+            'It will be displayed in the header and in the browser tab.',
+          type: 'string',
+          required: true
         }
       },
-      /**
-       * Footer contacts list
-       *
-       * @type {ExactproDocsContactConfigOptions[]}
-       */
-      contacts: []
+      github: {
+        $schema: {
+          title: 'Configuration for GitHub integration'
+        },
+        repoLink: {
+          $schema: {
+            title: 'Link to the repository on GitHub',
+            type: 'string'
+          }
+        },
+        branch: {
+          $schema: {
+            title: 'Name of the default branch on GitHub',
+            type: 'string'
+          }
+        },
+        docsDir: {
+          $schema: {
+            title: 'Path to the directory with documentation files on GitHub',
+            description:
+              'Specify if the documentation is stored in a subdirectory of the repository.',
+            type: 'string'
+          }
+        }
+      },
+      seo: {
+        $schema: {
+          title: 'Configuration for SEO'
+        },
+        description: {
+          $schema: {
+            title: 'Description of the documentation',
+            description:
+              'It will be displayed in search results. If some page has a description, it will be used instead of this one.',
+            type: 'string'
+          }
+        },
+        keywords: {
+          $schema: {
+            title: 'Keywords for the documentation',
+            description: [
+              'They will be displayed in search results.',
+              '@example ["keyword1", "keyword2"]'
+            ].join('\n'),
+            type: 'array',
+            tsType: 'string[]'
+          },
+          $default: []
+        },
+        robots: {
+          $schema: {
+            title: 'Configuration for robots.txt',
+            description:
+              '@see {@link https://github.com/nuxt-modules/robots | Example of configuration}',
+            type: 'array',
+            tsType: 'ExactproDocsRobotsTxtOptions[]'
+          },
+          $default: []
+        },
+        sitemap: {
+          $schema: {
+            title: 'Configuration for sitemap.xml'
+          },
+          baseUrl: {
+            $schema: {
+              title: 'Base URL for sitemap',
+              description: [
+                'All links in sitemap will be relative to this URL.',
+                '@example "https://exactpro.github.io"'
+              ].join('\n'),
+              type: 'string'
+            }
+          }
+        },
+        verificationMetaTags: {
+          $schema: {
+            title: 'Meta tags for verification of the site by search engines',
+            description:
+              '@see {@link https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification | Verify your site ownership }',
+            type: 'array',
+            tsType: '{ name: string, content: string }[]'
+          },
+          $default: []
+        }
+      },
+      gtag: {
+        measurementId: {
+          $schema: {
+            title: 'Measurement ID for Google Analytics',
+            type: 'string'
+          }
+        }
+      },
+      social: {
+        $schema: {
+          title: 'Configuration for social media links'
+        },
+        github: {
+          $schema: {
+            title: 'Link to the GitHub social media page',
+            type: 'object',
+            tsType: 'ExactproDocsSocialLinkConfigOptions'
+          }
+        },
+        facebook: {
+          $schema: {
+            title: 'Link to the Facebook social media page',
+            type: 'object',
+            tsType: 'ExactproDocsSocialLinkConfigOptions'
+          }
+        },
+        twitter: {
+          $schema: {
+            title: 'Link to the Twitter social media page',
+            type: 'object',
+            tsType: 'ExactproDocsSocialLinkConfigOptions'
+          }
+        },
+        linkedin: {
+          $schema: {
+            title: 'Link to the LinkedIn social media page',
+            type: 'object',
+            tsType: 'ExactproDocsSocialLinkConfigOptions'
+          }
+        },
+        youtube: {
+          $schema: {
+            title: 'Link to the YouTube social media page',
+            type: 'object',
+            tsType: 'ExactproDocsSocialLinkConfigOptions'
+          }
+        }
+      },
+      contacts: {
+        $schema: {
+          title: 'List of contacts in the footer',
+          type: 'array',
+          tsType: 'ExactproDocsContactConfigOptions[]'
+        },
+        $default: []
+      }
     }
   }
 })
