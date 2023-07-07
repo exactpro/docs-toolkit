@@ -1,0 +1,1 @@
+import{H as c,w as s,f as r,R as f}from"./entry.b3d1df2f.js";function l(){return c("toc",()=>null)}function p(t){const e=l();function o(){var u,a;t.value&&(e.value=((a=(u=t.value)==null?void 0:u.body)==null?void 0:a.toc)??null)}const n=s(t,()=>{o()});return r(()=>{o()}),f(()=>{n()}),n}export{l as a,p as u};
