@@ -17,11 +17,6 @@
 import { withTrailingSlash as ufoWithTrailingSlash  } from 'ufo'
 
 export function withTrailingSlash(str: string | undefined): string | undefined {
-  if (typeof str === 'string') {
-    const result = ufoWithTrailingSlash(str)
-    return result
-  } else {
-    return undefined
-  }
+    return ufoWithTrailingSlash(str)
 }
 
