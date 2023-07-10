@@ -71,7 +71,7 @@ export default defineComponent({
     definePageMeta({
       layout: 'docs'
     })
-    const breadcrumbs = await getBreadCrumbs()
+    
     const route = useRoute()
     const toc = useToc()
     const { data: doc } = useAsyncData('page-data' + route.path, async () => {
@@ -92,8 +92,10 @@ export default defineComponent({
     })
     toc.value = doc.value?.body?.toc ?? null
 
+    const breadcrumbs = await getBreadCrumbs()
+
     return {
-      doc
+      doc, breadcrumbs
     }
   }
 })
