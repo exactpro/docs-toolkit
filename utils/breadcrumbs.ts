@@ -6,13 +6,10 @@ export const getBreadCrumbs = async() => {
     const route = useRoute()   
 
     // information in the current page like ._path and title
-    const currentpage = await queryContent(route.path).findOne()
-
-    // cuurent page title
-    // const pagetitle = currentpage.title
+   
 
     // current path
-    const currentpath = currentpage._path
+    const currentpath = route.path
 
     //split the path into sections using split which returns an array
     const splitpath = currentpath.split('/')
@@ -37,19 +34,17 @@ export const getBreadCrumbs = async() => {
 
     }
 
-    // TODO: find the title for each constructed path 
+    // create extract titles and the path and create an array of promises
 
+    let titleDirectory = []
 
-    // console.logs 
-    console.log(directory)
+    const promises = await Promise.all(directory.map( (path) => queryContent(path).only(['_path','title']).findOne()))
 
-    console.log(currentpath)
-
-    console.log(splitpath)
+    console.log(promises)
 
 
     //return
-    return currentpath
+    return promises
 
    
 }
