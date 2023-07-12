@@ -20,8 +20,10 @@
     <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
       <div>
         <nav>
-          <div v-for="x in breadcrumbs">
-            <NuxtLink :to="x._path"><button >{{ x.title }}</button></NuxtLink>
+          <div v-for="x in breadcrumbs" :key="x._path">
+            <NuxtLink :to="x._path"
+              ><button>{{ x.title }}</button></NuxtLink
+            >
           </div>
         </nav>
       </div>
@@ -73,7 +75,7 @@ export default defineComponent({
     definePageMeta({
       layout: 'docs'
     })
-    
+
     const route = useRoute()
     const toc = useToc()
     const { data: doc } = useAsyncData('page-data' + route.path, async () => {
@@ -97,10 +99,10 @@ export default defineComponent({
     const breadcrumbs = await getBreadCrumbs()
 
     return {
-      doc, breadcrumbs
+      doc,
+      breadcrumbs
     }
   }
-
 })
 </script>
 
