@@ -40,6 +40,9 @@ export const getBreadCrumbs = async() => {
 
     const promises = await Promise.all(directory.map( (path) => queryContent(path).only(['_path','title']).findOne()))
 
+   
+
+    // console logs 
     console.log(promises)
 
 

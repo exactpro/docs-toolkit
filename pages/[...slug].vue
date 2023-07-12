@@ -20,7 +20,9 @@
     <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
       <div>
         <nav>
-          <NuxtLink :to="breadcrumbs">{{ breadcrumbs }}</NuxtLink>
+          <div v-for="x in breadcrumbs">
+            <NuxtLink :to="x._path"><button >{{ x.title }}</button></NuxtLink>
+          </div>
         </nav>
       </div>
       <article class="mb-10">
@@ -98,6 +100,7 @@ export default defineComponent({
       doc, breadcrumbs
     }
   }
+
 })
 </script>
 
