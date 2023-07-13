@@ -20,11 +20,11 @@
     <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
       <div>
         <nav>
-          <div v-for="x in breadcrumbs" :key="x._path">
+          <span v-for="x in breadcrumbs" :key="x._path" class="flex-row mx-1">
             <NuxtLink :to="x._path"
               ><button>{{ x.title }}</button></NuxtLink
             >
-          </div>
+          </span>
         </nav>
       </div>
       <article class="mb-10">
