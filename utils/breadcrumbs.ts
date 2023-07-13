@@ -18,11 +18,8 @@ import { withTrailingSlash } from 'ufo'
 
 export const getBreadCrumbs = async () => {
   // find the route using useRoute
-  const route = useRoute()
-
-  // current path
-  const currentpath = route.path
-
+  const currentpath = useRoute().path
+  
   // split the path into sections using split which returns an array
   const splitpath = currentpath.split('/')
 
