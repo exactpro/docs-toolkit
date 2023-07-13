@@ -33,7 +33,8 @@ export const getBreadCrumbs = async () => {
   let w = home
   for (let i = 1; i < currentPathSections?.length; i++) {
     if (currentPath !== '/') {
-      pathDirectory.push(withTrailingSlash(w + currentPathSections[i]))
+      w = withTrailingSlash(w + currentPathSections[i])
+      pathDirectory.push(w)
     }
   }
 
