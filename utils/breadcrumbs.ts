@@ -18,13 +18,10 @@ import { withTrailingSlash } from 'ufo'
 
 export const getBreadCrumbs = async () => {
   // find the route using useRoute
-  const currentpath = useRoute().path
-  
-  // split the path into sections using split which returns an array
-  const splitpath = currentpath.split('/')
+  const currentPath = useRoute().path
 
-  // find the length of the array
-  const splitpathLength = splitpath?.length
+  // split the path into sections using split which returns an array
+  const currentPathSections = currentPath.split('/')
 
   // assign the home directory
   const home = '/'
@@ -35,9 +32,9 @@ export const getBreadCrumbs = async () => {
   // create an array of paths
   let w = home
 
-  for (let i = 1; i < splitpathLength; i++) {
-    if (currentpath !== '/') {
-      w = withTrailingSlash(w + splitpath[i])
+  for (let i = 1; i < currentPathSections?.length; i++) {
+    if (currentPath !== '/') {
+      w = withTrailingSlash(w + currentPathSections[i])
       directory.push(w)
     }
   }
