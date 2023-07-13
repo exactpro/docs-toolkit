@@ -22,7 +22,7 @@
         <nav>
           <span v-for="x in breadcrumbs" :key="x._path" class="flex-row mx-0.5">
             <NuxtLink :to="x._path"
-              ><button>{{ x.title }}{{ '/' }}</button></NuxtLink
+              >{{ x.title }}{{ '/' }}</NuxtLink
             >
           </span>
         </nav>
