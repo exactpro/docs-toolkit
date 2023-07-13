@@ -39,12 +39,10 @@ export const getBreadCrumbs = async () => {
   let w = home
 
   for (let i = 1; i < splitpathLength; i++) {
-    
-    if(currentpath != '/'){
+    if (currentpath !== '/') {
       w = withTrailingSlash(w + splitpath[i])
       directory.push(w)
     }
-    
   }
 
   // create extract titles and the path and create an array of promises
@@ -53,12 +51,6 @@ export const getBreadCrumbs = async () => {
       queryContent(path).only(['_path', 'title']).findOne()
     )
   )
-
-  // console logs for testing 
-
-  console.log(currentpath)
-  console.log(splitpath)
-  console.log(directory)
 
   // return
   return promises
