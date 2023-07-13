@@ -38,12 +38,12 @@ export const getBreadCrumbs = async () => {
   }
 
   // create extract titles and the path and create an array of promises
-  const promises = await Promise.all(
+  const breadcrumbs = await Promise.all(
     directory.map((path) =>
       queryContent(path).only(['_path', 'title']).findOne()
     )
   )
 
   // return
-  return promises
+  return breadcrumbs
 }
