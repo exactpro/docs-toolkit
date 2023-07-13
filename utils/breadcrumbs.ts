@@ -26,20 +26,20 @@ export const getBreadCrumbs = async () => {
   // assign the home directory
   const home = '/'
 
-  // create a directory object
-  const directory = [home]
+  // create a directory object for paths
+  const pathDirectory = [home]
 
-  // create an array of paths
+  // fill the pathDirectory with all paths
   let w = home
   for (let i = 1; i < currentPathSections?.length; i++) {
     if (currentPath !== '/') {
-      directory.push(withTrailingSlash(w + currentPathSections[i]))
+      pathDirectory.push(withTrailingSlash(w + currentPathSections[i]))
     }
   }
 
-  // create extract titles and the path and create an array of promises
+  //  extract titles and its path and create breadcrumbs object
   const breadcrumbs = await Promise.all(
-    directory.map((path) =>
+    pathDirectory.map((path) =>
       queryContent(path).only(['_path', 'title']).findOne()
     )
   )
