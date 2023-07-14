@@ -16,7 +16,7 @@
 
 import { withTrailingSlash } from 'ufo'
 
-export const getBreadCrumbs = async () => {
+export const useBreadCrumbs = async () => {
   // find the route using useRoute
   const currentPath = useRoute().path
 
