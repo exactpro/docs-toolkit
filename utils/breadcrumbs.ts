@@ -45,6 +45,8 @@ export const useBreadCrumbs = async () => {
     )
   )
 
+  console.log(breadcrumbs)
+
   // return
   return breadcrumbs
 }

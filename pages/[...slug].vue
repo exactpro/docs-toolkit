@@ -20,7 +20,7 @@
     <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
       <div>
         <nav>
-          <span v-for="x in breadcrumbs" :key="x._path" class="underline text-secondary-600 text-lg flex-row mx-1.5">
+          <span v-for="x in breadcrumbs.slice(0,breadcrumbs.length-1)" :key="x._path" class="underline text-secondary-600 text-lg flex-row mx-1.5">
             <NuxtLink :to="x._path">
               {{ x.title }}
             </NuxtLink>
