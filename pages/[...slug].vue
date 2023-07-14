@@ -66,7 +66,6 @@ import {
 } from '@nuxt/content/dist/runtime/types'
 
 import { withoutTrailingSlash } from 'ufo'
-import { useBreadCrumbs } from '../utils/breadcrumbs'
 
 // TODO: check how to use native type instead of DocParsedContent
 interface DocParsedContent extends MarkdownParsedContent {
@@ -100,7 +99,7 @@ export default defineComponent({
     })
     toc.value = doc.value?.body?.toc ?? null
 
-    const breadcrumbs = await useBreadCrumbs()
+    const breadcrumbs = await useBreadcrumbs()
 
     return {
       doc,
