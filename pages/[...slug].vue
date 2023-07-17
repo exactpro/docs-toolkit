@@ -22,9 +22,9 @@
         <nav>
           <span v-if="breadcrumbs.length != 1">
             <NuxtLink :to="'/'">
-              <Icon name="heroicons:home-20-solid"  />
-            </NuxtLink> <Icon name="heroicons:chevron-right" />
-            
+              <Icon name="heroicons:home-20-solid" />
+            </NuxtLink>
+            <Icon name="heroicons:chevron-right" />
           </span>
 
           <span
