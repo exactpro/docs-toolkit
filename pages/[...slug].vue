@@ -20,8 +20,10 @@
     <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
       <div>
         <nav>
-          <span v-if="breadcrumbs.length != 1"> 
-            <NuxtLink :to="'/'" > <Icon name = "heroicons:home-20-solid"  size = "2em"/> </NuxtLink>
+          <span v-if="breadcrumbs.length != 1">
+            <NuxtLink :to="'/'">
+              <Icon name="heroicons:home-20-solid" size="2em" />
+            </NuxtLink>
             {{ '>' }}
           </span>
 
@@ -41,8 +43,8 @@
 
           <span
             v-for="x in breadcrumbs.slice(breadcrumbs.length - 1)"
-            :key="x._path"
             v-if="breadcrumbs.length != 1"
+            :key="x._path"
             class="flex-row m-1 text-lg"
           >
             {{ x.title }}
