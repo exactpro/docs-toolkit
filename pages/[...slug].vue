@@ -23,7 +23,7 @@
           <span
             v-for="x in breadcrumbs.slice(0, breadcrumbs.length - 1)"
             :key="x._path"
-            class="flex-row m-1.5"
+            class="flex-row m-1"
           >
             <NuxtLink
               class="underline text-secondary-600 text-lg"
@@ -36,7 +36,7 @@
           <span
             v-for="x in breadcrumbs.slice(breadcrumbs.length - 1)"
             :key="x._path"
-            class="flex-row m-1.5 text-lg"
+            class="flex-row m-1 text-lg"
           >
             {{ x.title }}
           </span>
