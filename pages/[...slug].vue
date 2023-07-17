@@ -22,9 +22,9 @@
         <nav>
           <span v-if="breadcrumbs.length != 1">
             <NuxtLink :to="'/'">
-              <Icon name="heroicons:home-20-solid" size="2em" />
-            </NuxtLink>
-            {{ '>' }}
+              <Icon name="heroicons:home-20-solid"  />
+            </NuxtLink> <Icon name="heroicons:chevron-right" />
+            
           </span>
 
           <span
@@ -38,7 +38,7 @@
             >
               {{ x.title }}
             </NuxtLink>
-            {{ '>' }}
+            <Icon name="heroicons:chevron-right" />
           </span>
 
           <span
