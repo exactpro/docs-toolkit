@@ -19,32 +19,29 @@
   <NuxtLayout>
     <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
       <div>
-        <nav v-if="breadcrumbs" class="mb-4">
-          <span class="flex-row">
-            <NuxtLink
-              class="border-2 border-solid border-gray-600 hover:border-accent-600"
-              :to="'/'"
-            >
-              <Icon name="heroicons:home-20-solid" />
-            </NuxtLink>
-            <Icon name="heroicons:chevron-right" class="mx-2" />
-          </span>
+        <nav v-if="breadcrumbs" class="mb-4 flex flex-wrap items-center gap-x-2">
+          <NuxtLink
+            class="border border-solid rounded text-gray-600 border-gray-600 hover:border-accent-600 hover:text-accent-600 transition-colors p-1 inline-flex"
+            to="/"
+          >
+            <Icon name="heroicons:home-20-solid" size="1.2em" />
+          </NuxtLink>
+          <Icon name="heroicons:chevron-right" />
 
-          <span
+          <template
             v-for="(crumb, index) in breadcrumbs"
             :key="crumb._path"
-            class="flex-row"
           >
             <template v-if="index < breadcrumbs.length - 1">
               <NuxtLink class="underline text-accent-600" :to="crumb._path">
                 {{ crumb.title }}
               </NuxtLink>
-              <Icon name="heroicons:chevron-right" class="mx-2" />
+              <Icon name="heroicons:chevron-right" />
             </template>
             <span v-else>
               {{ crumb.title }}
             </span>
-          </span>
+          </template>
         </nav>
       </div>
       <article class="mb-10">

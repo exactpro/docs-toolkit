@@ -48,6 +48,11 @@ export const useBreadcrumbs = () => {
         queryContent(path).only(['_path', 'title']).findOne()
       )
     )
+  }, {
+    transform: (data) => data.map((item) => ({
+      path: item._path,
+      title: item.title
+    }))
   })
 
   return breadcrumbs
