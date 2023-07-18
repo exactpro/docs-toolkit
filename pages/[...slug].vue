@@ -20,23 +20,26 @@
     <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
       <div>
         <nav>
-          <span>
+          <span class="flex-row">
             <NuxtLink :to="'/'">
-              <Icon name="heroicons:home-20-solid" />
+              <Icon
+                name="heroicons:home-20-solid"
+                class="border-dashed border-2 border-secondary-500"
+              />
             </NuxtLink>
-            <Icon name="heroicons:chevron-right" />
+            <Icon name="heroicons:chevron-right" class="mx-2" />
           </span>
 
           <span
             v-for="(crumb, index) in breadcrumbs"
             :key="crumb._path"
-            class="flex-row m-1"
+            class="flex-row"
           >
             <template v-if="index < breadcrumbs.length - 1">
               <NuxtLink class="underline text-secondary-600" :to="crumb._path">
                 {{ crumb.title }}
               </NuxtLink>
-              <Icon name="heroicons:chevron-right" />
+              <Icon name="heroicons:chevron-right" class="mx-2" />
             </template>
             <span v-else>
               {{ crumb.title }}
