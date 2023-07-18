@@ -24,7 +24,7 @@
             <NuxtLink :to="'/'">
               <Icon
                 name="heroicons:home-20-solid"
-                class="border-solid border hover:border-accent-500"
+                class="border-solid border border-black hover:border-accent-600"
               />
             </NuxtLink>
             <Icon name="heroicons:chevron-right" class="mx-2" />
@@ -36,7 +36,7 @@
             class="flex-row"
           >
             <template v-if="index < breadcrumbs.length - 1">
-              <NuxtLink class="underline text-secondary-600" :to="crumb._path">
+              <NuxtLink class="underline text-accent-600" :to="crumb._path">
                 {{ crumb.title }}
               </NuxtLink>
               <Icon name="heroicons:chevron-right" class="mx-2" />
