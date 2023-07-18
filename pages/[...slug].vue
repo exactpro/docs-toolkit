@@ -24,7 +24,7 @@
           v-if="breadcrumbs">
           <span class="flex-row">
             <NuxtLink
-              class="border-2 border-solid hover:border-accent-600"
+              class="border-2 border-solid border-gray-600 hover:border-accent-600"
               :to="'/'">
               <Icon
                 name="heroicons:home-20-solid"
