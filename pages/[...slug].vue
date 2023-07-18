@@ -19,12 +19,15 @@
   <NuxtLayout>
     <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
       <div>
-        <nav v-if="breadcrumbs">
+        <nav 
+          class="mb-4"
+          v-if="breadcrumbs">
           <span class="flex-row">
-            <NuxtLink :to="'/'">
+            <NuxtLink
+              class="border-2 border-solid hover:border-accent-600"
+              :to="'/'">
               <Icon
                 name="heroicons:home-20-solid"
-                class="border-solid border border-black hover:border-accent-600"
               />
             </NuxtLink>
             <Icon name="heroicons:chevron-right" class="mx-2" />
