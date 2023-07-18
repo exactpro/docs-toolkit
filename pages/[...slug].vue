@@ -24,7 +24,7 @@
             <NuxtLink :to="'/'">
               <Icon
                 name="heroicons:home-20-solid"
-                class="border-dotted border-2 border-secondary-500"
+                class="border-solid border hover:border-accent-500"
               />
             </NuxtLink>
             <Icon name="heroicons:chevron-right" class="mx-2" />
