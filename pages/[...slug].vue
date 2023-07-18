@@ -32,13 +32,10 @@
             :key="crumb._path"
             class="flex-row m-1"
           >
-            <template v-if=" index < breadcrumbs.length - 1 ">
-              <NuxtLink
-                class="underline text-secondary-600 "
-                :to="crumb._path"
-              >
+            <template v-if="index < breadcrumbs.length - 1">
+              <NuxtLink class="underline text-secondary-600" :to="crumb._path">
                 {{ crumb.title }}
-              </NuxtLink> 
+              </NuxtLink>
               <Icon name="heroicons:chevron-right" />
             </template>
             <span v-else>

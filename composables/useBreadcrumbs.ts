@@ -38,7 +38,7 @@ export const useBreadcrumbs = () => {
     }
   }
 
-  // remove first element of array 
+  // remove first element of array
   pathDirectory.shift()
 
   //  extract titles and its path and create breadcrumbs object
