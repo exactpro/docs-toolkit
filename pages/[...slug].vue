@@ -27,7 +27,7 @@
             <Icon name="heroicons:chevron-right" />
           </span>
 
-          <span
+           <span
             v-for="x in breadcrumbs.slice(1, breadcrumbs.length - 1)"
             :key="x._path"
             class="flex-row m-1"

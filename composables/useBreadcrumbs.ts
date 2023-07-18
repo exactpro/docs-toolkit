@@ -39,11 +39,13 @@ export const useBreadcrumbs = async () => {
   }
 
   //  extract titles and its path and create breadcrumbs object
-  return useAsyncData(() => {
+  const breadcrumbs = useAsyncData(() => {
     return Promise.all(
       pathDirectory.map((path) =>
         queryContent(path).only(['_path', 'title']).findOne()
       )
     )
   }) 
+
+  return breadcrumbs.data
 }
