@@ -33,7 +33,7 @@
             :key="crumb._path"
           >
             <template v-if="index < breadcrumbs.length - 1">
-              <NuxtLink class="underline text-accent-600" :to="crumb._path">
+              <NuxtLink class="underline text-accent-600" :to="crumb.path">
                 {{ crumb.title }}
               </NuxtLink>
               <Icon name="heroicons:chevron-right" />
