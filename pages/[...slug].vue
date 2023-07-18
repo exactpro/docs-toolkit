@@ -27,7 +27,7 @@
             <Icon name="heroicons:chevron-right" />
           </span>
 
-           <span
+          <span
             v-for="x in breadcrumbs.slice(1, breadcrumbs.length - 1)"
             :key="x._path"
             class="flex-row m-1"
@@ -46,8 +46,8 @@
             :key="x._path"
             class="flex-row m-1 text-lg"
           >
-          <span v-if="breadcrumbs.length != 1"> {{ x.title }}</span>
-        </template>
+            <span v-if="breadcrumbs.length != 1"> {{ x.title }}</span>
+          </template>
         </nav>
       </div>
       <article class="mb-10">
@@ -93,7 +93,7 @@ interface DocParsedContent extends MarkdownParsedContent {
 
 export default defineComponent({
   name: 'ContentPage',
-  async setup() {
+  setup() {
     definePageMeta({
       layout: 'docs'
     })
@@ -118,7 +118,7 @@ export default defineComponent({
     })
     toc.value = doc.value?.body?.toc ?? null
 
-    const breadcrumbs = await useBreadcrumbs()
+    const { data: breadcrumbs } = useBreadcrumbs()
 
     return {
       doc,

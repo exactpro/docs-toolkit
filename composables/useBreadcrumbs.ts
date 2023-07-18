@@ -16,7 +16,7 @@
 
 import { withTrailingSlash } from 'ufo'
 
-export const useBreadcrumbs = async () => {
+export const useBreadcrumbs = () => {
   // find the route using useRoute
   const currentPath = useRoute().path
 
@@ -45,7 +45,7 @@ export const useBreadcrumbs = async () => {
         queryContent(path).only(['_path', 'title']).findOne()
       )
     )
-  }) 
+  })
 
-  return breadcrumbs.data
+  return breadcrumbs
 }
