@@ -41,14 +41,13 @@
             <Icon name="heroicons:chevron-right" />
           </span>
 
-          <span
+          <template
             v-for="x in breadcrumbs.slice(breadcrumbs.length - 1)"
-            v-if="breadcrumbs.length != 1"
             :key="x._path"
             class="flex-row m-1 text-lg"
           >
-            {{ x.title }}
-          </span>
+          <span v-if="breadcrumbs.length != 1"> {{ x.title }}</span>
+        </template>
         </nav>
       </div>
       <article class="mb-10">
