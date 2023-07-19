@@ -24,11 +24,11 @@ export const useBreadcrumbs = () => {
   const pathDirectory: string[] = []
 
   // fill the pathDirectory with all paths
-  let w = ''
-  for (let i = 1; i < currentPathSections?.length; i++) {
-    if (currentPath !== '/') {
-      w = withTrailingSlash(w + currentPathSections[i])
-      pathDirectory.push(w)
+  let pathToAdd = ''
+  if (currentPath !== '/') {
+    for (let i = 1; i < currentPathSections?.length; i++) {
+        pathToAdd = withTrailingSlash(pathToAdd + currentPathSections[i])
+        pathDirectory.push(pathToAdd)
     }
   }
 
@@ -49,6 +49,6 @@ export const useBreadcrumbs = () => {
         }))
     }
   )
-
+   
   return breadcrumbs
 }
