@@ -35,7 +35,7 @@ export const useBreadcrumbs = () => {
     }
   }
 
-   //  extract titles and its path and create breadcrumbs object
+  //  extract titles and its path and create breadcrumbs object
   const breadcrumbs = useAsyncData(
     () => {
       return Promise.all(
