@@ -24,13 +24,13 @@ export const useBreadcrumbs = () => {
   const currentPathSections = currentPath.split('/')
 
   // assign the home directory
-  const home = '/'
+  // const home = '/'
 
   // create a directory object for paths
-  const pathDirectory = [home]
+  const pathDirectory: string[] = []
 
   // fill the pathDirectory with all paths
-  let w = home
+  let w = ""
   for (let i = 1; i < currentPathSections?.length; i++) {
     if (currentPath !== '/') {
       w = withTrailingSlash(w + currentPathSections[i])
@@ -39,7 +39,7 @@ export const useBreadcrumbs = () => {
   }
 
   // remove first element of array
-  pathDirectory.shift()
+  // pathDirectory.shift()
 
   //  extract titles and its path and create breadcrumbs object
   const breadcrumbs = useAsyncData(
