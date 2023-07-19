@@ -38,11 +38,16 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
+export interface Breadcrumb {
+  path: string
+  title: string
+}
+
 export default {
   props: {
     breadcrumbs: {
-      type: Array,
+      type: Array as () => Breadcrumb[],
       required: true
     }
   }

@@ -17,13 +17,10 @@
 import { withTrailingSlash } from 'ufo'
 
 export const useBreadcrumbs = () => {
-  // find the route using useRoute
   const currentPath = useRoute().path
 
-  // split the path into sections using split which returns an array
   const currentPathSections = currentPath.split('/')
 
-  // create a directory object for paths
   const pathDirectory: string[] = []
 
   // fill the pathDirectory with all paths
