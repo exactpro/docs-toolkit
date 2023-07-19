@@ -19,11 +19,12 @@ import { withTrailingSlash } from 'ufo'
 export const useBreadcrumbs = () => {
   const currentPath = useRoute().path
 
+  const unfilteredPathSections = currentPath.split('/')
 
-  let unfilteredPathSections = currentPath.split('/')
-
-  const currentPathSections = unfilteredPathSections.filter(function(el:string) {
-    return el != '';
+  const currentPathSections = unfilteredPathSections.filter(function (
+    el: string
+  ) {
+    return el !== ''
   })
 
   const pathDirectory: string[] = []
@@ -36,8 +37,6 @@ export const useBreadcrumbs = () => {
       pathDirectory.push(pathToAdd)
     }
   }
-
-
 
   //  extract titles and its path and create breadcrumbs object
   const breadcrumbs = useAsyncData(
@@ -56,10 +55,5 @@ export const useBreadcrumbs = () => {
         }))
     }
   )
-    console.log('currentPath',currentPath)
-    console.log('unfilteredPathSections', unfilteredPathSections)
-    console.log('currentPathSections',currentPathSections)
-    console.log('pathDirectory', pathDirectory)
-
   return breadcrumbs
 }
