@@ -19,13 +19,7 @@ import { withTrailingSlash } from 'ufo'
 export const useBreadcrumbs = () => {
   const currentPath = useRoute().path
 
-  const unfilteredPathSections = currentPath.split('/')
-
-  const currentPathSections = unfilteredPathSections.filter(function (
-    el: string
-  ) {
-    return el !== ''
-  })
+  const currentPathSections = currentPath.split('/').filter((el) => !!el)
 
   const pathDirectory: string[] = []
 
