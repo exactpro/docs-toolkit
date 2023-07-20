@@ -16,6 +16,7 @@
 
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { joinURL, parseURL, withProtocol } from 'ufo'
+import { withTrailingSlash } from '../../utils/navigation'
 import { serverQueryContent } from '#content/server'
 const appConfig = useAppConfig()
 
@@ -38,7 +39,7 @@ export default defineEventHandler(async (event) => {
       continue
     }
     sitemap.write({
-      url: joinURL(path.pathname, doc._path),
+      url: withTrailingSlash(joinURL(path.pathname, doc._path)),
       changefreq: 'monthly'
     })
   }

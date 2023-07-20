@@ -15,6 +15,35 @@
  */
 
 export default defineAppConfig({
-  exactproDocs: {},
+  exactproDocs: {
+    title: 'Exactpro Documentation',
+    github: {
+      branch: 'master',
+      docsDir: '/'
+    },
+    seo: {
+      keywords: [],
+      robots: [],
+      verificationMetaTags: []
+    },
+    contacts: [],
+    social: {
+      github: {
+        url: 'https://github.com/exactpro'
+      },
+      facebook: {
+        url: 'https://www.facebook.com/exactpro/'
+      },
+      twitter: {
+        url: 'https://twitter.com/exactpro'
+      },
+      linkedin: {
+        url: 'https://www.linkedin.com/company/exactpro-systems-llc?trk=biz-companies-cym'
+      },
+      youtube: {
+        url: 'https://www.youtube.com/c/exactprosystems'
+      }
+    }
+  },
   nuxtIcon: {}
 })

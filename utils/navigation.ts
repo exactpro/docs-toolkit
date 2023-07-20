@@ -14,23 +14,8 @@
  * limitations under the License.
  */
 
-.gevamu-prose {
-  @apply prose print:max-w-[100ch]
-    max-w-none w-full
-    prose-headings:no-underline
-    print:prose-pre:whitespace-normal
-    marker:prose-ul:text-accent-200 marker:prose-ol:text-accent-700;
-}
+import { withTrailingSlash as ufoWithTrailingSlash } from 'ufo'
 
-.gevamu-prose :not(pre) code {
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 0.2em 0.4em;
-  font-size: 0.85em;
-  font-weight: 400;
-  border-radius: 3px;
-}
-
-.gevamu-prose :not(pre) code::before,
-.gevamu-prose :not(pre) code::after {
-  content: none;
+export function withTrailingSlash(str: string): string {
+  return ufoWithTrailingSlash(str)
 }

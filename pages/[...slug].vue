@@ -17,7 +17,7 @@
 <template>
   <EpPageMeta :doc="doc" />
   <NuxtLayout>
-    <div class="px-4 print:px-8 mt-10 mb-96 print:mb-0">
+    <div class="px-4 md:pr-6 print:px-8 mt-10 mb-96 print:mb-0">
       <EpLayoutBreadcrumbs v-if="breadcrumbs" :breadcrumbs="breadcrumbs" />
       <article class="mb-10">
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
@@ -68,7 +68,7 @@ export default defineComponent({
     })
 
     const route = useRoute()
-    const toc = useToc()
+
     const { data: doc } = useAsyncData('page-data' + route.path, async () => {
       const docPromise = queryContent<DocParsedContent>(route.path).findOne()
       const surroundPromise = queryContent()
@@ -85,7 +85,8 @@ export default defineComponent({
         after: surround[1] as ParsedContent
       }
     })
-    toc.value = doc.value?.body?.toc ?? null
+
+    useTocUpdate(doc)
 
     const { data: breadcrumbs } = useBreadcrumbs()
 
