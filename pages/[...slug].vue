@@ -18,6 +18,7 @@
   <EpPageMeta :doc="doc" />
   <NuxtLayout>
     <div class="px-4 md:pr-6 print:px-8 mt-10 mb-96 print:mb-0">
+      <EpLayoutBreadcrumbs v-if="breadcrumbs" :breadcrumbs="breadcrumbs" />
       <article class="mb-10">
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
           <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
@@ -65,6 +66,7 @@ export default defineComponent({
     definePageMeta({
       layout: 'docs'
     })
+
     const route = useRoute()
 
     const { data: doc } = useAsyncData('page-data' + route.path, async () => {
@@ -86,8 +88,11 @@ export default defineComponent({
 
     useTocUpdate(doc)
 
+    const { data: breadcrumbs } = useBreadcrumbs()
+
     return {
-      doc
+      doc,
+      breadcrumbs
     }
   }
 })
