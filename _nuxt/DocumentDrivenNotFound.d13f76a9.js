@@ -1,1 +1,0 @@
-import{a as n,B as o}from"./entry.fc83830f.js";import"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";const r=n({name:"DocumentDrivenNotFound",render(){return o("div","Document not found")}});export{r as default};

@@ -1,1 +1,1 @@
-export default {data:{"page-data/features/features/mermaid":null},prerenderedAt:void 0}
+export default (function(a){return {data:{"page-data/features/features/mermaid":a,$WHBUNHUdhp:a},prerenderedAt:void 0}}(null))

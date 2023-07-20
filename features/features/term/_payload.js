@@ -1,1 +1,1 @@
-export default {data:{"page-data/features/features/term":null},prerenderedAt:void 0}
+export default (function(a){return {data:{"page-data/features/features/term":a,$WHBUNHUdhp:a},prerenderedAt:void 0}}(null))
