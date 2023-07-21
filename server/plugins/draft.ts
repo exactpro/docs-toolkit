@@ -18,6 +18,8 @@
 export default defineNitroPlugin((nitroApp) => {
   // For some reason, accessing NODE_ENV directly returns "prerender", despite the value being "production" or "development"
   const env = JSON.parse(JSON.stringify(process.env)).NODE_ENV
+  // TODO: Remove ts-expect-error when issie is resolved https://github.com/nuxt/content/issues/2177
+  // @ts-expect-error
   nitroApp.hooks.hook('content:file:afterParse', (file) => {
     if (file._draft && env === 'production') {
       file._id = 'content:_:draft'

@@ -16,6 +16,8 @@
 
 export default defineNitroPlugin((nitroApp) => {
   nitroApp.hooks.hook(
+    // TODO: Remove ts-expect-error when issie is resolved https://github.com/nuxt/content/issues/2177
+    // @ts-expect-error
     'content:file:beforeParse',
     (file: { _id: string; body: string }) => {
       if (file._id.endsWith('.md')) {
