@@ -43,12 +43,13 @@
   ],
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@typescript-eslint/parser": "^5.55.0",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-prettier": "^5.0.0",
     "license-check-and-add": "^4.0.5",
-    "prettier": "^2.8.4",
+    "prettier": "^3.0.0",
     "typescript": "^5.0.2",
     "vue-tsc": "^1.2.0"
   },
@@ -58,7 +59,7 @@
     "@tailwindcss/typography": "^0.5.8",
     "@types/mermaid": "^9.2.0",
     "nuxt": "^3.3.1",
-    "nuxt-icon": "^0.3.3",
+    "nuxt-icon": "^0.4.2",
     "rehype-external-links": "^2.1.0",
     "sitemap": "^7.1.1",
     "vue-gtag-next": "^1.14.0"
