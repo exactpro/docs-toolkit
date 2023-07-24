@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+import { resolveURL } from 'ufo'
+import { useToolkitConfig } from '../../composables/config'
+
 const keysToTemplates = {
   UserAgent: (input: string) => `User-agent: ${input}`,
   CrawlDelay: (input: string) => `Crawl-delay: ${input}`,
@@ -34,8 +37,8 @@ export type RobotsTxtOptions = {
 export default defineEventHandler((event) => {
   setHeader(event, 'Content-Type', 'text/plain')
   const lines: string[] = []
-  const config = useAppConfig()
-  for (const robotOptionsItem of config.exactproDocs?.seo?.robots ?? []) {
+  const config = useToolkitConfig()
+  for (const robotOptionsItem of config.seo?.robots ?? []) {
     for (const [key, value] of Object.entries(robotOptionsItem)) {
       if (typeof value === 'string') {
         lines.push(keysToTemplates[key as keyof typeof keysToTemplates](value))
@@ -46,10 +49,10 @@ export default defineEventHandler((event) => {
       }
     }
   }
-  if (config.exactproDocs?.seo?.sitemap?.baseUrl) {
+  if (config.seo?.sitemap?.baseUrl) {
     lines.push('')
     lines.push(
-      `Sitemap: ${config.exactproDocs.seo.sitemap.baseUrl}/sitemap.xml`
+      `Sitemap: ${resolveURL(config.seo.sitemap.baseUrl, 'sitemap.xml')}`
     )
   }
   return lines.join('\n')
