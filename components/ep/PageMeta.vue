@@ -34,7 +34,10 @@ const verificationMetaTags = config.exactproDocs.seo?.verificationMetaTags
       <Title>{{ title }}</Title>
       <Meta property="og:title" :content="title" />
     </template>
-    <Meta v-if="description" name="description" :content="description" />
+    <template v-if="description">
+      <Meta name="description" :content="description" />
+      <Meta property="og:description" :content="description" />
+    </template>
     <Meta
       v-for="(verification, index) of verificationMetaTags"
       :key="index"
