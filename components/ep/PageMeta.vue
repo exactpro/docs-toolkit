@@ -21,7 +21,6 @@ const props = defineProps<{
   doc: Pick<ParsedContent, string> | null
 }>()
 
-
 const title = computed<string>(() => props.doc?.title ?? '')
 const description = computed<string>(() => props.doc?.description ?? '')
 
@@ -31,12 +30,11 @@ const verificationMetaTags = config.exactproDocs.seo?.verificationMetaTags
 
 <template>
   <Head>
-    <Title v-if="title">{{ title }}</Title>
-    <Meta
-      v-if="description"
-      name="description"
-      :content="description"
-    />
+    <template v-if="title">
+      <Title>{{ title }}</Title>
+      <Meta property="og:title" :content="title" />
+    </template>
+    <Meta v-if="description" name="description" :content="description" />
     <Meta
       v-for="(verification, index) of verificationMetaTags"
       :key="index"
