@@ -15,7 +15,8 @@
   -->
 
 <script setup>
-const config = useAppConfig().exactproDocs
+import { resolveURL } from 'ufo'
+const config = useToolkitConfig()
 
 useSeoMeta({
   titleTemplate: (title) => {
@@ -23,7 +24,9 @@ useSeoMeta({
     return title
   },
   description: config?.seo?.description ?? null,
-  generator: '@exactpro/docs-web-toolkit'
+  generator: '@exactpro/docs-web-toolkit',
+  ogSiteName: config.title,
+  ogUrl: computed(() => resolveURL(config.seo.baseUrl, useRoute().path))
 })
 
 useHead({
