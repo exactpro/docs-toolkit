@@ -18,12 +18,15 @@
 import { resolveURL } from 'ufo'
 const config = useToolkitConfig()
 
+const siteDescription = config?.seo?.description ?? null
+
 useSeoMeta({
   titleTemplate: (title) => {
     if (title) return `${title} | ${config.title}`
     return title
   },
-  description: config?.seo?.description ?? null,
+  description: siteDescription,
+  ogDescription: siteDescription,
   generator: '@exactpro/docs-web-toolkit',
   ogSiteName: config.title,
   ogUrl: computed(() => resolveURL(config.seo.baseUrl, useRoute().path))
