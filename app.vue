@@ -23,7 +23,7 @@ const siteDescription = config?.seo?.description ?? null
 useSeoMeta({
   titleTemplate: (title) => {
     if (title) return `${title} | ${config.title}`
-    return title
+    return config.title
   },
   description: siteDescription,
   ogDescription: siteDescription,
