@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper.c27b6911.js";import{o as r,c as t,J as c}from"./entry.0c1afe08.js";import"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";const s={};function n(o,l){return r(),t("blockquote",null,[c(o.$slots,"default")])}const m=e(s,[["render",n]]);export{m as default};
