@@ -17,9 +17,12 @@
 <script setup lang="ts">
 import { ParsedContent } from '@nuxt/content/dist/runtime/types'
 
-defineProps<{
+const props = defineProps<{
   doc: Pick<ParsedContent, string> | null
 }>()
+
+const title = computed<string>(() => props.doc?.title ?? '')
+const description = computed<string>(() => props.doc?.description ?? '')
 
 const config = useAppConfig()
 const verificationMetaTags = config.exactproDocs.seo?.verificationMetaTags
@@ -27,12 +30,14 @@ const verificationMetaTags = config.exactproDocs.seo?.verificationMetaTags
 
 <template>
   <Head>
-    <Title>{{ doc ? doc.title : '' }}</Title>
-    <Meta
-      v-if="doc && doc.description"
-      name="description"
-      :content="doc.description"
-    />
+    <template v-if="title">
+      <Title>{{ title }}</Title>
+      <Meta property="og:title" :content="title" />
+    </template>
+    <template v-if="description">
+      <Meta name="description" :content="description" />
+      <Meta property="og:description" :content="description" />
+    </template>
     <Meta
       v-for="(verification, index) of verificationMetaTags"
       :key="index"

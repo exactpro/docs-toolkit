@@ -90,6 +90,16 @@ export default defineNuxtSchema({
             type: 'string'
           }
         },
+        baseUrl: {
+          $schema: {
+            title: 'Default base URL for SEO properties',
+            description: [
+              'It will be used as a default value for sitemap, robots.txt, and Open Graph tags.',
+              '@example "https://exactpro.github.io"'
+            ].join('\n'),
+            type: 'string'
+          }
+        },
         keywords: {
           $schema: {
             title: 'Keywords for the documentation',

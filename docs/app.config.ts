@@ -31,11 +31,9 @@ export default defineAppConfig({
     seo: {
       description:
         'Documentation toolkit for Exactpro projects powered by Nuxt.js',
+      baseUrl: 'https://exactpro.github.io/docs-toolkit',
       keywords: ['documentation', 'nuxt3', 'nuxt.js', 'vue.js', 'exactpro'],
       robots: [{ UserAgent: '*' }, { Allow: '/' }],
-      sitemap: {
-        baseUrl: 'https://exactpro.github.io/docs-toolkit'
-      },
       verificationMetaTags: [
         // <meta name="google-site-verification" content="PYzR06VK4UIZvGdBkMh_TkqOu83QxapFJknyAR58yJA" />
         {

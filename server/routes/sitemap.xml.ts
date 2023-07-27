@@ -17,10 +17,11 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { joinURL, parseURL, withProtocol } from 'ufo'
 import { withTrailingSlash } from '../../utils/navigation'
+import { useToolkitConfig } from '../../composables/config'
 import { serverQueryContent } from '#content/server'
-const appConfig = useAppConfig()
+const config = useToolkitConfig()
 
-const path = parseURL(appConfig.exactproDocs.seo?.sitemap?.baseUrl ?? '')
+const path = parseURL(config.seo?.sitemap?.baseUrl ?? '')
 
 export default defineEventHandler(async (event) => {
   // Fetch all documents
