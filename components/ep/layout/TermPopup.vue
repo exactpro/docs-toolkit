@@ -31,7 +31,7 @@ watch(isFocused, (v) => {
   } else {
     hideTimer = setTimeout(() => {
       if (!isFocused.value) model.value.show = false
-    }, 1000)
+    }, 200)
   }
 })
 
