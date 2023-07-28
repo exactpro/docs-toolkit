@@ -32,7 +32,7 @@ defineProps<{
 <template>
   <NuxtLink
     :to="withTrailingSlash(doc._path ?? '')"
-    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 break-words"
   >
     <div>
       <div v-if="direction === 'before'" class="mb-2">
@@ -52,7 +52,7 @@ defineProps<{
         </span>
       </div>
       <h4 class="text-xl font-bold">{{ doc.title }}</h4>
-      <p>{{ doc.description }}</p>
+      <p class="break-words">{{ doc.description }}</p>
     </div>
   </NuxtLink>
 </template>
