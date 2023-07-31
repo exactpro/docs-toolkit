@@ -1,1 +1,0 @@
-import{a9 as c,M as s,H as r,Z as l}from"./entry.c8e79279.js";function f(){return c("toc",()=>null)}function p(t){const e=f();function o(){var u,a;t.value&&(e.value=((a=(u=t.value)==null?void 0:u.body)==null?void 0:a.toc)??null)}const n=s(t,()=>{o()});return r(()=>{o()}),l(()=>{n()}),n}export{f as a,p as u};
