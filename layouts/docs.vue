@@ -49,7 +49,7 @@
         }"
         @click="showContentTree = false"
       />
-      <main>
+      <main class="overflow-auto">
         <LazyClientOnly>
           <EpLayoutTermPopup class="z-10" />
         </LazyClientOnly>
