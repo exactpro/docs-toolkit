@@ -68,7 +68,7 @@ export default defineNuxtSchema({
               title:
                 'Choose display type for the description of the page in prev/next cards',
               type: 'string',
-              tsType: "'full' | 'limited' | 'hidden'",
+              tsType: '\'full\' | \'limited\' | \'hidden\'',
               default: 'full'
             }
           },
