@@ -68,8 +68,7 @@ export default defineNuxtSchema({
               title:
                 'Choose display type for the description of the page in prev/next cards',
               type: 'string',
-              // eslint-disable-next-line
-              tsType: "'full' | 'limited' | 'hidden'",
+              tsType: '"full" | "limited" | "hidden"',
               default: 'full'
             }
           },
