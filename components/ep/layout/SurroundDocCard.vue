@@ -27,6 +27,8 @@ defineProps<{
   doc: ParsedContent
   direction: 'before' | 'after'
 }>()
+
+const config = useToolkitConfig().prevNextCards!
 </script>
 
 <template>
@@ -52,7 +54,9 @@ defineProps<{
         </span>
       </div>
       <h4 class="text-xl font-bold">{{ doc.title }}</h4>
-      <p class="break-words">{{ doc.description }}</p>
+      <p v-if="config.description?.display !== 'hidden'" class="break-words">
+        {{ doc.description }}
+      </p>
     </div>
   </NuxtLink>
 </template>

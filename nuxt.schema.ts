@@ -59,12 +59,14 @@ export default defineNuxtSchema({
         },
         description: {
           $schema: {
-            title: 'Display options for the description of the page in prev/next cards',
+            title:
+              'Display options for the description of the page in prev/next cards',
             type: 'object'
           },
           display: {
             $schema: {
-              title: 'Choose display type for the description of the page in prev/next cards',
+              title:
+                'Choose display type for the description of the page in prev/next cards',
               type: 'string',
               tsType: "'full' | 'limited' | 'hidden'",
               default: 'full'
@@ -72,7 +74,8 @@ export default defineNuxtSchema({
           },
           limit: {
             $schema: {
-              title: 'Limit of lines for the description of the page in prev/next cards',
+              title:
+                'Limit of lines for the description of the page in prev/next cards',
               description: 'It will be used if display type is "limited"',
               type: 'number',
               default: 2
