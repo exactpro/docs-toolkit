@@ -54,9 +54,30 @@ const config = useToolkitConfig().prevNextCards!
         </span>
       </div>
       <h4 class="text-xl font-bold">{{ doc.title }}</h4>
-      <p v-if="config.description?.display !== 'hidden'" class="break-words">
+      <p
+        v-if="config.description?.display !== 'hidden'"
+        class="break-words"
+        :style="{
+          '--line-clamp':
+            config.description?.display === 'limited'
+              ? config.description?.limit
+              : 'unset'
+        }"
+        :class="{
+          'description--limited': config.description?.display === 'limited'
+        }"
+      >
         {{ doc.description }}
       </p>
     </div>
   </NuxtLink>
 </template>
+
+<style scoped>
+.description--limited {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--line-clamp);
+}
+</style>
