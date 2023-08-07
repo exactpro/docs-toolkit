@@ -53,6 +53,36 @@ export default defineNuxtSchema({
           required: true
         }
       },
+      prevNextCards: {
+        $schema: {
+          title: 'Configuration for previous and next pages cards'
+        },
+        description: {
+          $schema: {
+            title:
+              'Display options for the description of the page in prev/next cards',
+            type: 'object'
+          },
+          display: {
+            $schema: {
+              title:
+                'Choose display type for the description of the page in prev/next cards',
+              type: 'string',
+              tsType: '"full" | "limited" | "hidden"',
+              default: 'full'
+            }
+          },
+          limit: {
+            $schema: {
+              title:
+                'Limit of lines for the description of the page in prev/next cards',
+              description: 'It will be used if display type is "limited"',
+              type: 'number',
+              default: 2
+            }
+          }
+        }
+      },
       github: {
         $schema: {
           title: 'Configuration for GitHub integration'

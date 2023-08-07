@@ -17,6 +17,12 @@
 export default defineAppConfig({
   exactproDocs: {
     title: 'Exactpro Documentation',
+    prevNextCards: {
+      description: {
+        display: 'full',
+        limit: 2
+      }
+    },
     github: {
       branch: 'master',
       docsDir: '/'
