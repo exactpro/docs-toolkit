@@ -1,1 +1,0 @@
-import{_ as o}from"./_plugin-vue_export-helper.c27b6911.js";import{o as r,c as t,J as s}from"./entry.d4110766.js";import"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";const a={};function c(e,n){return r(),t("table",null,[s(e.$slots,"default")])}const m=o(a,[["render",c]]);export{m as default};
