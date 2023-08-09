@@ -58,7 +58,7 @@ const social = config.exactproDocs.social
     >
       <img
         v-if="!social?.twitter?.customIcon"
-        src="../../../assets/img/footer/twitter.svg"
+        src="../../../assets/img/footer/x_icon.svg"
         class="icon"
         alt="Exactpro Twitter page"
       />
