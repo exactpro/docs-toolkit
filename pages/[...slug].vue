@@ -22,27 +22,32 @@
       <article class="mb-10">
         <ContentRenderer v-if="doc && doc._type === 'markdown'" :value="doc">
           <ContentRendererMarkdown :value="doc" class="gevamu-prose" />
-          <nav
-            class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-32 print:hidden"
-          >
-            <EpLayoutSurroundDocCard
-              v-if="doc.before"
-              :doc="doc.before"
-              direction="before"
-            />
-            <EpLayoutSurroundDocCard
-              v-if="doc.after"
-              :doc="doc.after"
-              direction="after"
-            />
-          </nav>
+          <EpLayoutGithubActions
+            v-if="doc"
+            :doc="doc"
+            class="mt-10 print:hidden"
+          />
         </ContentRenderer>
         <div v-else-if="doc" class="gevamu-prose w-screen">
           <h1>{{ doc._dir.title }} pages</h1>
           <!-- TODO: Generate index page -->
         </div>
       </article>
-      <EpLayoutGithubActions v-if="doc" :doc="doc" class="print:hidden" />
+      <nav
+        v-if="doc"
+        class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-24 print:hidden"
+      >
+        <EpLayoutSurroundDocCard
+          v-if="doc.before"
+          :doc="doc.before"
+          direction="before"
+        />
+        <EpLayoutSurroundDocCard
+          v-if="doc.after"
+          :doc="doc.after"
+          direction="after"
+        />
+      </nav>
     </div>
   </NuxtLayout>
 </template>
