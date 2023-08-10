@@ -35,7 +35,7 @@
       </article>
       <nav
         v-if="doc"
-        class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-32 print:hidden"
+        class="justify-center grid sm:grid-cols-2 gap-8 items-start mt-24 print:hidden"
       >
         <EpLayoutSurroundDocCard
           v-if="doc.before"
