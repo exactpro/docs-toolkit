@@ -15,9 +15,9 @@
  */
 
 import { defu } from 'defu'
-import type { CustomAppConfig } from '../.nuxt/schema/nuxt.schema'
+import type { AppConfig } from 'nuxt/schema'
 
-type ToolkitConfig = NonNullable<CustomAppConfig['exactproDocs']>
+type ToolkitConfig = NonNullable<AppConfig['exactproDocs']>
 
 export function useToolkitConfig(): ToolkitConfig {
   const appConfig = useAppConfig()
