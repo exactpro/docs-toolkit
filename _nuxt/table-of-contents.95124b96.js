@@ -1,1 +1,0 @@
-import{ab as c,O as s,K as r,a0 as l}from"./entry.3ff042ba.js";function f(){return c("toc",()=>null)}function p(t){const e=f();function o(){var n,u;t.value&&(e.value=((u=(n=t.value)==null?void 0:n.body)==null?void 0:u.toc)??null)}const a=s(t,()=>{o()});return r(()=>{o()}),l(()=>{a()}),a}export{f as a,p as u};
