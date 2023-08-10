@@ -1,6 +1,6 @@
 {
   "name": "@exactpro/docs-web-toolkit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Toolkit for creating docs from markdown. Created as Nuxt 3 layer.",
   "main": "nuxt.config.ts",
   "license": "Apache-2.0",
