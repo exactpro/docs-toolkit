@@ -15,6 +15,13 @@
   -->
 
 <script setup lang="ts">
+defineSlots<{
+  default: {
+    onClick: () => void
+    isFullscreen: boolean
+  }
+}>()
+
 const isFullscreen = ref(false)
 
 function toggleFullscreen() {
@@ -23,17 +30,16 @@ function toggleFullscreen() {
 </script>
 
 <template>
-  <div v-if="!isFullscreen" @click="toggleFullscreen">
-    <slot />
-  </div>
-  <Teleport v-else to="body">
+  <slot :on-click="toggleFullscreen" :is-fullscreen="isFullscreen" />
+  <Teleport to="body">
     <div
+      v-if="isFullscreen"
       class="fixed inset-0 z-50 flex items-center justify-center"
       @click="toggleFullscreen"
     >
       <div class="absolute inset-0 bg-black opacity-50" />
       <div class="relative z-10">
-        <slot />
+        <slot :on-click="() => {}" :is-fullscreen="isFullscreen" />
       </div>
     </div>
   </Teleport>
