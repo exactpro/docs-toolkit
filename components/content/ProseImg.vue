@@ -16,9 +16,11 @@
 
 <template>
   <FullscreenView>
-    <template #default="{ onClick }">
+    <template #default="{ onClick, isFullscreen }">
       <img
-        class="hover:cursor-pointer hover:shadow transition-shadow"
+        :class="{
+          'cursor-zoom-in hover:shadow transition-shadow': !isFullscreen
+        }"
         :src="refinedSrc"
         :alt="alt"
         :width="width"

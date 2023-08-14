@@ -35,12 +35,25 @@ function toggleFullscreen() {
     <div
       v-if="isFullscreen"
       class="fixed inset-0 z-50 flex items-center justify-center"
-      @click="toggleFullscreen"
     >
       <div class="absolute inset-0 bg-black opacity-50" />
+      <Icon
+        class="fullscreen-view__button--close"
+        name="heroicons:x-mark"
+        size="3rem"
+        @click="toggleFullscreen"
+      />
       <div class="relative z-10">
         <slot :on-click="() => {}" :is-fullscreen="isFullscreen" />
       </div>
     </div>
   </Teleport>
 </template>
+
+<style>
+.fullscreen-view__button--close {
+  @apply absolute top-0 right-0 m-4
+          text-neutral-400 hover:text-neutral-500 transition-colors
+          cursor-pointer z-20 drop-shadow-lg;
+}
+</style>
