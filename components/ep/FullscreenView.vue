@@ -37,8 +37,8 @@ function toggleFullscreen() {
       class="fixed inset-0 z-50 flex items-center justify-center"
     >
       <div
-        @click="toggleFullscreen"
         class="absolute inset-0 bg-black opacity-50"
+        @click="toggleFullscreen"
       />
       <Icon
         class="fullscreen-view__button--close"
