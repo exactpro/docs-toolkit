@@ -36,7 +36,7 @@ function toggleFullscreen() {
       v-if="isFullscreen"
       class="fixed inset-0 z-50 flex items-center justify-center"
     >
-      <div class="absolute inset-0 bg-black opacity-50" />
+      <div @click="toggleFullscreen" class="absolute inset-0 bg-black opacity-50" />
       <Icon
         class="fullscreen-view__button--close"
         name="heroicons:x-mark"
