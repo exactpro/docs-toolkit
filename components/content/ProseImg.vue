@@ -14,25 +14,51 @@
   ~ limitations under the License.
   -->
 
-<script setup lang="ts">
-import FullscreenView from '../ep/FullscreenView.vue'
-import MermaidDiagram from '../ep/MermaidDiagram.vue'
-
-const props = defineProps<{
-  code: string
-}>()
-</script>
-
 <template>
   <FullscreenView>
     <template #default="{ onClick, isFullscreen }">
-      <MermaidDiagram
+      <img
         :class="{
           'cursor-zoom-in hover:shadow transition-shadow': !isFullscreen
         }"
-        :code="props.code"
+        :src="refinedSrc"
+        :alt="alt"
+        :width="width"
+        :height="height"
         @click="onClick"
       />
     </template>
   </FullscreenView>
 </template>
+
+<script setup lang="ts">
+import { withBase } from 'ufo'
+import FullscreenView from '../ep/FullscreenView.vue'
+import { useRuntimeConfig, computed } from '#imports'
+
+const props = defineProps({
+  src: {
+    type: String,
+    default: ''
+  },
+  alt: {
+    type: String,
+    default: ''
+  },
+  width: {
+    type: [String, Number],
+    default: undefined
+  },
+  height: {
+    type: [String, Number],
+    default: undefined
+  }
+})
+
+const refinedSrc = computed(() => {
+  if (props.src?.startsWith('/') && !props.src.startsWith('//')) {
+    return withBase(props.src, useRuntimeConfig().app.baseURL)
+  }
+  return props.src
+})
+</script>
